@@ -34,7 +34,8 @@ sftp-config.json
 
 # Compiled Files
 css
-js/build
+js
+jsSrc/bower.js
 
 # Node Stuff
 .grunt
@@ -52,8 +53,7 @@ bundler_components
 .bundle
 
 # generated styleguide
-wwwroot/styleguide
+wwwroot/
 
 # generated SVG
-shapes.svg
-icons-min
+svg/min
