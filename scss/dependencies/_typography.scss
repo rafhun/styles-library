@@ -1,0 +1,46 @@
+/*
+# Typography
+
+Here we set all of our typography variables. These define rules that apply to the whole document and also shoud cascade down to the components (where appropriate). Stuff such as font stacks, base values for font size and lineheight as well as headings are set up here.
+
+For lineheight it is strongly recommended to use unitless values that translate well in inheritance instances.
+
+@TODO: Develop a responsive typography, possibly then used through a mixin that is set up and configured here.
+*/
+
+$sans: 'TheSans', Helvetica, Arial, sans-serif !default;
+$serif: Georgia, Utopia, Palatino, 'Palatino Linotype', serif !default;
+$code: Consolas, 'Courier New', Courier, monospace !default;
+
+$base-font-size: 16px !default;
+$base-line-height: 1.2 !default;
+
+$font-smoothing: antialiased !default;
+
+// headings
+
+$headings-font-color: $color-secondary !default;
+$headings-font-color-secondary: $color-text !default;
+$headings-top-margin: .2rem !default;
+$headings-bottom-margin: .5rem !default;
+$headings-text-rendering: optimizeLegibility !default;
+
+
+$h1-font-size: rem-calc(28) !default;
+$h1-line-height: 32 / 28 !default;
+
+$h2-font-size: rem-calc(22) !default;
+$h2-line-height: 26 / 22 !default;
+
+$h3-font-size: rem-calc(20) !default;
+$h3-line-height: 24 / 20 !default;
+
+// paragraphs
+$paragraph-font-size: rem-calc(18) !default;
+$paragraph-line-height: 24 / 18 !default;
+$paragraph-bottom-margin: rem-calc(20) !default;
+
+// anchors
+$anchor-text-decoration: none !default;
+$anchor-text-decoration-hover: underline !default;
+$anchor-font-color: $color-primary !default;

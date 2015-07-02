@@ -1,0 +1,10 @@
+// the main manifest file that imports all necessary ressources
+
+// import susy from the bower_components (while hoping that a node version of susy gets released)
+@import '../bower_components/susy/sass/susy';
+
+@import 'dependencies/functions';
+@import 'dependencies/color';
+@import 'dependencies/typography';
+@import 'dependencies/layout';
+@import 'dependencies/mixins';
