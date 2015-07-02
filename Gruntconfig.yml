@@ -1,0 +1,11 @@
+folders:
+  css: 'css'
+  fonts: 'fonts'
+  icons: 'icons'
+  images: 'images'
+  js: 'js'
+  jsComp: 'jsSrc/components'
+  jsSrc: 'jsSrc'
+  scss: 'scss'
+  svg: 'svg'
+  svgMin: 'svg/min'

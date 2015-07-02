@@ -1,0 +1,23 @@
+{
+  "name": "rafhunComponentLibrary",
+  "version": "0.1.0",
+  "authors": [
+    "Raphael Hüni"
+  ],
+  "description": "A component library with modularized sass to style any possible comoponents on website. To be used as library and archive.",
+  "ignore": [
+    "**/.*",
+    "lib",
+    "tasks",
+    "templates",
+    "test",
+    "grunt",
+    "*.gemspec",
+    "Rakefile",
+    "Gemfile"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "susy": "~2.2.5"
+  }
+}

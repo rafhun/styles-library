@@ -1,0 +1,47 @@
+default:
+  - 'clean:dest'
+  - 'clean:minSvg'
+  - 'jshint:grunt'
+  - 'jshint:src'
+  - 'concat'
+  - 'uglify'
+  - 'sass:main'
+  - 'autoprefixer:main'
+  - 'cssmin'
+  - 'svgmin'
+  - 'grunticon'
+  - 'browserSync'
+  - 'watch'
+
+setup:
+ - 'shell:bower'
+ - 'bower_concat'
+
+setupUpdate:
+  - 'shell:bowerUpdate'
+  - 'bower_concat'
+  - 'concat'
+  - 'uglify'
+
+bsWatch:
+  - 'browserSync'
+  - 'watch'
+
+icons:
+  - 'svgmin'
+  - 'grunticon'
+
+patchBump:
+  - 'bump:patch'
+  - 'changelog'
+  - 'shell:addChangelog'
+
+minorBump:
+  - 'bump:minor'
+  - 'changelog'
+  - 'shell:addChangelog'
+
+majorBump:
+  - 'bump:major'
+  - 'changelog'
+  - 'shell:addChangelog'

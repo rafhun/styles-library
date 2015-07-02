@@ -1,0 +1,59 @@
+# OS X Stuff
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDouble
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Sublime Text Stuff (including its cache files)
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user specific
+*.sublime-workspace
+
+# sftp configuratoin file
+sftp-config.json
+
+# Sass Files
+.sass-cache
+*.css.map
+
+# Compiled Files
+css
+js/build
+
+# Node Stuff
+.grunt
+node_modules
+
+# bower, second file is compiled from bower_components
+bower_components
+js/bower.js
+
+# tmp folders
+tmp
+
+# bundler components
+bundler_components
+.bundle
+
+# generated styleguide
+wwwroot/styleguide
+
+# generated SVG
+shapes.svg
+icons-min
