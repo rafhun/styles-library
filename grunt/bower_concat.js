@@ -1,6 +1,6 @@
 module.exports = {
   all: {
-    dest: '<%= config.folders.js %>bower.js',
+    dest: '<%= config.folders.jsSrc %>bower.js',
     exclude: [
       'susy'
     ],

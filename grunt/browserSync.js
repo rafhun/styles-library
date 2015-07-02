@@ -5,6 +5,7 @@ module.exports = {
     },
     options: {
       watchTask: true,
+      proxy: '<%= config.url %>'
     }
   }
 }

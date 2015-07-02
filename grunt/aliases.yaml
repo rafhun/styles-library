@@ -1,6 +1,5 @@
 default:
-  - 'clean:dest'
-  - 'clean:minSvg'
+  - 'clean:svgmin'
   - 'jshint:grunt'
   - 'jshint:src'
   - 'concat'
@@ -10,6 +9,7 @@ default:
   - 'cssmin'
   - 'svgmin'
   - 'grunticon'
+  - 'sassdown'
   - 'browserSync'
   - 'watch'
 
