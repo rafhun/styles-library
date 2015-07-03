@@ -1,0 +1,34 @@
+// colors
+$btn-color-background: $color-secondary !default;
+$btn-color-font: $white !default;
+
+// text-align
+$btn-align-text: center !default;
+
+// spacing
+$btn-padding: rem-calc(6) !default;
+
+// behavior of bg color on hover
+// should bg be lightened or darkened (only supports darken or lighten as values!)
+$btn-bg-hover-treatment: 'darken' !default; // or lighten
+$btn-bg-hover-value: 10% !default; // percentage value for darken/lighten function
+
+// config for specific button types
+// button with icon
+$btn-icon-size: 1.8rem !default;
+$btn-icon-spacing: .25rem !default;
+$btn-icon-position: left $btn-padding center !default;
+
+// primary button
+$btn-primary-color-background: $color-primary !default;
+
+// function to create hover colors (either darken or lighten)
+@function btn-color-bg-hover($color, $treatment: $btn-bg-hover-treatment, $value: $btn-bg-hover-value) {
+  @if ($treatment == 'darken') {
+    @return darken($color, $value);
+  } @elseif ($treatment == 'lighten') {
+    @return lighten($color, $value);
+  } @else {
+    //@warning 'Treatment must be lighten or darken';
+  }
+}

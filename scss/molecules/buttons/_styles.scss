@@ -1,0 +1,61 @@
+/*
+# Buttons
+
+You can style an element as a button by adding the class `btn` to it. Usually this class is only applied to anchor, button or input type submit elements. Be careful which element you use and keep accessibility in mind. Whenever a button acts only as a link the anchor element should be used while the other two, the button and input elements imply some sort of action.
+
+It is possible to further style the buttons by adding specifier classes, see the examples below.
+
+```
+<button class="btn">Button</button>
+
+<a class="btn" href="#">Anchor Tag</a>
+
+<input type="submit" class="btn" value="Input Type Submit">
+
+<button class="btn btn-primary">Button</button>
+
+<a class="btn btn-primary" href="#">Anchor Tag</a>
+
+<input type="submit" class="btn btn-primary" value="Input Type Submit">
+```
+
+*/
+
+.btn {
+  // include button inline
+  display: inline-block;
+
+  // colors
+  background-color: $btn-color-background;
+  color: $btn-color-font;
+
+  // text config
+  line-height: normal;
+  text-align: $btn-align-text;
+
+  // spacing
+  padding: $btn-padding;
+
+  // resets
+  border-style: solid;
+  border-width: 0;
+
+  // reset webkit and moz base styles for input type submit and buttons
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  // cursor config to show that the whole button is clickable
+  cursor: pointer;
+
+  // transition to smoothly change the background color on hover
+  transition: background-color .4s ease;
+
+  // hover state
+  &:hover {
+    // typically either darkens or lightens the button color lightly
+    background-color: btn-color-bg-hover($btn-color-background);
+
+    // make sure we do not have an underline
+    text-decoration: none;
+  }
+}
