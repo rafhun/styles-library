@@ -2,7 +2,8 @@ module.exports = {
   all: {
     dest: '<%= config.folders.jsSrc %>bower.js',
     exclude: [
-      'susy'
+      'susy',
+      'normalize-scss'
     ],
   }
 }
