@@ -2,11 +2,12 @@ module.exports = {
   styleguide: {
     options: {
       assets: [
-        'css/style.min.css',
-        'js/script.min.js'
+        'wwwroot/css/style.min.css',
+        'wwwroot/js/script.min.js'
       ],
       excludeMissing: true,
-      readme: 'readme.md'
+      readme: 'readme.md',
+      theme: 'sassdown/theme.css'
     },
     files: [{
       expand: true,
