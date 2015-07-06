@@ -1,61 +1,67 @@
 /*
 # Buttons
 
-You can style an element as a button by adding the class `btn` to it. Usually this class is only applied to anchor, button or input type submit elements. Be careful which element you use and keep accessibility in mind. Whenever a button acts only as a link the anchor element should be used while the other two, the button and input elements imply some sort of action.
+Buttons are created by adding the class `btn` to an anchor, button
+or input of type button element. Different color variatons or icons may be added by appending additional classes (see below).
 
-It is possible to further style the buttons by adding specifier classes, see the examples below.
+Important buttons for primary actions are shown in a different color.
 
 ```
-<button class="btn">Button</button>
+<button class="btn">
+  Button
+</button>
 
-<a class="btn" href="#">Anchor Tag</a>
+<a class="btn" href="#">
+  Button
+</a>
 
-<input type="submit" class="btn" value="Input Type Submit">
+<input type="submit" class="btn" value="Button">
 
-<button class="btn btn-primary">Button</button>
+<button class="btn btn-primary">
+  Button
+</button>
 
-<a class="btn btn-primary" href="#">Anchor Tag</a>
+<a class="btn btn-primary" href="#">
+  Button
+</a>
 
-<input type="submit" class="btn btn-primary" value="Input Type Submit">
+<input type="submit" class="btn btn-primary" value="Button">
 ```
-
 */
 
-.btn {
-  // include button inline
+%button {
+  // make sure they are inline block so the whole area can be clicked
   display: inline-block;
 
-  // colors
-  background-color: $btn-color-background;
-  color: $btn-color-font;
-
-  // text config
-  line-height: normal;
-  text-align: $btn-align-text;
-
-  // spacing
+  // basically defines spacing around the text. For now the buttons size is completely dependent on padding
   padding: $btn-padding;
 
-  // resets
+  // make sure no special line heights are inherited.
+  line-height: normal;
+  // usually we want to center text in buttons. Still we leave it as a configurable option here
+  text-align: $btn-text-align;
+
+  // removes standard button and input submit borders
   border-style: solid;
   border-width: 0;
 
-  // reset webkit and moz base styles for input type submit and buttons
+  // cursor should indicate that the whole button is clickable, not just the text. Especially needed for button and input tags.
+  cursor: pointer;
+
+  // reset webkit and moz base styles
   -webkit-appearance: none;
   -moz-appearance: none;
 
-  // cursor config to show that the whole button is clickable
-  cursor: pointer;
+  // create a smooth transition of the background color on hover, focus and active states.
+  transition: background-color $btn-hover-transition-time $btn-hover-transition-type;
 
-  // transition to smoothly change the background color on hover
-  transition: background-color .4s ease;
-
-  // hover state
-  &:hover {
-    // typically either darkens or lightens the button color lightly
-    background-color: btn-color-bg-hover($btn-color-background);
-
-    // make sure we do not have an underline
+  &:hover,
+  &:focus,
+  &:active {
+    // remove underline
     text-decoration: none;
   }
 }
+
+// create all button CSS by calling the mixin defined in the config file.
+@include buttons;
