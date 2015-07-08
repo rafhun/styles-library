@@ -1,0 +1,12 @@
+// through this file we import all molecules that are added to the project. Since they should be styled independently from each other they should be ordered alphabetically for easier editing and fidability of statements. Also all molecule folders should contain the same two files, namely `config` and `styles`, so all import statements should follow the example given:
+
+// @import 'name/config';
+// @import 'name/styles';
+
+// buttons
+@import 'buttons/config';
+@import 'buttons/styles';
+
+// navigation bar
+@import 'navbar/config';
+@import 'navbar/styles';
