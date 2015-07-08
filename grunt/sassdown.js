@@ -3,6 +3,7 @@ module.exports = {
     options: {
       assets: [
         'wwwroot/css/style.min.css',
+        'wwwroot/icons/icons.data.svg.css',
         'wwwroot/js/script.min.js'
       ],
       excludeMissing: true,
