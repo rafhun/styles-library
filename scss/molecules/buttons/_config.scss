@@ -1,0 +1,125 @@
+// list to define buttons
+// The base styles must be assigned for the buttons to work, these styles are applied to the standard .btn class. The following properties have been set up to be configured. Anything else should be changed in the buttons placeholder directly in the button style file (if the changes should be global for all buttons).
+//
+// Background: Defines the background color of the button (only add a color here, images or gradients)
+// -> sets the background-color property
+//
+// Font: defines the font color.
+// -> sets the color property
+//
+// Hover-Treatment: See above function btn-color-bg-hover, lets you apply the treatment for the hover background.
+$buttons: (
+  base: (
+    background: $color-secondary,
+    font: $white,
+    hover-treatment: darken
+  ),
+  primary: (
+    background: $color-primary,
+    font: $white,
+    hover-treatment: lighten
+  )
+);
+
+// text-align
+$btn-text-align: center !default;
+
+// spacing
+$btn-padding: rem-calc(6) !default;
+
+// configure the transition for the background color on hover
+// These two variables complete the transition: background-color ? ? declaration.
+$btn-hover-transition-time: .4s !default;
+$btn-hover-transition-type: ease !default;
+
+// behavior of bg color on hover
+// should bg be lightened or darkened (only supports darken or lighten as values!)
+$btn-bg-hover-treatment: 'darken' !default; // or lighten
+$btn-bg-hover-value: 10% !default; // percentage value for darken/lighten function
+
+// config for specific button types
+// button with icon
+$btn-icon-size: 1.8rem !default;
+$btn-icon-spacing: .25rem !default;
+$btn-icon-position: left $btn-padding center !default;
+
+// function to create hover colors (either darken or lighten)
+// @function btn-color-bg-hover
+// expects: $color (must be given)
+//   $treatment: optional
+//   $value: optional
+//  The treatment and value variables should only be explicitly set under special circumstances. Usually this is configured through the variables set in the configuration file which ensures consistent behavior.
+@function btn-color-bg-hover($color, $treatment: $btn-bg-hover-treatment, $value: $btn-bg-hover-value) {
+  @if ($treatment == 'darken') {
+    @return darken($color, $value);
+  } @elseif ($treatment == 'lighten') {
+    @return lighten($color, $value);
+  } @else {
+    @error 'Treatment must be lighten or darken';
+  }
+}
+
+// mixins to create buttons
+// @mixin button($map...)
+//   $map -> button configuration map
+@mixin button($map...) {
+  @each $type in $map {
+    // set some defaults
+    $background: $color-secondary;
+    $color: $white;
+    $treatment: darken;
+
+    @if map-has-key($type, background) {
+      // since we apply this variable to the background-color property (to allow for icons added through background images) we error check the given value to ensure it is a solid color.
+      @if (type-of(map-get($type, background)) == color) {
+        $background: map-get($type, background);
+      } @else {
+        @error 'For now only colors are allowed as background';
+      }
+    }
+
+    @if map-has-key($type, font) {
+      $color: map-get($type, font);
+    }
+
+    @if map-has-key($type, hover-treatment) {
+      $treatment: map-get($type, hover-treatment);
+    }
+
+    background-color: $background;
+    color: $color;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: btn-color-bg-hover($background, $treatment);
+    }
+  }
+}
+
+// @mixin buttons
+//   $buttons: name of button config map defined above
+//   $namespace: class namespace that should be given to buttons -> results in .$namespace as base button styles and .$namespace-type for specifig ones
+//
+// This mixin actually creates the styles for the buttons and exports some CSS. It loops through the available types and calls the button mixin for each one that is found. A check for base button styles is being made to make sure at least a default button has been configured.
+@mixin buttons($buttons: $buttons, $namespace: 'btn') {
+  @each $type in map-keys($buttons) {
+    @if (index(map-keys($buttons), 'base')) {
+      @if ($type == 'base') {
+        .#{$namespace} {
+          // the base styles also contain all standard button styling, stuff such as display, padding, line-height... See styles file for more details. The placeholder is extended for this class.
+          @extend %button;
+          @include button(map-get($buttons, $type));
+        }
+      } @else {
+        // with this we get selectors like .btn-primary where btn is the namespace and primary the type.
+        .#{$namespace}-#{$type} {
+          @include button(map-get($buttons, $type));
+        }
+      }
+    } @else {
+      // if no base styles are defined:
+      @error 'Please define some default styles for the buttons using the base key in the $buttons map.';
+    }
+  }
+}

@@ -8,3 +8,6 @@
 @import 'dependencies/typography';
 @import 'dependencies/layout';
 @import 'dependencies/mixins';
+
+// molecules are the smallest ui components we define. They usually just add styling to one element respectively.
+@import 'molecules/manifest';

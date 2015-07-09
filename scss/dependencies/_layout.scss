@@ -40,7 +40,9 @@ $susy-media: (
  max-md: max-width 59.9375em,
  xs-sm: 20em 40em,
  sm-md: 40em 60em,
- md-lg: 60em 80em
+ md-lg: 60em 80em,
+ go-desktop: 50em,
+ max-mobile: 49.9375em
 );
 
 $container-width: rem-calc(1200) !default;

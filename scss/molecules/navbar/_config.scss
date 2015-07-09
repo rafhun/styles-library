@@ -1,0 +1,35 @@
+// colors
+$navbar-color-background: $color-secondary !default;
+$navbar-color-background-active: $color-primary !default;
+
+$navbar-color-font: $white !default;
+$navbar-color-font-hover: $color-primary !default;
+
+// typography
+$navbar-font-size: rem-calc(16) !default;
+$navbar-font-weight-hover: bold !default;
+
+$navbar-link-text-decoration: none !default;
+$navbar-link-text-decoration-hover: none !default;
+
+// borders
+$navbar-border: $color-primary rem-calc(4) solid !default;
+
+// shadows
+$navbar-shadow: rem-calc(0 -4 0 0) $color-lines !default;
+$navbar-shadow-active: rem-calc(1 0 0 0) $color-lines !default;
+$navbar-shadow-dropdown: rem-calc(2 2 0 0) $color-lines !default;
+
+// sizing
+$navbar-height: rem-calc(48) !default;
+$navbar-height-active: rem-calc(52) !default;
+$navbar-active-margin-top: rem-calc(-4) !default;
+$navbar-padding: 0 .45rem !default;
+
+// Dropdown Menu
+$navbar-width-dropdown: rem-calc(270) !default;
+$navbar-transition-dropdown: background .5s ease-in-out !default;
+
+// Icons
+$navbar-icon-home-size: 1rem !default;
+$navbar-icon-home-position: center center !default;

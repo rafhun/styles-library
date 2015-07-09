@@ -1,0 +1,67 @@
+/*
+# Buttons
+
+Buttons are created by adding the class `btn` to an anchor, button
+or input of type button element. Different color variatons or icons may be added by appending additional classes (see below).
+
+Important buttons for primary actions are shown in a different color.
+
+```
+<button class="btn">
+  Button
+</button>
+
+<a class="btn" href="#">
+  Button
+</a>
+
+<input type="submit" class="btn" value="Button">
+
+<button class="btn btn-primary">
+  Button
+</button>
+
+<a class="btn btn-primary" href="#">
+  Button
+</a>
+
+<input type="submit" class="btn btn-primary" value="Button">
+```
+*/
+
+%button {
+  // make sure they are inline block so the whole area can be clicked
+  display: inline-block;
+
+  // basically defines spacing around the text. For now the buttons size is completely dependent on padding
+  padding: $btn-padding;
+
+  // make sure no special line heights are inherited.
+  line-height: normal;
+  // usually we want to center text in buttons. Still we leave it as a configurable option here
+  text-align: $btn-text-align;
+
+  // removes standard button and input submit borders
+  border-style: solid;
+  border-width: 0;
+
+  // cursor should indicate that the whole button is clickable, not just the text. Especially needed for button and input tags.
+  cursor: pointer;
+
+  // reset webkit and moz base styles
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  // create a smooth transition of the background color on hover, focus and active states.
+  transition: background-color $btn-hover-transition-time $btn-hover-transition-type;
+
+  &:hover,
+  &:focus,
+  &:active {
+    // remove underline
+    text-decoration: none;
+  }
+}
+
+// create all button CSS by calling the mixin defined in the config file.
+@include buttons;
