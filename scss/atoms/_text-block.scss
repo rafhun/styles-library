@@ -65,7 +65,8 @@ file.
 */
 
 // basic html tags
-body {
+body,
+p {
   @include get-typography(base);
 }
 
@@ -82,4 +83,9 @@ h1 {
 h2 {
   @extend %headings-base;
   @include get-typography(h2);
+}
+
+h3 {
+  @extend %headings-base;
+  @include get-typography(h3);
 }

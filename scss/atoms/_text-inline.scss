@@ -16,13 +16,13 @@ font styles like bold, italic or anchor link styles.
 */
 
 a {
-  color: $anchor-link-color;
-  font-style: $anchor-link-font-style;
-  text-decoration: $anchor-link-text-decoration;
+  color: $anchor-color-font;
+  font-style: $anchor-font-style;
+  text-decoration: $anchor-text-decoration;
 
   &:hover,
   &:active,
   &:focus {
-    text-decoration: $anchor-link-text-decoration-hover;
+    text-decoration: $anchor-text-decoration-hover;
   }
 }

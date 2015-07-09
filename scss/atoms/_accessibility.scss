@@ -1,7 +1,5 @@
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-/* Text meant only for screen readers. */
+// Accessibility
+
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute;
@@ -27,6 +25,6 @@
     text-decoration: none;
     top: 5px;
     width: auto;
-    z-index: 100000; /* Above WP toolbar. */
+    z-index: 100000; // Above WP toolbar
   }
 }

@@ -44,7 +44,7 @@ ul {
 // our dash ul's should be prepended by an underscore
 .dash-ul {
   margin-left: $symbol-margin + $symbol-indent;
-  margin-bottom: $paragraph-margin-bottom;
+  margin-bottom: $base-block-margin-bottom;
 
   li:before {
     content: $list-symbol;
