@@ -1,0 +1,221 @@
+/*doc
+---
+title: Off Canvas
+category: Components - Navigation
+---
+
+The off canvas navigation is used to display the navigation nicely
+in the mobile view.
+In its structure it follows the tutorial by Zell Liew which can be
+found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
+
+```html_example
+<div class="body-container">
+  <div class="transformer in">
+    <div class="off-canvas-container">
+      <nav role="navigation" class="off-canvas-nav">
+        <ul class="off-canvas-list">
+          <li class="off-canvas-list-item">
+            <a data-js="off-canvas-link" class="level-1 icon-home off-canvas-link">Home</a>
+          </li>
+          <li class="off-canvas-list-item">
+            <a data-js="off-canvas-link" class="level-1 off-canvas-link">Prof. D. Erni</a>
+          </li>
+          <li class="off-canvas-list-item">
+            <a data-js="off-canvas-link" class="level-1 off-canvas-link starter_active">Meine Brust</a>
+            <ul class="menu">
+              <li class="off-canvas-list-item">
+                <a data-js="off-canvas-link" class="level-2 off-canvas-link active">Kleine, erschlaffte Brust</a>
+              </li>
+              <li class="off-canvas-list-item">
+                <a data-js="off-canvas-link" class="level-2 off-canvas-link">Angeborene Fehlentwicklung</a>
+              </li>
+            </ul>
+          </li>
+          <li class="off-canvas-list-item">
+            <a data-js="off-canvas-link" class="level-1 off-canvas-link">Galerie</a>
+          </li>
+          <li class="off-canvas-list-item">
+            <a data-js="off-canvas-link" class="level-1 off-canvas-link">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+      <nav role="navigation" class="off-canvas-meta">
+        <ul class="metanavigation">
+          <li class="oc-meta-list-item"><a href="{NODE_SITEMAP}">Sitemap</a></li>
+          <li class="oc-meta-list-item"><a href="{NODE_IMPRINT}">Impressum</a></li>
+          <li class="oc-meta-list-item"><a href="{NODE_PRIVACY}">Disclaimer</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main">
+      <a href="#" class="off-canvas-toggle icon-menu" data-js="off-canvas-toggle">Toggle Off-Canvas</a>
+    </div>
+  </div>
+</div>
+```
+*/
+.body-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.transformer {
+  transition: transform .5s ease;
+  height: 100%;
+
+  &.in {
+    @include susy-media(max-md) {
+      transform: translate3d(-$off-canvas-width, 0, 0);
+    }
+  }
+}
+
+// we need a container for the whole off-canvas area
+// since the metanavigation is also in there
+.off-canvas-container {
+  @include clearfix;
+
+  position: absolute;
+  width: $off-canvas-width;
+  transform: translate3d(100%, 0, 0);
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  background-color: $off-canvas-background-color;
+
+  padding: $off-canvas-container-padding;
+
+  .in & {
+    transform: translate3d($off-canvas-width, 0, 0);
+  }
+}
+
+.off-canvas-list {
+  list-style: none;
+}
+
+.off-canvas-list-item {
+  border-bottom: $off-canvas-list-item-border-bottom;
+  text-align: $off-canvas-text-align;
+
+  .menu {
+    // shove level-2 items farther to the right
+    // they will be overlayed on click
+    //
+    // the off-canvas-nav container is position relative
+    // this means that these submenus will be put on top
+    // of the level-1 items and positioned all the way
+    // at the top
+    position: absolute;
+    width: $off-canvas-width;
+    top: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    transform: translate3d(100%, 0, 0);
+    right: 0;
+    transition: transform 500ms ease;
+
+    background-color: $off-canvas-background-color;
+
+    list-style: none;
+
+    padding: $off-canvas-container-padding;
+
+    // put it over everything
+    z-index: 10;
+
+    &.in {
+      transform: translate3d(0%, 0, 0);
+    }
+  }
+}
+
+.off-canvas-link {
+  display: block;
+  height: $off-canvas-link-height;
+
+  color: $off-canvas-font-color;
+  font-size: $off-canvas-font-size;
+  line-height: $off-canvas-link-height;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &.active,
+  &.starter_active {
+    @include triangle-left($off-canvas-triangle-height, $off-canvas-link-height, $off-canvas-background-active);
+
+    background-color: $off-canvas-background-active;
+    text-decoration: $off-canvas-text-decoration-hover;
+  }
+
+  &.home {
+    // width: $off-canvas-font-size;
+    background-size: $off-canvas-font-size;
+    background-position: left center;
+
+    // hide text but keep it there for screen readers
+    text-indent: -9999px;
+  }
+}
+
+.off-canvas-toggle {
+  display: block;
+  width: $header-height;
+  height: $header-height;
+  float: right;
+
+  // better accessibility since screen readers still are able to read the text
+  text-indent: -9999px;
+
+  background-position: center center;
+  background-size: $off-canvas-toggle-size;
+
+  @include susy-media(md) {
+    display: none;
+  }
+}
+
+// styles for the off canvas meta navigation
+.off-canvas-meta {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .oc-meta-list-item {
+    font-size: $oc-meta-font-size;
+    text-align: center;
+    margin-bottom: $oc-meta-spacing;
+
+    a {
+      display: block;
+      margin-bottom: $oc-meta-spacing;
+    }
+  }
+}
+
+.off-canvas-meta-block {
+  margin-top: $meta-block-margin;
+  padding-right: $meta-block-padding;
+
+  .newsletter-signup {
+    float: none;
+  }
+
+  .metanav-list {
+    display: block;
+    float: none;
+    text-align: center;
+  }
+
+  .metanav-link {
+    color: $white;
+  }
+}

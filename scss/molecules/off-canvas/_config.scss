@@ -1,0 +1,77 @@
+$off-canvas-container-padding: rem-calc(24 0 24 36) !default;
+$off-canvas-container-padding-vertical: rem-calc(24) !default;
+$off-canvas-container-padding-horizontal: rem-calc(36) !default;
+
+$off-canvas-width: rem-calc(270) !default;
+$off-canvas-background-color: $color-secondary !default;
+$off-canvas-background-active: $color-primary !default;
+$off-canvas-submenu-background: $color-secondary !default;
+
+$off-canvas-font-color: $white !default;
+$off-canvas-font-size: rem-calc(18) !default;
+$off-canvas-text-align: left !default;
+$off-canvas-text-decoration-hover: none !default;
+
+$off-canvas-list-item-border-bottom: 1px solid $darken !default;
+
+$off-canvas-link-height: rem-calc(48) !default;
+
+$off-canvas-toggle-size: rem-calc(36) !default;
+
+$oc-meta-spacing: rem-calc(12) !default;
+$oc-meta-font-size: rem-calc(14) !default;
+
+$off-canvas-triangle-height: rem-calc(16) !default;
+
+$meta-block-margin: rem-calc(72) !default;
+$meta-block-padding: $vertical-spacing !default;
+
+// mixin to create the off canvas navigation
+@mixin off-canvas(
+  $container: '.off-canvas-container',
+  $list: '.off-canvas-list',
+  $list-item: '.off-canvas-list-item',
+  $submenu: '.menu',
+  $toggle: '.off-canvas-toggle',
+  $home: '.home',
+  $is-open: '.is-open',
+  $position: 'right',
+  $meta-selector: '.off-canvas-meta',
+  $meta: true,
+  $width: $off-canvas-width,
+  $backgroud-color: $off-canvas-background-color,
+  $container-padding: $off-canvas-container-padding
+) {
+  @if ($position == 'right') {
+    $right: true;
+    $left: false;
+  } @else if($position == 'left') {
+    $left: true;
+    $right: false;
+  } @else {
+    @warn 'Position can only be left or right at the moment. Please check the setting you passed to your mixin.'
+  }
+
+  #{$container} {
+    @include clearfix;
+
+    position: absolute;
+    width: $width;
+
+    // this moves the container off the visible area of the screen (as it moves it by its own width to the right and is positioned at the right edge)
+    transform: translate3d(100%, 0, 0);
+    top: 0;
+    bottom: 0;
+    right: 0;
+
+    background-color: $background-color;
+
+    @if $left {
+      padding: $off-canvas-container-padding-vertical $off-canvas-container-padding-horizontal $off-canvas-container-padding-vertical 0;
+    }
+
+    @if $right {
+      padding: $off-canvas-container-padding-vertical 0 $off-canvas-container-padding-vertical $off-canvas-container-padding-horizontal;
+    }
+  }
+}
