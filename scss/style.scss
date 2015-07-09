@@ -3,6 +3,11 @@
 // import susy from the bower_components (while hoping that a node version of susy gets released)
 @import '../bower_components/susy/sass/susy';
 
+// import scss port of normalize.css by Nicolas Gallagher for a smart 'reset'
+@import '../bower_components/normalize-scss/normalize';
+
+// Import dependencies
+// This section will not produce any code but just set up the projects settings and provide some basic global functionality through mixins and functions
 @import 'dependencies/functions';
 @import 'dependencies/color';
 @import 'dependencies/typography';

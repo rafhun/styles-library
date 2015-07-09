@@ -1,0 +1,85 @@
+/*
+# Text Block Elements
+
+These are the text block styles. We find examples of these styles below.
+
+All variables used for these styles are defined in the dependencies/typography
+file.
+
+```
+<h1>Team</h1>
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+  ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+  parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+  pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
+  pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+</p>
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+  ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+  parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+  pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
+  pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+</p>
+<h2>Titel des Unternehmens</h2>
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+  ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+  parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+  pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
+  pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+</p>
+<h2>Erbrachte Leistungen</h2>
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+  ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+  parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+  pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
+  pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+</p>
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+  ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+  parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+  pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
+  pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+</p>
+<h3>Erbrachte Leistungen</h3>
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+  ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+  parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+  pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
+  pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+</p>
+<h3>Erbrachte Leistungen</h3>
+<p>
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+  ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+  parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+  pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
+  pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+</p>
+```
+*/
+
+// basic html tags
+body {
+  @include get-typography(base);
+}
+
+// set up the base style for the headings as a placeholder selector. This is placed here so the extended selectors are inserted at the correct place
+%headings-base {
+  @include headings-base;
+}
+
+h1 {
+  @extend %headings-base;
+  @include get-typography(h1);
+}
+
+h2 {
+  @extend %headings-base;
+  @include get-typography(h2);
+}

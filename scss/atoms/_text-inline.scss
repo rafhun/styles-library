@@ -1,0 +1,28 @@
+/*
+# Text Inline
+
+The styling of inline text elements encompasses the basics of the look of different
+font styles like bold, italic or anchor link styles.
+
+```
+<p>
+  Lorem ipsum dolor <strong>sit amet</strong>, consectetuer adipiscing elit. Aenean commodo
+  ligula eget dolor. Aenean massa. Cum <a href="#">sociis</a> natoque penatibus et magnis dis
+  parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+  pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec
+  pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
+</p>
+```
+*/
+
+a {
+  color: $anchor-link-color;
+  font-style: $anchor-link-font-style;
+  text-decoration: $anchor-link-text-decoration;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: $anchor-link-text-decoration-hover;
+  }
+}
