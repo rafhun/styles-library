@@ -1,42 +1,39 @@
-/*doc
----
-title: Off Canvas
-category: Components - Navigation
----
+/*
+# Off Canvas
 
 The off canvas navigation is used to display the navigation nicely
 in the mobile view.
 In its structure it follows the tutorial by Zell Liew which can be
 found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
 
-```html_example
+```
 <div class="body-container">
   <div class="transformer in">
     <div class="off-canvas-container">
       <nav role="navigation" class="off-canvas-nav">
         <ul class="off-canvas-list">
           <li class="off-canvas-list-item">
-            <a data-js="off-canvas-link" class="level-1 icon-home off-canvas-link">Home</a>
+            <a data-js="off-canvas-link" href="#" class="level-1 icon-home off-canvas-link">Home</a>
           </li>
           <li class="off-canvas-list-item">
-            <a data-js="off-canvas-link" class="level-1 off-canvas-link">Prof. D. Erni</a>
+            <a data-js="off-canvas-link" href="#" class="level-1 off-canvas-link">Prof. D. Erni</a>
           </li>
           <li class="off-canvas-list-item">
-            <a data-js="off-canvas-link" class="level-1 off-canvas-link starter_active">Meine Brust</a>
+            <a data-js="off-canvas-link" href="#" class="level-1 off-canvas-link starter_active">Meine Brust</a>
             <ul class="menu">
               <li class="off-canvas-list-item">
-                <a data-js="off-canvas-link" class="level-2 off-canvas-link active">Kleine, erschlaffte Brust</a>
+                <a data-js="off-canvas-link" href="#" class="level-2 off-canvas-link active">Kleine, erschlaffte Brust</a>
               </li>
               <li class="off-canvas-list-item">
-                <a data-js="off-canvas-link" class="level-2 off-canvas-link">Angeborene Fehlentwicklung</a>
+                <a data-js="off-canvas-link" href="#" class="level-2 off-canvas-link">Angeborene Fehlentwicklung</a>
               </li>
             </ul>
           </li>
           <li class="off-canvas-list-item">
-            <a data-js="off-canvas-link" class="level-1 off-canvas-link">Galerie</a>
+            <a data-js="off-canvas-link" href="#" class="level-1 off-canvas-link">Galerie</a>
           </li>
           <li class="off-canvas-list-item">
-            <a data-js="off-canvas-link" class="level-1 off-canvas-link">Kontakt</a>
+            <a data-js="off-canvas-link" href="#" class="level-1 off-canvas-link">Kontakt</a>
           </li>
         </ul>
       </nav>
@@ -48,26 +45,32 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
         </ul>
       </nav>
     </div>
-    <div class="main">
+    <div class="main" style="min-height: 400px;">
       <a href="#" class="off-canvas-toggle icon-menu" data-js="off-canvas-toggle">Toggle Off-Canvas</a>
     </div>
   </div>
 </div>
 ```
 */
+
 .body-container {
   position: relative;
   width: 100%;
   height: 100%;
+
+  // this hides the overflowing off canvas
   overflow-x: hidden;
 }
 
+// this will be the part of the page that is actually moved around and therefore is wider then the window
 .transformer {
   transition: transform .5s ease;
   height: 100%;
 
   &.in {
-    @include susy-media(max-md) {
+    // we only show the off-canvas navigation if on screens sufficiently small. As soon as the main navbar appears the off canvas can and should be hidden
+    @include susy-media(max-mobile) {
+      // if the off canvas view is toggled on and we are on sufficiently small screens (see above) we move the transformer to the left by the width of the off canvas menu
       transform: translate3d(-$off-canvas-width, 0, 0);
     }
   }
@@ -80,6 +83,8 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
 
   position: absolute;
   width: $off-canvas-width;
+
+  // this moves the container off the visible area of the screen (as it moves it by its own width to the right and is positioned at the right edge)
   transform: translate3d(100%, 0, 0);
   top: 0;
   bottom: 0;
@@ -90,10 +95,12 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
   padding: $off-canvas-container-padding;
 
   .in & {
-    transform: translate3d($off-canvas-width, 0, 0);
+    // @TODO: why exactly is this in here??
+    transform: translate3d(0, 0, 0);
   }
 }
 
+// now the styles for the actual menu follow
 .off-canvas-list {
   list-style: none;
 }
@@ -149,14 +156,22 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
   &:focus,
   &.active,
   &.starter_active {
-    @include triangle-left($off-canvas-triangle-height, $off-canvas-link-height, $off-canvas-background-active);
+    // @include triangle-left($off-canvas-triangle-height, $off-canvas-link-height, $off-canvas-background-active);
+    @include triangle(
+      $pos: 'left',
+      $offset: 0,
+      $direction: 'out',
+      $width: $off-canvas-link-height,
+      $height: $off-canvas-triangle-height,
+      $color: $off-canvas-background-active
+    );
 
     background-color: $off-canvas-background-active;
     text-decoration: $off-canvas-text-decoration-hover;
   }
 
+  // this style implies that there will only be an icon for the home link without any text needed (could maybe be conditionalized)
   &.home {
-    // width: $off-canvas-font-size;
     background-size: $off-canvas-font-size;
     background-position: left center;
 
@@ -165,8 +180,10 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
   }
 }
 
+// styles the button that opens the off canvas navigation. Again this implies an icon delivered by grunticon, however your own icon could also be added right in here to keep styles close together
 .off-canvas-toggle {
   display: block;
+  // external dependency: @TODO: how can we change that to something implied? Or do we need to lay the button out in another partial?
   width: $header-height;
   height: $header-height;
   float: right;
@@ -177,7 +194,8 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
   background-position: center center;
   background-size: $off-canvas-toggle-size;
 
-  @include susy-media(md) {
+  // only show the toggle for small enough screens. As soon as the main navbar is visible on screen the off canvas toggle should be hidden
+  @include susy-media(go-desktop) {
     display: none;
   }
 }
@@ -186,6 +204,8 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
 .off-canvas-meta {
   position: absolute;
   bottom: 0;
+
+  // horizontal centering by positioning 50% to the left then translating back by 50%. Translating % is computed by the element's own width while positioning % is computed by the container's width.
   left: 50%;
   transform: translateX(-50%);
 
