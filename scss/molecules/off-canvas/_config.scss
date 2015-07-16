@@ -15,11 +15,14 @@ $off-canvas-text-decoration-hover: none !default;
 $off-canvas-list-item-border-bottom: 1px solid $darken !default;
 
 $off-canvas-link-height: rem-calc(48) !default;
+$off-canvas-link-line-height: $off-canvas-link-height !default;
+
+$off-canvas-home-icon-size: $off-canvas-font-size !default;
 
 $off-canvas-toggle-size: rem-calc(36) !default;
 
-$oc-meta-spacing: rem-calc(12) !default;
-$oc-meta-font-size: rem-calc(14) !default;
+$off-canvas-meta-font-size: rem-calc(14) !default;
+$off-canvas-meta-spacing: rem-calc(12) !default;
 
 $off-canvas-triangle-height: rem-calc(16) !default;
 
@@ -31,47 +34,205 @@ $meta-block-padding: $vertical-spacing !default;
   $container: '.off-canvas-container',
   $list: '.off-canvas-list',
   $list-item: '.off-canvas-list-item',
+  $current-item: '.current-menu-item',
   $submenu: '.menu',
   $toggle: '.off-canvas-toggle',
-  $home: '.home',
   $is-open: '.is-open',
   $position: 'right',
-  $meta-selector: '.off-canvas-meta',
+  $home-icon: true,
+  $home-icon-selector: '.menu-item-home',
+  $home-icon-text: false,
+  $toggle: true,
+  $toggle-selector: '.off-canvas-toggle',
   $meta: true,
-  $width: $off-canvas-width,
-  $backgroud-color: $off-canvas-background-color,
-  $container-padding: $off-canvas-container-padding
+  $meta-selector: '.off-canvas-meta',
+  $meta-list-item: '.off-canvas-list-item'
 ) {
   @if ($position == 'right') {
     $right: true;
     $left: false;
-  } @else if($position == 'left') {
+  } @elseif ($position == 'left') {
     $left: true;
     $right: false;
   } @else {
-    @warn 'Position can only be left or right at the moment. Please check the setting you passed to your mixin.'
+    @warn 'Position can only be left or right at the moment. Please check the setting you passed to your mixin.';
+  }
+
+  @if $left {
+    $container-padding: $off-canvas-container-padding-vertical $off-canvas-container-padding-horizontal $off-canvas-container-padding-vertical 0;
+
+    $off-canvas-triangle-position: 'right';
+
+    $translate: translate3d(-$off-canvas-width, 0, 0);
+  }
+
+  @if $right {
+    $container-padding: $off-canvas-container-padding-vertical 0 $off-canvas-container-padding-vertical $off-canvas-container-padding-horizontal;
+
+    $off-canvas-triangle-position: 'left';
+
+    $translate: translate3d($off-canvas-width, 0, 0);
   }
 
   #{$container} {
     @include clearfix;
 
     position: absolute;
-    width: $width;
+    width: $off-canvas-width;
 
     // this moves the container off the visible area of the screen (as it moves it by its own width to the right and is positioned at the right edge)
-    transform: translate3d(100%, 0, 0);
+    transform: $translate;
     top: 0;
     bottom: 0;
-    right: 0;
-
-    background-color: $background-color;
-
     @if $left {
-      padding: $off-canvas-container-padding-vertical $off-canvas-container-padding-horizontal $off-canvas-container-padding-vertical 0;
+      left: 0;
+    }
+    @if $right {
+      right: 0;
     }
 
-    @if $right {
-      padding: $off-canvas-container-padding-vertical 0 $off-canvas-container-padding-vertical $off-canvas-container-padding-horizontal;
+    background-color: $off-canvas-background-color;
+
+    padding: $container-padding;
+
+    .in & {
+      @include susy-media(max-mobile) {
+        // transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  #{$list} {
+    list-style: none;
+  }
+
+  #{$list-item} {
+    border-bottom: $off-canvas-list-item-border-bottom;
+    text-align: $off-canvas-text-align;
+
+    #{$submenu} {
+      position: absolute;
+      width: $off-canvas-width;
+      top: 0;
+      bottom: 0;
+      @if $left {
+        left: 0;
+      }
+      @if $right {
+        right: 0;
+      }
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      transform: $translate;
+      transition: transform 500ms ease;
+
+      background-color: $off-canvas-background-color;
+
+      list-style: none;
+
+      padding: $container-padding;
+
+      z-index: 10;
+
+      &.in {
+        transform: translate3d(0%, 0, 0);
+      }
+    }
+
+    a {
+      display: block;
+      height: $off-canvas-link-height;
+
+      color: $off-canvas-font-color;
+      font-size: $off-canvas-font-size;
+      line-height: $off-canvas-link-line-height;
+
+      &:hover,
+      &:active,
+      &:focus,
+      #{$current-item} & {
+        @include triangle(
+          $pos: $off-canvas-triangle-position,
+          $offset: 0,
+          $direction: out,
+          $width: $off-canvas-link-height,
+          $height: $off-canvas-triangle-height,
+          $color: $off-canvas-background-active
+        );
+
+        background-color: $off-canvas-background-active;
+        text-decoration: $off-canvas-text-decoration-hover;
+      }
+
+      // if a home icon should be displayed next to or instead of the home link, the correct styles are added here
+      @if $home-icon {
+        #{$home-icon-selector} & {
+          background-size: $off-canvas-home-icon-size;
+          background-position: left center;
+
+          // if the link text should be displayed next to the home icon, we make room for it by setting a padding of the icon size plus a little breathing room (might also be defined through a variable?). If no text should be displayed, the text given is indented out of view to keep the navigation link accessible for screenreaders...
+          @if $home-icon-text {
+            padding-left: $off-canvas-home-icon-size + .25rem;
+          } @else {
+            text-indent: -9999px;
+          }
+        }
+      }
+    }
+  }
+
+  @if $toggle {
+    #{$toggle-selector} {
+      display: block;
+
+      width: $header-height;
+      height: $header-height;
+
+      // the toggle is positioned to the side where the off canvas is hidden
+      float: $position;
+
+      // hide the text but keep it accessible for screen readers
+      text-indent: -9999px;
+
+      background-position: center center;
+      background-size: $off-canvas-toggle-size;
+
+      // we only show the toggle when the off canvas navigation is active, therefore hide it for wide enough screens
+      @include susy-media(go-desktop) {
+        display: none;
+      }
+    }
+  }
+
+  @if $meta {
+    #{$meta-selector} {
+      // the meta nav should be at the bottom and horizontally centered
+      position: absolute;
+      bottom: $off-canvas-container-padding-vertical;
+
+      // horizontal centering hack
+      left: 50%;
+      transform: translateX(-50%);
+
+      // accout for possible container padding
+      @if $left {
+        margin-right: $off-canvas-container-padding-horizontal;
+      }
+
+      @if $right {
+        margin-left: $off-canvas-container-padding-horizontal;
+      }
+    }
+
+    #{$meta-list-item} {
+      font-size: $off-canvas-meta-font-size;
+      text-align: center;
+      margin-bottom: $off-canvas-meta-spacing;
+
+      a {
+        display: block;
+      }
     }
   }
 }

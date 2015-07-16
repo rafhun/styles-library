@@ -12,7 +12,7 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
     <div class="off-canvas-container">
       <nav role="navigation" class="off-canvas-nav">
         <ul class="off-canvas-list">
-          <li class="off-canvas-list-item">
+          <li class="off-canvas-list-item menu-item-home">
             <a data-js="off-canvas-link" href="#" class="level-1 icon-home off-canvas-link">Home</a>
           </li>
           <li class="off-canvas-list-item">
@@ -45,7 +45,7 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
         </ul>
       </nav>
     </div>
-    <div class="main" style="min-height: 400px;">
+    <div class="main" style="min-height: 700px;">
       <a href="#" class="off-canvas-toggle icon-menu" data-js="off-canvas-toggle">Toggle Off-Canvas</a>
     </div>
   </div>
@@ -76,6 +76,11 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
   }
 }
 
+@include off-canvas(
+  $position: 'right'
+);
+
+/*
 // we need a container for the whole off-canvas area
 // since the metanavigation is also in there
 .off-canvas-container {
@@ -210,13 +215,12 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
   transform: translateX(-50%);
 
   .oc-meta-list-item {
-    font-size: $oc-meta-font-size;
+    font-size: $off-canvas-meta-font-size;
     text-align: center;
-    margin-bottom: $oc-meta-spacing;
+    margin-bottom: $off-canvas-meta-spacing;
 
     a {
       display: block;
-      margin-bottom: $oc-meta-spacing;
     }
   }
 }
@@ -239,3 +243,4 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
     color: $white;
   }
 }
+*/
