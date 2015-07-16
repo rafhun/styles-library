@@ -7,6 +7,7 @@ The following mixins have been prepared for you:
 * Auto Separator Mixin
 * Micro Clearfix by Nicolas Gallagher
 * Text Ellipsis Mixin
+* Triangle
 
 ## Auto Separator
 `@mixin separator($margins: rem-calc(6), $separator-color: inherit, $separator: '|', $font-size: inherit) {}`
@@ -24,6 +25,32 @@ Not much has to be explained about this mixin. Used to clear floats as suggested
 `@mixin text-ellipsis`
 
 Applies all the styles needed to get a CSS ellipsis if the text overflows its container. Can only be used on single lines of text (therefore we set the white-space to nowrap). Mostly used for teasers and similar.
+
+## triangle
+Creates a triangle on one of the edges of an element
+
+ @author Eduardo Boucas, rafhun
+
+ Minor adjustments/improvments to mixin logic, basically make more configuration options available
+
+ A base configuration is given through preset values to make use of the mixin and it's options clearer.
+
+ Added parameters for height and color of the triangle. Sometimes we want to be able to have more influence over the color of the triangle which is why we are making it a configurable option. The standard value still is the previously given `currentColor` but can now be changed according to the design wishes. Also an additional height variable has been introduced. This defines the height of the triangle why the width describes the width of the base of the triangle. This enables us to easily add a triangle over the whole width of an element (like an off-canvas link's height) while keeping seperate control over the height.
+
+ @param {String}   $pos - Which edge to create the triangle on
+ @param {Length}   $offset - The offset from the origin (top or left) on the edge
+ @param {String}   $direction - Direction of the triangle (in or out)
+ @param {Length}   $width - Width of the triangle
+ @param {Length}   $height - Height of the triangle
+ @param {Color}    $color - Color of the triangle
+ @param {String}   $type - Type of the pseudo-element (before or after)
+
+
+ @example scss - A triangle on the left edge of the parent, 15px from the top, pointing out with a width of 30px
+  @include triangle('left', 15px, 'out', 30px);
+
+ @example scss - A triangle on the bottom edge of the parent, 220px from the left, pointing out, with a width of 60px and using a :before
+  @include triangle('bottom', 220px, 'out', 60px, 'before');
 */
 @mixin separator($margins: rem-calc(6), $separator-color: inherit, $separator: '|', $font-size: inherit) {
   display: inline-block;
@@ -74,32 +101,8 @@ Applies all the styles needed to get a CSS ellipsis if the text overflows its co
   text-overflow: ellipsis;
 }
 
-///
-/// Creates a triangle on one of the edges of an element
-///
-/// @author Eduardo Boucas, rafhun
-///
-/// Minor adjustments/improvments to mixin logic, basically make more configuration options available
-///
-/// A base configuration is given through preset values to make use of the mixin and it's options clearer.
-///
-/// Added parameters for height and color of the triangle. Sometimes we want to be able to have more influence over the color of the triangle which is why we are making it a configurable option. The standard value still is the previously given `currentColor` but can now be changed according to the design wishes. Also an additional height variable has been introduced. This defines the height of the triangle why the width describes the width of the base of the triangle. This enables us to easily add a triangle over the whole width of an element (like an off-canvas link's height) while keeping seperate control over the height.
-///
-/// @param {String}   $pos - Which edge to create the triangle on
-/// @param {Length}   $offset - The offset from the origin (top or left) on the edge
-/// @param {String}   $direction - Direction of the triangle (in or out)
-/// @param {Length}   $width - Width of the triangle
-/// @param {Length}   $height - Height of the triangle
-/// @param {Color}    $color - Color of the triangle
-/// @param {String}   $type - Type of the pseudo-element (before or after)
-///
-///
-/// @example scss - A triangle on the left edge of the parent, 15px from the top, pointing out with a width of 30px
-///  @include triangle('left', 15px, 'out', 30px);
-///
-/// @example scss - A triangle on the bottom edge of the parent, 220px from the left, pointing out, with a width of 60px and using a :before
-///  @include triangle('bottom', 220px, 'out', 60px, 'before');
-///
+
+// Triangle mixin
 @mixin triangle(
   $pos: 'left',
   $offset: '0',
