@@ -12,12 +12,12 @@ $buttons: (
   base: (
     background: $color-secondary,
     font: $white,
-    hover-treatment: darken
+    hover-treatment: (darken, 100%)
   ),
   primary: (
     background: $color-primary,
     font: $white,
-    hover-treatment: lighten
+    hover-treatment: 'lighten'
   )
 );
 
@@ -54,46 +54,12 @@ $btn-icon-position: left $btn-padding center !default;
     @return darken($color, $value);
   } @elseif ($treatment == 'lighten') {
     @return lighten($color, $value);
+
+  // check if a color was directly assigned, if so just return the color value given
+  } @elseif (type-of($treatment) == color) {
+    @return $treatment;
   } @else {
-    @error 'Treatment must be lighten or darken';
-  }
-}
-
-// mixins to create buttons
-// @mixin button($map...)
-//   $map -> button configuration map
-@mixin button($map...) {
-  @each $type in $map {
-    // set some defaults
-    $background: $color-secondary;
-    $color: $white;
-    $treatment: darken;
-
-    @if map-has-key($type, background) {
-      // since we apply this variable to the background-color property (to allow for icons added through background images) we error check the given value to ensure it is a solid color.
-      @if (type-of(map-get($type, background)) == color) {
-        $background: map-get($type, background);
-      } @else {
-        @error 'For now only colors are allowed as background';
-      }
-    }
-
-    @if map-has-key($type, font) {
-      $color: map-get($type, font);
-    }
-
-    @if map-has-key($type, hover-treatment) {
-      $treatment: map-get($type, hover-treatment);
-    }
-
-    background-color: $background;
-    color: $color;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: btn-color-bg-hover($background, $treatment);
-    }
+    @error 'Treatment must be lighten, darken or directly a background color of your choosing.';
   }
 }
 
@@ -120,6 +86,62 @@ $btn-icon-position: left $btn-padding center !default;
     } @else {
       // if no base styles are defined:
       @error 'Please define some default styles for the buttons using the base key in the $buttons map.';
+    }
+  }
+}
+
+
+// mixins to create buttons
+// @mixin button($map...)
+//   $map -> button configuration map
+@mixin button($map...) {
+  @each $type in $map {
+    // set some defaults for styles that are necessary but must not be given
+    $background: $color-secondary !default;
+    $color: $white !default;
+    $treatment: darken !default;
+
+    // here we start reading through the values given in the configuration map. For each value we first check that it is actually defined then assign it to the styles overwriting the defaults set above.
+    // first up is the background key
+    @if map-has-key($type, background) {
+      // since we apply this variable to the background-color property (to allow for icons added through background images) we error check the given value to ensure it is a solid color.
+      @if (type-of(map-get($type, background)) == color) {
+        $background: map-get($type, background);
+      } @else {
+        @error 'For now only colors are allowed as background';
+      }
+    }
+
+    // check if a value has been given for the font color
+    @if map-has-key($type, font) {
+      $color: map-get($type, font);
+    }
+
+    // check that a value is given for the hover-treatment
+    @if map-has-key($type, hover-treatment) {
+        $treatment: nth(map-get($type, hover-treatment), 1);
+        // we set it to the default config value by default
+        $treat-value: $btn-bg-hover-value !default;
+
+      // we check whether there is a second value in the list, if so this should be a percentage value that is assigned to the treatment
+      @if length(map-get($type, hover-treatment)) == 2 {
+        // make sure the value is really a number
+        @if type-of(nth(map-get($type, hover-treatment), 2) == number) {
+          $treat-value: nth(map-get($type, hover-treatment), 2);
+        } @else {
+          @warn 'The second argument for the treatment must be a number (optimally percentage) that then will be added to the darken/lighten function';
+        }
+      }
+    }
+
+    // here we start outputting the actual CSS
+    background-color: $background;
+    color: $color;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: btn-color-bg-hover($background, $treatment, $treat-value);
     }
   }
 }
