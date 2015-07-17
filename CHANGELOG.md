@@ -1,0 +1,37 @@
+<a name"0.2.0"></a>
+## 0.2.0 (2015-07-17)
+
+
+#### Bug Fixes
+
+* **build:**
+  * configure sassdown ([98400af7](https://github.com/rafhun/compLib/commit/98400af7))
+  * cleanup tasks ([7e813a5b](https://github.com/rafhun/compLib/commit/7e813a5b))
+* **layout:** fix wrong max-mobile value ([659c3624](https://github.com/rafhun/compLib/commit/659c3624))
+* **styles:**
+  * apply styles for this library ([947e4e17](https://github.com/rafhun/compLib/commit/947e4e17))
+  * add atom imports ([f22634ad](https://github.com/rafhun/compLib/commit/f22634ad))
+  * refactor molecule import ([eb8e0565](https://github.com/rafhun/compLib/commit/eb8e0565))
+
+
+#### Features
+
+* **atoms:** add box-sizing config ([b5d0e25b](https://github.com/rafhun/compLib/commit/b5d0e25b))
+* **build:**
+  * add grunticons to project ([67de9dfa](https://github.com/rafhun/compLib/commit/67de9dfa))
+  * add normalize.scss to bower ([794fcdb9](https://github.com/rafhun/compLib/commit/794fcdb9))
+* **buttons:** make treatment more adjustable ([b7071286](https://github.com/rafhun/compLib/commit/b7071286))
+* **mixins:** Add new triangle mixin ([e58d9a2e](https://github.com/rafhun/compLib/commit/e58d9a2e))
+* **off-canvas:**
+  * improve off-canvas further ([ea571c29](https://github.com/rafhun/compLib/commit/ea571c29))
+  * add off-canvas molecule ([3fb3272d](https://github.com/rafhun/compLib/commit/3fb3272d))
+* **style:** add dependencies ([88c78730](https://github.com/rafhun/compLib/commit/88c78730))
+* **styles:**
+  * start development of off-canvas molecule ([251d9a4d](https://github.com/rafhun/compLib/commit/251d9a4d))
+  * add atoms ([208743aa](https://github.com/rafhun/compLib/commit/208743aa))
+  * add navbar molecule ([cc1c1c8a](https://github.com/rafhun/compLib/commit/cc1c1c8a))
+  * add global go-desktop breakpoint ([890f8a15](https://github.com/rafhun/compLib/commit/890f8a15))
+  * basic button framework ([59e4b286](https://github.com/rafhun/compLib/commit/59e4b286))
+  * add buttons molecule ([d96b6222](https://github.com/rafhun/compLib/commit/d96b6222))
+* **theme:** configure use of own theme ([cfed31b6](https://github.com/rafhun/compLib/commit/cfed31b6))
+
