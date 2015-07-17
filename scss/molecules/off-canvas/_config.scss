@@ -48,6 +48,7 @@ $meta-block-padding: $vertical-spacing !default;
   $meta-selector: '.off-canvas-meta',
   $meta-list-item: '.off-canvas-list-item'
 ) {
+  // set positional variables
   @if ($position == 'right') {
     $right: true;
     $left: false;
@@ -164,19 +165,23 @@ $meta-block-padding: $vertical-spacing !default;
         background-color: $off-canvas-background-active;
         text-decoration: $off-canvas-text-decoration-hover;
       }
+    }
 
-      // if a home icon should be displayed next to or instead of the home link, the correct styles are added here
-      @if $home-icon {
-        #{$home-icon-selector} & {
-          background-size: $off-canvas-home-icon-size;
+    // if a home icon should be displayed next to or instead of the home link, the correct styles are added here
+    @if $home-icon {
+      &#{$home-icon-selector} a {
+        background-size: $off-canvas-home-icon-size;
+        @if $home-icon-text {
           background-position: left center;
+        } @else {
+          background-position: center;
+        }
 
-          // if the link text should be displayed next to the home icon, we make room for it by setting a padding of the icon size plus a little breathing room (might also be defined through a variable?). If no text should be displayed, the text given is indented out of view to keep the navigation link accessible for screenreaders...
-          @if $home-icon-text {
-            padding-left: $off-canvas-home-icon-size + .25rem;
-          } @else {
-            text-indent: -9999px;
-          }
+        // if the link text should be displayed next to the home icon, we make room for it by setting a padding of the icon size plus a little breathing room (might also be defined through a variable?). If no text should be displayed, the text given is indented out of view to keep the navigation link accessible for screenreaders...
+        @if $home-icon-text {
+          padding-left: $off-canvas-home-icon-size + .25rem;
+        } @else {
+          text-indent: -9999px;
         }
       }
     }

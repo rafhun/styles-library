@@ -4,7 +4,7 @@ module.exports = {
       expand: true,
       cwd: '<%= config.folders.svgMin %>',
       src: ['*.svg', '*.png'],
-      dest: '<%= config.folders.icons %>'
+      dest: '<%= config.folders.css %>'
     }],
     options: {
       'compressPNG': true,
@@ -15,7 +15,7 @@ module.exports = {
         font: '#6f6f6f'
       },
       'customselectors': {
-        'home-white': ['.navbar-link.home, .navbar-link.home.starter_active:hover, .off-canvas-link.home, .off-canvas-link.home:hover'],
+        'home-white': ['.navbar-link.home, .navbar-link.home.starter_active:hover, .off-canvas-list-item.menu-item-home a, .off-canvas-list-item.menu-item-home a:hover'],
         'home-primary': ['.navbar-link.home:hover', '.footer-nav-link.home:hover', '.footer-nav-link.starter_active.home:hover'],
         'home-font': ['.footer-nav-link.home'],
         'close-secondary': ['.in .off-canvas-toggle'],
