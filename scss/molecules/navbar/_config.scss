@@ -1,3 +1,251 @@
+/*
+# Navbar Configuration
+
+We have one mixin that contains all styles for the navbar. It is adjustable to your personal needs and is tailored to fit the model given in the actual Navbar style file.
+
+This mixin enables you to individually assign element selectors to fit your CMS or templates. The `container-class` is added to the `nav` element containing the navigation while the `menu-class` is given to the actual `ul` containing the navigation.
+
+Often we want to assign different styles to the current navigation item. To do this add the class implying which item is current to the `$current` variable.
+
+If the menu should be more than one level deep with a hover flyout menu you can set the `$has-submenu` variable to true and tell the mixin the class of these submenu lists by setting `$submenu`.
+
+To use an icon instead of text for the home link you can add these styles by setting `$has-home-icon` to true. You then can choose the class assigned to the home link with `$home-item-class`.
+
+The mixin has one other mixin dependency which is `text-ellipsis`. Take care to include this in your `dependencies/mixins` file or remove it from the styles below.
+
+Also there are several configuration variables required that set up the styling. In the default state of this config file all variables necessary are defined right below. Be very careful if you choose to delete them.
+
+The mixin's default values are giving you the correct classes for a standard Wordpress menu. Change them according to your design and navigation architecture.
+
+@TODO: maybe include all configuration variables in the mixin configuration?
+
+```
+<nav role="navigation" class="navbar">
+  <div class="navbar-span">
+    <ul class="navbar-list" id="main-navigation">
+      <li class="navbar-list-item level-1 menu-item-home">
+        <a class="navbar-link home" href="#">
+          Home
+        </a>
+      </li>
+      <li class="navbar-list-item level-1 active">
+        <a class="navbar-link" href="#">
+          Alenia
+        </a>
+        <ul class="menu-level-2 menu">
+          <li class="navbar-list-item level-2">
+            <a class="navbar-link" href="#">
+              Profil
+            </a>
+          </li>
+          <li class="navbar-list-item level-2 active">
+            <a class="navbar-link" href="#">
+              Ansprechpartner
+            </a>
+          </li>
+          <li class="navbar-list-item level-2">
+            <a class="navbar-link" href="#">
+              Standorte
+            </a>
+          </li>
+          <li class="navbar-list-item level-2">
+            <a class="navbar-link" href="#">
+              Medien
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="navbar-list-item level-1">
+        <a class="navbar-link" href="#">
+          Beratung
+        </a>
+      </li>
+      <li class="navbar-list-item level-1">
+        <a class="navbar-link" href="#">
+          Pflege
+        </a>
+        <ul class="menu-level-2 menu">
+          <li class="navbar-list-item level-2">
+            <a class="navbar-link" href="#">
+              Profil
+            </a>
+          </li>
+          <li class="navbar-list-item level-2">
+            <a class="navbar-link" href="#">
+              Ansprechpartner
+            </a>
+          </li>
+          <li class="navbar-list-item level-2">
+            <a class="navbar-link" href="#">
+              Standorte
+            </a>
+          </li>
+          <li class="navbar-list-item level-2">
+            <a class="navbar-link" href="#">
+              Medien
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="navbar-list-item level-1">
+        <a class="navbar-link" href="#">
+          Dienstleistungen
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+```
+ */
+
+@mixin navbar(
+  $container-class: '.navbar',
+  $menu-class: '.navbar-list',
+  $current: '.current-menu-item',
+  $has-submenu: true,
+  $submenu: '.children',
+  $has-home-icon: true,
+  $home-item-class: '.menu-item-home'
+) {
+  #{$container-class} {
+    // do not show the navigation bar for small screens as we use the off canvas navigation or some other alternative for those
+    display: none;
+
+    background-color: $navbar-color-background;
+
+    // these two are very design specific configurations, check whether they are actually needed if not comment them out or delete them
+    border-bottom: $navbar-border;
+    box-shadow: inset $navbar-shadow;
+
+    height: $navbar-height;
+
+    // we go to the navbar from this width
+    @include susy-media(go-desktop) {
+      display: block;
+    }
+
+    // the submenu has to be defined within this container context to make sure it is only restyled for this instance of it
+    @if $has-submenu {
+      #{$submenu} {
+        // position the menu outside of the viewport so it is not visible
+        position: absolute;
+        left: -9999px;
+
+        min-width: $navbar-width-dropdown;
+
+        list-style: none;
+
+        background-color: $navbar-color-background;
+        box-shadow: $navbar-shadow-dropdown;
+
+        padding: $navbar-padding;
+
+        // set opacity to 0 so we can animate/transition for the hover state
+        opacity: 0;
+
+        // transition for how the submenu should appear on hover
+        transition: $navbar-transition-dropdown;
+
+        // make sure menu goes over all possible default elements (like checkboxes)
+        z-index: 1;
+      }
+    }
+  }
+
+  // namespace the ul and apply styles to its li and a elements
+  #{$menu-class} {
+    list-style: none;
+
+    // stretch the ul over the whole container width
+    width: 100%;
+
+    // style the individual list items
+    > li {
+      display: inline-block;
+
+      // we only need position relative if a submenu actually exists, also if it exists we show it upon hover on its parent
+      @if $has-submenu {
+        // helps with positioning of absolutely positioned submenus
+        position: relative;
+
+        &:hover #{$submenu} {
+          // this makes the submenu appear
+          left: 0;
+          opacity: 1;
+        }
+
+        #{$submenu} li {
+          // prevent sublevel items from wrapping and add ellipsis for overflow-x
+          @include text-ellipsis;
+        }
+      }
+    }
+
+    a {
+      display: block;
+      height: $navbar-height;
+
+      color: $navbar-color-font;
+      font-size: $navbar-font-size;
+      line-height: $navbar-height;
+      text-decoration: $navbar-link-text-decoration;
+
+      padding: $navbar-padding;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $navbar-color-font-hover;
+        text-decoration: $navbar-link-text-decoration-hover;
+        font-weight: $navbar-font-weight-hover;
+      }
+    }
+
+    // this defines the active/current item style of the top level navbar
+    > li#{$current} {
+      > a {
+        height: $navbar-height-active;
+
+        margin-top: $navbar-active-margin-top;
+
+        background-color: $navbar-color-background-active;
+        border-top: $navbar-border;
+        box-shadow: $navbar-shadow-active;
+
+        // should there be a change when you hover over an active item?
+        &:hover,
+        &:active,
+        &:focus {
+          color: $navbar-color-font;
+          font-weight: normal;
+        }
+      }
+
+      // style the active links in submenus
+      @if $has-submenu {
+        li#{$current} a {
+          color: $navbar-color-font-hover;
+          font-weight: $navbar-font-weight-hover;
+        }
+      }
+    }
+  }
+
+  @if $has-home-icon {
+    #{$home-item-class} a {
+      // hide text
+      text-indent: -9999px;
+
+      // size and position the icon
+      background-size: $navbar-icon-home-size;
+      background-position: $navbar-icon-home-position;
+
+      width: $navbar-icon-home-size + $navbar-icon-home-spacing;
+    }
+  }
+}
+
+
 // colors
 $navbar-color-background: $color-secondary !default;
 $navbar-color-background-active: $color-primary !default;
@@ -28,8 +276,9 @@ $navbar-padding: 0 .45rem !default;
 
 // Dropdown Menu
 $navbar-width-dropdown: rem-calc(270) !default;
-$navbar-transition-dropdown: background .5s ease-in-out !default;
+$navbar-transition-dropdown: opacity .5s ease-in-out !default;
 
 // Icons
 $navbar-icon-home-size: 1rem !default;
 $navbar-icon-home-position: center center !default;
+$navbar-icon-home-spacing: 1.5rem !default;
