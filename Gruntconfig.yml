@@ -5,7 +5,7 @@ folders:
   icons: 'wwwroot/icons/'
   images: 'wwwroot/images/'
   js: 'wwwroot/js/'
-  jsComp: 'jsSrc/components/'
+  jsComp: 'jsSrc/molecules/'
   jsSrc: 'jsSrc/'
   scss: 'scss/'
   svg: 'svg/'
