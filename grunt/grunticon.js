@@ -19,6 +19,8 @@ module.exports = {
         'home-primary': ['.navbar-link.home:hover', '.footer-nav-link.home:hover', '.footer-nav-link.starter_active.home:hover'],
         'home-font': ['.footer-nav-link.home'],
         'close-secondary': ['.in .off-canvas-toggle'],
+        'arrow-right-font': ['.accordion-title'],
+        'arrow-down-primary': ['.accordion-title.is-open'],
       }
     }
   }

@@ -1,0 +1,7 @@
+// here we simply define the accordion through the mixin and set our defaults as needed. We can also add some specific styles to the accordion contents here, if needed.
+
+@include accordion;
+
+.accordion-subheading {
+  color: $accordion-subheading-color;
+}

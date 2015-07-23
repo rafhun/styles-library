@@ -1,0 +1,178 @@
+/*
+# Accordion
+
+This molecule provides a way to display a lot of content on one page orderly by only showing the content's title by default and expanding on click to show the full content. This can be used for a multitude of applications such as FAQ sections.
+
+For this molecule to work you have to include the `accordion.js` file which contains the script to toggle the accordions open. Also the script depends on the `data-js` attribute to be set to `accordion-toggle` as shown in the example below. The class that is to be toggled on click is ported from the CSS to the JS automatically so you are free to choose it to your liking. Of course make sure to adjust your styleguide example as well.
+
+To add an icon to the title set the respective boolean in the mixin to true, then choose the position of the icon (left or right). The easiest way to add the icon is through grunticon and by adding the following to lines to your grunticon config: `'arrow-right-font': ['.accordion-title'], 'arrow-down-primary': ['.accordion-title.is-open'],`. However unfortunately grunticon cannot know the classes you have chosen for your markup so make sure they match up and also add the respective SVG files in their folder. The icons should then automatically show up where desired.
+
+This mixin depends on several configuration variables that must be set below. These include stylings basic styling properties of the molecule. Also the mixin makes use of the `text-ellipsis` mixin that is included in your `dependencies/mixins` partial by default. Make sure to have it available to provide a fallback for too long titles that would break the design.
+
+This molecule is also depending on a JS file that adds the basic toggling functionality. Make sure to copy `accordion.js` to your `js/molecules` folder.
+
+```
+<p class="accordion-title is-open" data-js="accordion-toggle">
+    Quaerat eveniet minima laborum veritatis est qui accusantium? Delectus illum corporis laudantium illo repudiandae et doloremque?
+</p>
+<div class="accordion-container">
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, dolor! Blanditiis eaque sed voluptatibus expedita deserunt placeat facere libero, ipsum debitis inventore ad eveniet, velit distinctio architecto in quisquam, fuga?
+  </p>
+</div>
+<p class="accordion-title" data-js="accordion-toggle">
+  Harum dolore incidunt maxime eveniet ipsa sequi voluptatibus laudantium?
+</p>
+<div class="accordion-container">
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, dolor! Blanditiis eaque sed voluptatibus expedita deserunt placeat facere libero, ipsum debitis inventore ad eveniet, velit distinctio architecto in quisquam, fuga?
+  </p>
+
+  <p>
+    Accusantium at omnis vel, possimus fugiat explicabo necessitatibus facilis tempore voluptate, ea in, sunt magnam officia? Beatae reprehenderit non tempore, assumenda reiciendis, veritatis totam quod qui fugit commodi, sit in.
+  </p>
+</div>
+```
+*/
+
+// variables
+$accordion-title-color: $color-text !default;
+$accordion-title-color-open: $color-primary !default;
+$accordion-title-border-color: $color-lines !default;
+$accordion-title-height: rem-calc(48) !default;
+$accordion-title-font-size: rem-calc(22) !default;
+$accordion-title-line-height: 26/22 !default;
+$accordion-title-font-weight: bold !default;
+$accordion-title-padding: rem-calc(12) !default;
+
+$accordion-subheading-color: $color-text !default;
+
+$accordion-container-padding-bottom: $vertical-spacing-xl !default;
+
+$accordion-icon-size: .75rem !default;
+$accordion-icon-spacing: .5rem !default;
+$accordion-icon-offset: rem-calc(6) !default;
+$accordion-icon-padding: $accordion-icon-size + $accordion-icon-spacing + $accordion-icon-offset;
+
+// @mixin accordion($title, $is-open, $last-title, $has-icon, $icon-position, $container)
+//  Description: Creates all accordion styles
+//  Dependencies: @mixin text-ellipsis
+//
+//  @params $title [ string ]: Selector for the accordion title
+//  @params $is-open [ string ]: Selector that inidcates that the accordion is open
+//  @params $last-title [ string ]: Selector for the last accordion title of a section
+//  @params $has-icon [ boolean ]: Indicates whether an icon is displayed to one side of the title
+//  @params $icon-position [ left || right ]: Indicates where the icon should be positioned
+//  @params $container [ string ]: Selector for the accordion container
+@mixin accordion(
+  $title: '.accordion-title',
+  $is-open: '.is-open',
+  $last-title: '.last',
+  $has-icon: true,
+  $icon-position: 'right',
+  $container: '.accordion-container'
+) {
+  #{$title} {
+    $icon-left: false;
+    $icon-right: false;
+
+    @if $icon-position == 'right' {
+      $icon-right: true;
+
+      $accordion-icon-position: right $accordion-icon-offset center;
+
+    } @elseif $icon-position == 'left' {
+      $icon-left: true;
+
+      $accordion-icon-position: left $accordion-icon-offset center;
+
+    } @else {
+      @warn '$icon-position must be set to either left or right';
+    }
+
+    // do not wrap accordion titles if they are too long, this is reset for opened elements so that one gets to view the whole title once it has been clicked on
+    @include text-ellipsis;
+
+    // nicely align the title element
+    margin: 0;
+    padding: $accordion-title-padding 0;
+
+    // add the separator border
+    border-top: 1px solid $accordion-title-border-color;
+
+    // font definitions
+    font-size: $accordion-title-font-size;
+    line-height: $accordion-title-line-height;
+    font-weight: $accordion-title-font-weight;
+
+    // indicate that the title is a clickable element
+    cursor: pointer;
+
+    // different styles for opened accordion titles
+    &#{$is-open} {
+      color: $accordion-title-color-open;
+      // reset the no wrap applied for normal titles
+      white-space: normal;
+    }
+
+    // add special styling for the last occurence of an accordion title
+    &:last-of-type,
+    &#{$last-title} {
+      border-bottom: 1px solid $accordion-title-border-color;
+
+      // but no such special border if the last accordion is opened
+      &#{$is-open} {
+        border-bottom: 0;
+      }
+    }
+
+    @if $has-icon {
+      // correctly position the background icon
+      background-position: $accordion-icon-position;
+      background-size: $accordion-icon-size;
+
+      // make room for the icon
+      @if $icon-right {
+        padding-right: $accordion-icon-padding;
+      } @elseif $icon-left {
+        padding-left: $accordion-icon-padding;
+      }
+    } // end if has icon
+
+    &::before {
+      display: none;
+      content: '#{$is-open}';
+    }
+  } // end $accordion-title
+
+  #{$container} {
+    // we need to show the container for the editor always but hide it on the frontend by default
+    @if $EDITOR-STYLES {
+      height: auto;
+    } @else {
+      position: relative;
+      height: 0;
+      left: -9999px;
+      transition: left .5s -.35s ease;
+    }
+
+    // we need some padding on the left if the icon is positioned to the left (actually the same spacing the icon needs, so things look good)
+    @if $has-icon and $icon-position == 'left' {
+      padding-left: $accordion-icon-padding;
+    }
+
+    // what changes when we activate an accordion
+    #{$is-open} + & {
+      height: auto;
+      left: 0;
+
+      // add some space to the next accordion
+      padding-bottom: $accordion-container-padding-bottom;
+    }
+
+    // we do not need additional spacing for the last accordion on the page since that is provided by the content box itself
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  } // end container
+}
