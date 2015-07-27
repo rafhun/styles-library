@@ -1,3 +1,20 @@
+<a name="1.0.0"></a>
+# 1.0.0 (2015-07-27)
+
+
+### Features
+
+* **build:** use new changelog generator ([1a823e5](https://github.com/rafhun/compLib/commit/1a823e5))
+
+
+### BREAKING CHANGES
+
+* The new conventional-changelog API uses a renewed configuration
+and will not work with previous versions. Therefore be careful using this
+version's package.json with older configurations.
+
+
+
 <a name"0.3.0"></a>
 ## 0.3.0 (2015-07-23)
 
