@@ -1,3 +1,14 @@
+<a name="1.0.1"></a>
+## 1.0.1 (2015-07-28)
+
+
+### Bug Fixes
+
+* update package.json repository url ([2d184f4](https://github.com/rafhun/styles-library/commit/2d184f4))
+* **susy:** better configuration values ([496884e](https://github.com/rafhun/styles-library/commit/496884e))
+
+
+
 <a name="1.0.0"></a>
 # 1.0.0 (2015-07-27)
 
