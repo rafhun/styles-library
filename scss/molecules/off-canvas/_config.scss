@@ -79,10 +79,6 @@ $meta-block-padding: $vertical-spacing !default;
     @include clearfix;
 
     position: absolute;
-    width: $off-canvas-width;
-
-    // this moves the container off the visible area of the screen (as it moves it by its own width to the right and is positioned at the right edge)
-    transform: $translate;
     top: 0;
     bottom: 0;
     @if $left {
@@ -92,9 +88,14 @@ $meta-block-padding: $vertical-spacing !default;
       right: 0;
     }
 
-    background-color: $off-canvas-background-color;
+    width: $off-canvas-width;
 
     padding: $container-padding;
+
+    // this moves the container off the visible area of the screen (as it moves it by its own width to the right and is positioned at the right edge)
+    transform: $translate;
+
+    background-color: $off-canvas-background-color;
 
     .in & {
       @include susy-media(max-mobile) {
@@ -113,7 +114,6 @@ $meta-block-padding: $vertical-spacing !default;
 
     #{$submenu} {
       position: absolute;
-      width: $off-canvas-width;
       top: 0;
       bottom: 0;
       @if $left {
@@ -122,6 +122,10 @@ $meta-block-padding: $vertical-spacing !default;
       @if $right {
         right: 0;
       }
+
+      width: $off-canvas-width;
+      padding: $container-padding;
+
       overflow-x: hidden;
       overflow-y: auto;
 
@@ -131,8 +135,6 @@ $meta-block-padding: $vertical-spacing !default;
       background-color: $off-canvas-background-color;
 
       list-style: none;
-
-      padding: $container-padding;
 
       z-index: 10;
 
@@ -197,11 +199,11 @@ $meta-block-padding: $vertical-spacing !default;
       // the toggle is positioned to the side where the off canvas is hidden
       float: $position;
 
-      // hide the text but keep it accessible for screen readers
-      text-indent: -9999px;
-
       background-position: center center;
       background-size: $off-canvas-toggle-size;
+
+      // hide the text but keep it accessible for screen readers
+      text-indent: -9999px;
 
       // we only show the toggle when the off canvas navigation is active, therefore hide it for wide enough screens
       @include susy-media(go-desktop) {
@@ -231,9 +233,9 @@ $meta-block-padding: $vertical-spacing !default;
     }
 
     #{$meta-list-item} {
+      margin-bottom: $off-canvas-meta-spacing;
       font-size: $off-canvas-meta-font-size;
       text-align: center;
-      margin-bottom: $off-canvas-meta-spacing;
 
       a {
         display: block;

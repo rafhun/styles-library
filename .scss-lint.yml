@@ -86,8 +86,10 @@ linters:
     enabled: true
 
   PropertySortOrder:
-    enabled: false
-    ignore_unspecified: false
+    enabled: true
+    ignore_unspecified: true
+    order: smacss
+    separate_groups: true
 
   PropertySpelling:
     enabled: true
