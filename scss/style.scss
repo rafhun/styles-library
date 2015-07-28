@@ -25,8 +25,7 @@ $EDITOR-STYLES: false;
 // for everything else we consider the scope of the styles contained, from wide to narrow
 @import 'atoms/site'; // mainly html and body elements
 @import 'atoms/media'; // above all responsive images
-@import 'atoms/text-block'; // headings, paragraphs, ...
-@import 'atoms/text-inline'; // anchor links, ...
+@import 'atoms/type'; // all typography, text styles
 @import 'atoms/lists'; // ul and ol
 
 // molecules are the smallest ui components we define. They usually just add styling to one element respectively. Since there are several files to import from subfolders we use a manifest file for molecules to keep the main stylesheet clean.
