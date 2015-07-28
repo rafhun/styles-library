@@ -23,9 +23,9 @@ $susy: (
  use-custom: (
    background-image: true,
    background-options: false,
-   box-sizing: true,
+   box-sizing: false,
    clearfix: true,
-   rem: true,
+   rem: false,
  )
 );
 
