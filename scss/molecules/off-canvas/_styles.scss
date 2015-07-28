@@ -64,8 +64,8 @@ found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
 
 // this will be the part of the page that is actually moved around and therefore is wider then the window
 .transformer {
-  transition: transform .5s ease;
   height: 100%;
+  transition: transform .5s ease;
 
   &.in {
     // we only show the off-canvas navigation if on screens sufficiently small. As soon as the main navbar appears the off canvas can and should be hidden

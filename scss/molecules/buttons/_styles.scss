@@ -36,14 +36,17 @@ Important buttons for primary actions are shown in a different color.
   // basically defines spacing around the text. For now the buttons size is completely dependent on padding
   padding: $btn-padding;
 
+  // create a smooth transition of the background color on hover, focus and active states.
+  transition: background-color $btn-hover-transition-time $btn-hover-transition-type;
+
+  // removes standard button and input submit borders
+  border-width: 0;
+  border-style: solid;
+
   // make sure no special line heights are inherited.
   line-height: normal;
   // usually we want to center text in buttons. Still we leave it as a configurable option here
   text-align: $btn-text-align;
-
-  // removes standard button and input submit borders
-  border-style: solid;
-  border-width: 0;
 
   // cursor should indicate that the whole button is clickable, not just the text. Especially needed for button and input tags.
   cursor: pointer;
@@ -52,8 +55,6 @@ Important buttons for primary actions are shown in a different color.
   -webkit-appearance: none;
   -moz-appearance: none;
 
-  // create a smooth transition of the background color on hover, focus and active states.
-  transition: background-color $btn-hover-transition-time $btn-hover-transition-type;
 
   &:hover,
   &:focus,

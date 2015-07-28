@@ -102,8 +102,8 @@ $accordion-icon-padding: $accordion-icon-size + $accordion-icon-spacing + $accor
 
     // font definitions
     font-size: $accordion-title-font-size;
-    line-height: $accordion-title-line-height;
     font-weight: $accordion-title-font-weight;
+    line-height: $accordion-title-line-height;
 
     // indicate that the title is a clickable element
     cursor: pointer;
@@ -151,8 +151,8 @@ $accordion-icon-padding: $accordion-icon-size + $accordion-icon-spacing + $accor
       height: auto;
     } @else {
       position: relative;
-      height: 0;
       left: -9999px;
+      height: 0;
       transition: left .5s -.35s ease;
     }
 
@@ -163,8 +163,8 @@ $accordion-icon-padding: $accordion-icon-size + $accordion-icon-spacing + $accor
 
     // what changes when we activate an accordion
     #{$is-open} + & {
-      height: auto;
       left: 0;
+      height: auto;
 
       // add some space to the next accordion
       padding-bottom: $accordion-container-padding-bottom;

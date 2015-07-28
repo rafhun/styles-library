@@ -111,13 +111,15 @@ The mixin's default values are giving you the correct classes for a standard Wor
     // do not show the navigation bar for small screens as we use the off canvas navigation or some other alternative for those
     display: none;
 
+    height: $navbar-height;
+
+    border-bottom: $navbar-border;
+
     background-color: $navbar-color-background;
 
     // these two are very design specific configurations, check whether they are actually needed if not comment them out or delete them
-    border-bottom: $navbar-border;
-    box-shadow: inset $navbar-shadow;
 
-    height: $navbar-height;
+    box-shadow: inset $navbar-shadow;
 
     // we go to the navbar from this width
     @include susy-media(go-desktop) {
@@ -133,18 +135,19 @@ The mixin's default values are giving you the correct classes for a standard Wor
 
         min-width: $navbar-width-dropdown;
 
-        list-style: none;
-
-        background-color: $navbar-color-background;
-        box-shadow: $navbar-shadow-dropdown;
-
         padding: $navbar-padding;
-
-        // set opacity to 0 so we can animate/transition for the hover state
-        opacity: 0;
 
         // transition for how the submenu should appear on hover
         transition: $navbar-transition-dropdown;
+
+        background-color: $navbar-color-background;
+
+        list-style: none;
+
+        box-shadow: $navbar-shadow-dropdown;
+
+        // set opacity to 0 so we can animate/transition for the hover state
+        opacity: 0;
 
         // make sure menu goes over all possible default elements (like checkboxes)
         z-index: 1;
@@ -154,10 +157,10 @@ The mixin's default values are giving you the correct classes for a standard Wor
 
   // namespace the ul and apply styles to its li and a elements
   #{$menu-class} {
-    list-style: none;
-
     // stretch the ul over the whole container width
     width: 100%;
+
+    list-style: none;
 
     // style the individual list items
     > li {
@@ -185,19 +188,19 @@ The mixin's default values are giving you the correct classes for a standard Wor
       display: block;
       height: $navbar-height;
 
+      padding: $navbar-padding;
+
       color: $navbar-color-font;
       font-size: $navbar-font-size;
       line-height: $navbar-height;
       text-decoration: $navbar-link-text-decoration;
 
-      padding: $navbar-padding;
-
       &:hover,
       &:active,
       &:focus {
         color: $navbar-color-font-hover;
-        text-decoration: $navbar-link-text-decoration-hover;
         font-weight: $navbar-font-weight-hover;
+        text-decoration: $navbar-link-text-decoration-hover;
       }
     }
 
@@ -208,8 +211,8 @@ The mixin's default values are giving you the correct classes for a standard Wor
 
         margin-top: $navbar-active-margin-top;
 
-        background-color: $navbar-color-background-active;
         border-top: $navbar-border;
+        background-color: $navbar-color-background-active;
         box-shadow: $navbar-shadow-active;
 
         // should there be a change when you hover over an active item?
@@ -233,14 +236,14 @@ The mixin's default values are giving you the correct classes for a standard Wor
 
   @if $has-home-icon {
     #{$home-item-class} a {
-      // hide text
-      text-indent: -9999px;
+      width: $navbar-icon-home-size + $navbar-icon-home-spacing;
 
       // size and position the icon
-      background-size: $navbar-icon-home-size;
       background-position: $navbar-icon-home-position;
+      background-size: $navbar-icon-home-size;
 
-      width: $navbar-icon-home-size + $navbar-icon-home-spacing;
+      // hide text
+      text-indent: -9999px;
     }
   }
 }
