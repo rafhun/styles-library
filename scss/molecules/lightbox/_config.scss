@@ -1,0 +1,23 @@
+$lb-border-top: rem-calc(6) solid $color-primary !default;
+$lb-spacing: 2 * gutter() !default;
+
+$lb-figcaption-background: $white !default;
+$lb-figcaption-height: rem-calc(38) !default;
+$lb-figcaption-padding: rem-calc(0 12) !default;
+
+$lb-enum-color: $color-lines !default;
+$lb-enum-font-size: rem-calc(28) !default;
+$lb-enum-font-weight: bold !default;
+$lb-enum-sep-spacing: rem-calc(6) !default;
+
+$lb-images-path: '/images/molecules/lightbox/' !default;
+
+$lb-caption-color: $color-text !default;
+$lb-caption-font-size: rem-calc(13) !default;
+$lb-caption-font-weight: bold !default;
+$lb-caption-line-height: 16/13 !default;
+$lb-caption-padding: rem-calc(0 4) !default;
+
+$lb-number-color: $color-text !default;
+$lb-number-font-size: rem-calc(12) !default;
+$lb-number-padding: 1rem !default;
