@@ -105,9 +105,9 @@ Creates a triangle on one of the edges of an element
 // Triangle mixin
 @mixin triangle(
   $pos: 'left',
-  $offset: '0',
+  $offset: 0,
   $direction: 'out',
-  $width: '1rem', // defines how wide the triangles base is
+  $width: 1rem, // defines how wide the triangles base is
   $height: $width, // describes the height of the triangle
   $color: currentColor,
   $type: 'after'
@@ -116,16 +116,19 @@ Creates a triangle on one of the edges of an element
 
   &:#{$type} {
     position: absolute;
-    content: '';
-    z-index: 1;
 
     // Reset position and offsets
     top: auto;
+    right: auto;
     bottom: auto;
     left: auto;
-    right: auto;
+
     $h-offset: 0;
     $v-offset: 0;
+
+    content: '';
+
+    z-index: 1;
 
     // Triangle: down
     @if ((($pos == 'top') and ($direction == 'in')) or ($pos == 'bottom') and ($direction == 'out')) {
@@ -169,15 +172,15 @@ Creates a triangle on one of the edges of an element
 
     @if ($pos == 'top') {
       top: $v-offset;
-      left: if($offset == 'center', calc(50% - #{$width}), $offset);
+      left: if($offset == 'center', calc(50% - #{$width/2}), $offset);
     } @else if ($pos == 'bottom') {
       bottom: $v-offset;
-      left: if($offset == 'center', calc(50% - #{$width}), $offset);
+      left: if($offset == 'center', calc(50% - #{$width/2}), $offset);
     } @else if ($pos == 'left') {
-      top: if($offset == 'center', calc(50% - #{$width}), $offset);
+      top: if($offset == 'center', calc(50% - #{$width/2}), $offset);
       left: $h-offset;
     } @else if ($pos == 'right') {
-      top: if($offset == 'center', calc(50% - #{$width}), $offset);
+      top: if($offset == 'center', calc(50% - #{$width/2}), $offset);
       right: $h-offset;
     }
   }
