@@ -1,0 +1,3 @@
+@include subnavigation;
+
+@include subnavigation($subnavigation-class: '.subnavigation-kids', $has-submenu: true);

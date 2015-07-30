@@ -1,0 +1,195 @@
+/*
+# Subnavigation
+
+The subnavigation serves as secondary navigation element on a page. It exists in several basic forms but is mostly used either in typical list form in a sidebar next to the content or as a navigation bar directly under the main navigation. This styles library offers configurations for both solutions. As to not pollute the resulting CSS all is kept tidily in mixins and only applied if configured as wished.
+
+We have two examples to show two use cases. The first is for subnavigations with only one level the second is for ones with multiple levels.
+
+The molecule also offers the possibility to add icons to the left and right of the menu items. These icons should be added as indicated in the example below. This ensures nice spacing and lining up whether your nav items wrap or fit on one line. The disadvantage is the need to add classes to the `li` and `a` elements which might be more difficult in Worpress environments. We will have to look for a solution for this problem.
+
+@TODO: Icons in Wordpress Environments
+@TODO: Subnavigationbar definitions/styling
+
+```
+<nav class="subnavigation" role="navigation">
+  <div class="subnavigation-container">
+    <ul class="subnavigation-list">
+      <li class="subnavigation-item subnavigation-icon-left subnavigation-icon-right icon-arrow-right-primary">
+        <a href="#" class="icon-menu">
+          Lorem Ipsum Dolor Amet Numquam Facilis Deserunt</span>
+        </a>
+      </li>
+      <li class="subnavigation-item current-menu-item">
+        <a href="#">Ipsum</a>
+      </li>
+      <li class="subnavigation-item">
+        <a href="#">Dolor</a>
+      </li>
+      <li class="subnavigation-item">
+        <a href="#">Amet</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="subnavigation-kids" role="navigation">
+  <div class="subnavigation-container">
+    <ul class="subnavigation-list">
+      <li class="subnavigation-item">
+        <a href="#">Lorem</a>
+      </li>
+      <li class="subnavigation-item current-menu-item">
+        <a href="#">Ipsum</a>
+        <ul class="children">
+          <li class="subnavigation-item">
+            <a href="#">Numquam</a>
+          </li>
+          <li class="subnavigation-item current-menu-item">
+            <a href="#">Facilis</a>
+          </li>
+          <li class="subnavigation-item">
+            <a href="#">Deserunt</a>
+          </li>
+        </ul>
+      </li>
+      <li class="subnavigation-item">
+        <a href="#">Dolor</a>
+      </li>
+      <li class="subnavigation-item">
+        <a href="#">Amet</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+```
+ */
+
+@mixin subnavigation(
+  $subnavigation-class: '.subnavigation',
+  $container-class: '.subnavigation-container',
+  $is-subnavbar: false,
+  $menu-class: '.subnavigation-list',
+  $item-class: '.subnavigation-item',
+  $current: '.current-menu-item',
+  $has-submenu: false,
+  $submenu: '.children',
+  $has-icon-left: true,
+  $icon-left-selector: '.subnavigation-icon-left',
+  $has-icon-right: true,
+  $icon-right-selector: '.subnavigation-icon-right',
+  $icon-selector: '[class^="icon-"]'
+) {
+  #{$subnavigation-class} {
+    @if $is-subnavbar {
+      // do not show the subnavigation bar for small screens as we use the off canvas navigation for those
+      display: none;
+
+      height: $subnavigation-height;
+
+      @include susy-media(go-desktop) {
+        display: block;
+      }
+    }
+
+    border-bottom: $subnavigation-border;
+
+    background-color: $subnavigation-background;
+  }
+
+  #{$menu-class} {
+    // stretch the ul over the whole container width
+    width: 100%;
+
+    list-style: none;
+
+    @if $is-subnavbar {
+      > #{$item-class} {
+        display: inline-block;
+      }
+    }
+  }
+
+  #{$item-class} {
+    border-top: $subnavigation-border;
+
+    a {
+      display: block;
+
+      padding: $subnavigation-padding-vertical $subnavigation-padding-horizontal;
+
+      transition: background-color .5s ease;
+
+      color: $subnavigation-link-color;
+      font-size: $subnavigation-link-font-size;
+      font-weight: $subnavigation-link-font-weight;
+      line-height: $subnavigation-link-line-height;
+      text-decoration: $subnavigation-link-text-decoration;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $subnavigation-link-background-current;
+
+        color: $subnavigation-link-color-hover;
+        text-decoration: $subnavigation-link-text-decoration-hover;
+      }
+    }
+
+    &#{$current} > a {
+      background-color: $subnavigation-link-background-current;
+    }
+
+    // icon styling if they are enabled
+    @if $has-icon-left {
+      &#{$icon-left-selector} #{$icon-selector} {
+        padding-left: $subnavigation-padding-horizontal + $subnavigation-icon-left-size + $subnavigation-icon-left-spacing;
+
+        background-position: $subnavigation-icon-left-position;
+        background-size: $subnavigation-icon-left-size;
+      }
+    }
+
+    @if $has-icon-right {
+      &#{$icon-right-selector} {
+        background-position: $subnavigation-icon-right-position;
+        background-size: $subnavigation-icon-right-size;
+
+        a {
+          // make room for the icon
+          padding-right: $subnavigation-icon-right-spacing + $subnavigation-icon-right-size + $subnavigation-padding-horizontal;
+        }
+      }
+    }
+  }
+
+  @if $has-submenu {
+    #{$submenu} li a {
+      padding-left: $submenu-children-indent;
+    }
+  }
+}
+
+$subnavigation-background: transparent !default;
+$subnavigation-border: 1px solid $color-lines !default;
+
+$subnavigation-padding-horizontal: rem-calc(6) !default;
+$subnavigation-padding-vertical: .75rem !default;
+
+$subnavigation-link-background-current: $color-background-grey !default;
+$subnavigation-link-color: $color-text !default;
+$subnavigation-link-color-hover: $color-text !default;
+$subnavigation-link-font-size: rem-calc(18) !default;
+$subnavigation-link-font-weight: bold !default;
+$subnavigation-link-line-height: 1.3333333 !default;
+$subnavigation-link-text-decoration: none !default;
+$subnavigation-link-text-decoration-hover: none !default;
+
+$submenu-children-indent: rem-calc(36) !default;
+
+$subnavigation-icon-left-position: left $subnavigation-padding-horizontal center !default;
+$subnavigation-icon-left-size: rem-calc(30) !default;
+$subnavigation-icon-left-spacing: rem-calc(20) !default;
+
+$subnavigation-icon-right-position: right $subnavigation-padding-horizontal center !default;
+$subnavigation-icon-right-size: rem-calc(20) !default;
+$subnavigation-icon-right-spacing: rem-calc(16) !default;
