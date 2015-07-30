@@ -7,6 +7,8 @@ To turn them into galleries simply add a value to the `data-lightbox` attributes
 
 This gallery lays out several lightbox molecules in a nice responsive grid that is nicely adjustable through the mixin structure.
 
+The organism assumes the use of the grid system layed out in the `dependencies/layout` partial with four main breakpoints. The mixin lets you add a column number for the default state and each one of the breakpoints if so wished. To skip a breakpoint simply set its respective value to `$*-cols: null`.
+
 ```
 <section class="lightbox-gallery">
   <figure class="lb-thumb">
@@ -72,7 +74,12 @@ This gallery lays out several lightbox molecules in a nice responsive grid that 
   $gallery: '.lightbox-gallery',
   $has-divider: true,
   $no-border: '.no-border',
-  $pics: '.lb-thumb'
+  $pics: '.lb-thumb',
+  $default-cols: null,
+  $xs-cols: 6,
+  $sm-cols: 3,
+  $md-cols: null,
+  $lg-cols: 2
 ) {
   #{$gallery} {
     @include clearfix;
@@ -95,20 +102,32 @@ This gallery lays out several lightbox molecules in a nice responsive grid that 
     #{$pics} {
       margin-bottom: $lb-gallery-spacing;
 
-      @include susy-media(xs) {
-        @include gallery(6 of 12 after);
+      @if $default-cols {
+        @include gallery($default-cols of 12 after);
       }
 
-      @include susy-media(sm) {
-        @include gallery(4 of 12 after);
+      @if $xs-cols {
+        @include susy-media(xs) {
+          @include gallery($xs-cols of 12 after);
+        }
       }
 
-      @include susy-media(md) {
-        @include gallery(3 of 12 after);
+      @if $sm-cols {
+        @include susy-media(sm) {
+          @include gallery($sm-cols of 12 after);
+        }
       }
 
-      @include susy-media(lg) {
-        @include gallery(2 of 12 after);
+      @if $md-cols {
+        @include susy-media(md) {
+          @include gallery($md-cols of 12 after);
+        }
+      }
+
+      @if $lg-cols {
+        @include susy-media(lg) {
+          @include gallery($lg-cols of 12 after);
+        }
       }
     }
   }
