@@ -1,3 +1,22 @@
+<a name="1.1.0"></a>
+# 1.1.0 (2015-07-30)
+
+
+### Bug Fixes
+
+* **js:** accordionToggle lookup conditional ([1267859](https://github.com/rafhun/styles-library/commit/1267859))
+* **js:** relax jshint to allow unsued ([b69e5d8](https://github.com/rafhun/styles-library/commit/b69e5d8))
+
+### Features
+
+* **molecule:** add basic subnavigation ([8712cbb](https://github.com/rafhun/styles-library/commit/8712cbb))
+* **molecule:** add lightbox bases ([690c679](https://github.com/rafhun/styles-library/commit/690c679))
+* **molecules:** finalize lightbox ([f6b7668](https://github.com/rafhun/styles-library/commit/f6b7668))
+* **organism:** make lightbox cols configurable ([b1e04b6](https://github.com/rafhun/styles-library/commit/b1e04b6))
+* **organisms:** lightbox gallery layout ([62cb3c1](https://github.com/rafhun/styles-library/commit/62cb3c1))
+
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2015-07-28)
 
