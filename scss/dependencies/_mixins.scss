@@ -63,18 +63,21 @@ Creates a triangle on one of the edges of an element
   }
 
   &::after {
-    content: $separator;
+    padding-left: $margins;
+
     color: $separator-color;
     font-size: $font-size;
-    padding-left: $margins;
+
+    content: $separator;
   }
 
   &:last-child {
     margin-right: 0; // last element should have the usual white space
 
     &::after {
-      content: '';
       padding-left: 0;
+
+      content: '';
     }
   }
 }
@@ -86,8 +89,9 @@ Creates a triangle on one of the edges of an element
 
   &::before,
   &::after {
-    content: '';
     display: table;
+
+    content: '';
   }
 
   &::after {
