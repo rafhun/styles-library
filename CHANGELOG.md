@@ -1,3 +1,14 @@
+<a name="1.1.1"></a>
+## 1.1.1 (2015-07-30)
+
+
+### Bug Fixes
+
+* **subnavigation:** add a namespacer ([0f0e4e8](https://github.com/rafhun/styles-library/commit/0f0e4e8))
+* **subnavigation:** invisible icon right on hover ([2faf95b](https://github.com/rafhun/styles-library/commit/2faf95b))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2015-07-30)
 
