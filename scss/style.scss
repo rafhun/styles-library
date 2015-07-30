@@ -30,3 +30,6 @@ $EDITOR-STYLES: false;
 
 // molecules are the smallest ui components we define. They usually just add styling to one element respectively. Since there are several files to import from subfolders we use a manifest file for molecules to keep the main stylesheet clean.
 @import 'molecules/manifest';
+
+// organisms are built from several molecules and make larger parts of the page often already containing some layout decisions
+@import 'organisms/manifest';
