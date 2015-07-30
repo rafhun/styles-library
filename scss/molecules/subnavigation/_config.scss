@@ -65,18 +65,19 @@ The molecule also offers the possibility to add icons to the left and right of t
  */
 
 @mixin subnavigation(
-  $subnavigation-class: '.subnavigation',
-  $container-class: '.subnavigation-container',
+  $namespace: '.subnavigation',
+  $subnavigation-class: '#{$namespace}',
+  $container-class: '#{$namespace}-container',
   $is-subnavbar: false,
-  $menu-class: '.subnavigation-list',
-  $item-class: '.subnavigation-item',
+  $menu-class: '#{$namespace}-list',
+  $item-class: '#{$namespace}-item',
   $current: '.current-menu-item',
   $has-submenu: false,
   $submenu: '.children',
   $has-icon-left: true,
-  $icon-left-selector: '.subnavigation-icon-left',
+  $icon-left-selector: '#{$namespace}-icon-left',
   $has-icon-right: true,
-  $icon-right-selector: '.subnavigation-icon-right',
+  $icon-right-selector: '#{$namespace}-icon-right',
   $icon-selector: '[class^="icon-"]'
 ) {
   #{$subnavigation-class} {
