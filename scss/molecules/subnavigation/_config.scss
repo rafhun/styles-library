@@ -149,6 +149,8 @@ The molecule also offers the possibility to add icons to the left and right of t
       &#{$icon-left-selector} #{$icon-selector} {
         padding-left: $subnavigation-padding-horizontal + $subnavigation-icon-left-size + $subnavigation-icon-left-spacing;
 
+        // make sure the icon goes over the padded area of the a element
+        background-origin: padding-box;
         background-position: $subnavigation-icon-left-position;
         background-size: $subnavigation-icon-left-size;
       }
