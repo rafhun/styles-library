@@ -111,14 +111,20 @@ The molecule also offers the possibility to add icons to the left and right of t
   }
 
   #{$item-class} {
+    transition: background-color .5s ease;
+
     border-top: $subnavigation-border;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $subnavigation-link-background-current;
+    }
 
     a {
       display: block;
 
       padding: $subnavigation-padding-vertical $subnavigation-padding-horizontal;
-
-      transition: background-color .5s ease;
 
       color: $subnavigation-link-color;
       font-size: $subnavigation-link-font-size;
@@ -129,8 +135,6 @@ The molecule also offers the possibility to add icons to the left and right of t
       &:hover,
       &:active,
       &:focus {
-        background-color: $subnavigation-link-background-current;
-
         color: $subnavigation-link-color-hover;
         text-decoration: $subnavigation-link-text-decoration-hover;
       }
