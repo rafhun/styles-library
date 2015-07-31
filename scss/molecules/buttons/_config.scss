@@ -31,11 +31,50 @@ You can find the markup examples on the Buttons page itself.
   transition: $transition;
 }
 
+// @mixin fo button coloring and border
+// set $bg to false for transparent buttons
+@mixin button-colors(
+  $bg: $button-base-background-color,
+  $bg-hover: null,
+  $bg-hover-treatment: $button-base-background-hover-treatment,
+  $color: $button-base-color,
+  $radius: false,
+  $border-radius: null,
+  $border-color: null
+) {
+  @if $bg {
+    @if $bg-hover == null {
+      $bg-hover: scale-color($bg, $lightness: $bg-hover-treatment);
+    }
+
+    @if $border-color == null {
+      $border-color: scale-color($bg, $lightness: $bg-hover-treatment);
+    }
+
+    border-color: $border-color;
+
+    background-color: $bg;
+    color: $color;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $bg-hover;
+    }
+  }
+
+  @if $radius and $border-radius == null {
+    $border-radius: $button-base-radius;
+
+    border-radius: $border-radius;
+  }
+}
+
 // @mixin to create button sizing
 @mixin button-size(
   $padding-vertical: $button-base-padding-vertical,
   $padding-horizontal: $button-base-padding-horizontal,
-  $full-width: false // or 'mobile', 'desktop', 'all'
+  $full-width: false // or 'mobile', 'desktop', 'all' (usually solved through a concrete config variable)
 ) {
   @if $full-width == 'mobile' {
     @include susy-media(max-mobile) {
@@ -60,6 +99,8 @@ You can find the markup examples on the Buttons page itself.
 @mixin button-text(
   $font-family: $button-base-font-family,
   $font-size: $button-base-font-size,
+  $font-weight: $button-base-font-weight,
+  $font-weight-hover: $button-base-font-weight-hover,
   $text-align: $button-base-text-align,
   $text-decoration: $button-base-text-decoration,
   $text-decoration-hover: $button-base-text-decoration-hover
@@ -67,6 +108,7 @@ You can find the markup examples on the Buttons page itself.
   // need to set this for button and input elements on Safari
   font-family: $font-family;
   font-size: $font-size;
+  font-weight: $font-weight;
   // make sure no special line heights are inherited
   line-height: normal;
   text-align: $text-align;
@@ -75,53 +117,16 @@ You can find the markup examples on the Buttons page itself.
   &:hover,
   &:focus,
   &:active {
+    font-weight: $font-weight-hover;
     // make sure we have the configured text-decoration
     text-decoration: $text-decoration-hover;
-  }
-}
-
-// @mixin fo button coloring and border
-// set $bg to false for transparent buttons
-@mixin button-colors(
-  $bg: $button-base-background-color,
-  $bg-hover: null,
-  $bg-hover-treatment: $button-base-background-hover-treatment,
-  $color: $button-base-color,
-  $radius: false,
-  $border-radius: null,
-  $border-color: null
-) {
-  @if $bg {
-    @if $bg-hover == null {
-      $bg-hover: scale-color($bg, $lightness: $bg-hover-treatment);
-    }
-
-    @if $border-color == null {
-      $border-color: scale-color($bg, $lightness: $bg-hover-treatment);
-    }
-
-    background-color: $bg;
-    color: $color;
-    border-color: $border-color;
-
-    &:active,
-    &:focus,
-    &:hover {
-      background-color: $bg-hover;
-    }
-  }
-
-  @if $radius and $border-radius == null {
-    $border-radius: $button-base-radius;
-
-    border-radius: $border-radius;
   }
 }
 
 // configure icons for buttons
 // we use grunticon for icons. make sure to either add the icon class directly to the button or link them up through the grunticon config
 @mixin button-icon(
-  $icon: 'right',
+  $icon: 'right', // or left (usually solved through button config variable though!)
   $icon-size: $button-base-icon-size,
   $icon-spacing: $button-base-icon-spacing,
   $icon-padding: $button-base-padding-horizontal
@@ -144,6 +149,8 @@ $button-base-background-hover-treatment: -10% !default;
 $button-base-color: $color-text !default;
 $button-base-font-family: $sans !default;
 $button-base-font-size: rem-calc(18) !default;
+$button-base-font-weight: normal !default;
+$button-base-font-weight-hover: $button-base-font-weight !default;
 $button-base-icon-size: 1.25rem !default;
 $button-base-icon-spacing: rem-calc(12) !default;
 $button-base-padding-horizontal: rem-calc(12) !default;
@@ -158,3 +165,12 @@ $button-base-vertical-align: middle !default;
 // primary button
 $button-primary-background-color: $color-primary !default;
 $button-primary-hover-treatment: +10% !default;
+
+// back button
+$button-back-icon-position: 'left';
+
+// forward button
+$button-forward-icon-position: 'right';
+
+// wide button
+$button-wide-display: 'all';

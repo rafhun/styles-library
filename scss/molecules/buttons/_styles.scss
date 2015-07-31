@@ -9,8 +9,8 @@ Uses the logic described on the Button Logic page to style some button variants.
 <input type="submit" class="btn" value="Button Input"><br>
 
 <a href="#" class="btn btn-primary">Primary Button</a><br>
-<a href="#" class="btn btn-back">Back Button</a><br>
 <a href="#" class="btn btn-forward">Forward Button</a><br>
+<a href="#" class="btn btn-back">Back Button</a><br>
 <a href="#" class="btn btn-wide">Wide Button</a><br>
 
 ```
@@ -19,9 +19,9 @@ Uses the logic described on the Button Logic page to style some button variants.
 // create the standard button
 .btn {
   @include button-base;
+  @include button-colors;
   @include button-size;
   @include button-text;
-  @include button-colors;
 
   &.btn-primary {
     @include button-colors(
@@ -32,19 +32,19 @@ Uses the logic described on the Button Logic page to style some button variants.
 
   &.btn-forward {
     @include button-icon(
-      $icon: 'left'
+      $icon: $button-forward-icon-position
     )
   }
 
   &.btn-back {
     @include button-icon(
-      $icon: 'right'
+      $icon: $button-back-icon-position
     )
   }
 
   &.btn-wide {
     @include button-size(
-      $full-width: 'all'
+      $full-width: $button-wide-display
     )
   }
 }
