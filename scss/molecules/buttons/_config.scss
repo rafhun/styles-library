@@ -19,6 +19,8 @@ You can find the markup examples on the Buttons page itself.
   border-style: solid;
   border-width: 0;
 
+  vertical-align: $button-base-vertical-align;
+
   // we indicate that the whole button can be clicked by changing the cursor to a pointer
   cursor: pointer;
 
