@@ -1,3 +1,17 @@
+<a name="1.1.2"></a>
+## 1.1.2 (2015-07-31)
+
+
+### Bug Fixes
+
+* **dependency:** change variable name for secondary bg color ([6d6dd33](https://github.com/rafhun/styles-library/commit/6d6dd33))
+
+### Features
+
+* **buttons:** implement new logic ([232a362](https://github.com/rafhun/styles-library/commit/232a362))
+
+
+
 <a name="1.1.1"></a>
 ## 1.1.1 (2015-07-30)
 
