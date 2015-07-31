@@ -128,17 +128,17 @@ You can find the markup examples on the Buttons page itself.
 // configure icons for buttons
 // we use grunticon for icons. make sure to either add the icon class directly to the button or link them up through the grunticon config
 @mixin button-icon(
-  $icon: 'right', // or left (usually solved through button config variable though!)
+  $icon-position: 'right', // or left (usually solved through button config variable though!)
   $icon-size: $button-base-icon-size,
   $icon-spacing: $button-base-icon-spacing,
   $icon-padding: $button-base-padding-horizontal
 ) {
-  @if $icon == 'left' {
+  @if $icon-position == 'left' {
     padding-left: $icon-size + $icon-spacing + $icon-padding;
 
     background-position: left $icon-padding center;
     background-size: $icon-size;
-  }@elseif $icon == 'right' {
+  }@elseif $icon-position == 'right' {
     padding-right: $icon-size + $icon-spacing + $icon-padding;
 
     background-position: right $icon-padding center;

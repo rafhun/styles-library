@@ -32,13 +32,13 @@ Uses the logic described on the Button Logic page to style some button variants.
 
   &.btn-forward {
     @include button-icon(
-      $icon: $button-forward-icon-position
+      $icon-position: $button-forward-icon-position
     )
   }
 
   &.btn-back {
     @include button-icon(
-      $icon: $button-back-icon-position
+      $icon-position: $button-back-icon-position
     )
   }
 
