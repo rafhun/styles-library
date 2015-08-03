@@ -1,0 +1,81 @@
+/*
+# Lists
+
+Our standard list is without a list style. For content lists we have a special class `.dash-ul` which prepends the list items with a symbol chosen in the styles, in this case an underscore.
+
+The normal list has no margins at the bottom while the standard paragraph margin is applied to the content lists. Further list classes with different symbols mightbe added at a later time.
+
+```
+<ul>
+  <li>Basic List</li>
+  <li>No list style</li>
+  <li>Perfect for link lists, navigations, or other appliances of lists such as i. e. galleries, teasers, ...</li>
+</ul>
+
+<ul class="dash-list">
+  <li>Dash ul, uses dashes as list symbols</li>
+  <li>Reminds of basic text editor styles</li>
+  <li>Can also be used to list negatives
+    <ol>
+      <li>Nested numbered lists</li>
+      <li>Should be possible as well</li>
+  </li>
+</ul>
+
+<ul class="plus-list">
+  <li>Plus list with pluses as list symbols</li>
+  <li>Can be used to list positives</li>
+  <li>How can we nest these lists?
+    <ul class="dash-list">
+      <li>Lorem</li>
+      <li>Ipsum</li>
+      <li>Dolor</li>
+  </li>
+</ul>
+```
+*/
+
+$default-list-style-position: inside !default;
+
+@mixin list(
+  $selector: '.list',
+  $list-style: none,
+  $list-style-position: $default-list-style-position,
+  $has-custom-symbol: true,
+  $custom-symbol: '–',
+  $list-margin: rem-calc(12),
+  $list-indent: rem-calc(4),
+  $list-spacing: rem-calc(20),
+  $nested-margin-factor: 1,
+  $pass-on-styles: false
+) {
+  #{$selector} {
+    margin-bottom: $list-spacing;
+    margin-left: $list-margin + $list-indent;
+
+    list-style: $list-style;
+
+    @if $list-style != none {
+      list-style-position: $list-style-position;
+    }
+
+    @if $has-custom-symbol {
+      $item-selector: if($pass-on-styles, 'li', '> li');
+
+      #{$item-selector} {
+        &::before {
+          position: relative;
+          left: - $list-indent;
+
+          margin-left: - $list-margin;
+          content: $custom-symbol;
+        }
+
+        ul,
+        ol {
+          margin-left: $nested-margin-factor * $list-margin + $list-indent;
+        }
+      }
+    }
+  }
+}
