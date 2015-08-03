@@ -1,11 +1,15 @@
 <a name="1.1.4"></a>
-## 1.1.4 (2015-08-03)
+## 1.1.4 (2015-07-31)
 
+
+### Bug Fixes
+
+* **buttons:** add vertical align to base styles ([e64e031](https://github.com/rafhun/styles-library/commit/e64e031))
 
 ### Features
 
+* **buttons:** add margin bottom argument ([e6a04bd](https://github.com/rafhun/styles-library/commit/e6a04bd))
 * **grunt:** add changelog reset preset ([9dd4ea6](https://github.com/rafhun/styles-library/commit/9dd4ea6))
-* **lists:** add finalized list atom ([d5dd63c](https://github.com/rafhun/styles-library/commit/d5dd63c))
 
 
 
@@ -118,6 +122,3 @@
 * The new conventional-changelog API uses a renewed configuration
 and will not work with previous versions. Therefore be careful using this
 version's package.json with older configurations.
-
-
-

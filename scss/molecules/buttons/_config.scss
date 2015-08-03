@@ -19,6 +19,8 @@ You can find the markup examples on the Buttons page itself.
   border-style: solid;
   border-width: 0;
 
+  vertical-align: $button-base-vertical-align;
+
   // we indicate that the whole button can be clicked by changing the cursor to a pointer
   cursor: pointer;
 
@@ -38,6 +40,7 @@ You can find the markup examples on the Buttons page itself.
   $bg-hover: null,
   $bg-hover-treatment: $button-base-background-hover-treatment,
   $color: $button-base-color,
+  $color-hover: $button-base-color-hover,
   $radius: false,
   $border-radius: null,
   $border-color: null
@@ -60,6 +63,9 @@ You can find the markup examples on the Buttons page itself.
     &:focus,
     &:hover {
       background-color: $bg-hover;
+
+      // make sure no a hover styles are inherited
+      color: $color-hover;
     }
   }
 
@@ -72,10 +78,13 @@ You can find the markup examples on the Buttons page itself.
 
 // @mixin to create button sizing
 @mixin button-size(
+  $margin-bottom: $button-base-margin-bottom,
   $padding-vertical: $button-base-padding-vertical,
   $padding-horizontal: $button-base-padding-horizontal,
   $full-width: false // or 'mobile', 'desktop', 'all' (usually solved through a concrete config variable)
 ) {
+  margin-bottom: $margin-bottom;
+
   @if $full-width == 'mobile' {
     @include susy-media(max-mobile) {
       width: 100%;
@@ -126,17 +135,17 @@ You can find the markup examples on the Buttons page itself.
 // configure icons for buttons
 // we use grunticon for icons. make sure to either add the icon class directly to the button or link them up through the grunticon config
 @mixin button-icon(
-  $icon: 'right', // or left (usually solved through button config variable though!)
+  $icon-position: 'right', // or left (usually solved through button config variable though!)
   $icon-size: $button-base-icon-size,
   $icon-spacing: $button-base-icon-spacing,
   $icon-padding: $button-base-padding-horizontal
 ) {
-  @if $icon == 'left' {
+  @if $icon-position == 'left' {
     padding-left: $icon-size + $icon-spacing + $icon-padding;
 
     background-position: left $icon-padding center;
     background-size: $icon-size;
-  }@elseif $icon == 'right' {
+  }@elseif $icon-position == 'right' {
     padding-right: $icon-size + $icon-spacing + $icon-padding;
 
     background-position: right $icon-padding center;
@@ -147,12 +156,14 @@ You can find the markup examples on the Buttons page itself.
 $button-base-background-color: $color-background-secondary !default;
 $button-base-background-hover-treatment: -10% !default;
 $button-base-color: $color-text !default;
+$button-base-color-hover: $button-base-color !default;
 $button-base-font-family: $sans !default;
 $button-base-font-size: rem-calc(18) !default;
 $button-base-font-weight: normal !default;
 $button-base-font-weight-hover: $button-base-font-weight !default;
 $button-base-icon-size: 1.25rem !default;
 $button-base-icon-spacing: rem-calc(12) !default;
+$button-base-margin-bottom: rem-calc(20) !default;
 $button-base-padding-horizontal: rem-calc(12) !default;
 $button-base-padding-vertical: rem-calc(6) !default;
 $button-base-radius: $border-radius !default;
