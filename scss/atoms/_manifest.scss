@@ -1,0 +1,7 @@
+// import the atom config and style files.
+// Take notice that we sort these imports differently than in the other manifest files in that we make it kind of specificity related. More global elements come first followed by more specific ones. Everything that outputs more than just tag selectors should be put at the very end.
+//
+
+// styling for or lists
+@import 'lists/config';
+@import 'lists/styles';
