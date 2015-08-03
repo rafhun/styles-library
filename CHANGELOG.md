@@ -1,3 +1,18 @@
+<a name="1.1.5"></a>
+## 1.1.5 (2015-08-03)
+
+
+### Bug Fixes
+
+* **buttons:** add vertical align to base styles ([e64e031](https://github.com/rafhun/styles-library/commit/e64e031))
+* changelog ([622d8cf](https://github.com/rafhun/styles-library/commit/622d8cf))
+
+### Features
+
+* **buttons:** add margin bottom argument ([e6a04bd](https://github.com/rafhun/styles-library/commit/e6a04bd))
+
+
+
 <a name="1.1.4"></a>
 ## 1.1.4 (2015-08-03)
 
