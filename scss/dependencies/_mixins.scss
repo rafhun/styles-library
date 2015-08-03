@@ -180,15 +180,15 @@ Creates a triangle on one of the edges of an element
 
     @if ($pos == 'top') {
       top: $v-offset;
-      left: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset), $offset);
+      left: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset}), $offset);
     } @else if ($pos == 'bottom') {
       bottom: $v-offset;
-      left: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset), $offset);
+      left: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset}), $offset);
     } @else if ($pos == 'left') {
-      top: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset), $offset);
+      top: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset}), $offset);
       left: $h-offset;
     } @else if ($pos == 'right') {
-      top: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset), $offset);
+      top: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset}), $offset);
       right: $h-offset;
     }
   }
