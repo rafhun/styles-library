@@ -37,8 +37,11 @@ Creates a triangle on one of the edges of an element
 
  Added parameters for height and color of the triangle. Sometimes we want to be able to have more influence over the color of the triangle which is why we are making it a configurable option. The standard value still is the previously given `currentColor` but can now be changed according to the design wishes. Also an additional height variable has been introduced. This defines the height of the triangle why the width describes the width of the base of the triangle. This enables us to easily add a triangle over the whole width of an element (like an off-canvas link's height) while keeping seperate control over the height.
 
+ If we use the triangle on a box with `::before` or `::after` pseudoelements we might need to adjust the center offset to account for these areas. This is why the `$center-offset` variable is introduced additionally. Its value gets subtracted from the computed one to perfectly center elements.
+
  @param {String}   $pos - Which edge to create the triangle on
  @param {Length}   $offset - The offset from the origin (top or left) on the edge
+ @param {Length}   $center-offset - Adjust center for use with before or after pseudo elements
  @param {String}   $direction - Direction of the triangle (in or out)
  @param {Length}   $width - Width of the triangle
  @param {Length}   $height - Height of the triangle
@@ -110,6 +113,7 @@ Creates a triangle on one of the edges of an element
 @mixin triangle(
   $pos: 'left',
   $offset: 0,
+  $center-offset: 0,
   $direction: 'out',
   $width: 1rem, // defines how wide the triangles base is
   $height: $width, // describes the height of the triangle
@@ -176,15 +180,15 @@ Creates a triangle on one of the edges of an element
 
     @if ($pos == 'top') {
       top: $v-offset;
-      left: if($offset == 'center', calc(50% - #{$width/2}), $offset);
+      left: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset), $offset);
     } @else if ($pos == 'bottom') {
       bottom: $v-offset;
-      left: if($offset == 'center', calc(50% - #{$width/2}), $offset);
+      left: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset), $offset);
     } @else if ($pos == 'left') {
-      top: if($offset == 'center', calc(50% - #{$width/2}), $offset);
+      top: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset), $offset);
       left: $h-offset;
     } @else if ($pos == 'right') {
-      top: if($offset == 'center', calc(50% - #{$width/2}), $offset);
+      top: if($offset == 'center', calc(50% - #{$width/2} - #{$center-offset), $offset);
       right: $h-offset;
     }
   }
