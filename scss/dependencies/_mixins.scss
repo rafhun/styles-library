@@ -55,11 +55,14 @@ Creates a triangle on one of the edges of an element
  @example scss - A triangle on the bottom edge of the parent, 220px from the left, pointing out, with a width of 60px and using a :before
   @include triangle('bottom', 220px, 'out', 60px, 'before');
 */
-@mixin separator($margins: rem-calc(6), $separator-color: inherit, $separator: '|', $font-size: inherit) {
+@mixin separator($margins: rem-calc(6), $separator-color: inherit, $separator: '|', $font-size: inherit, $inline-block-fix: true) {
   display: inline-block;
 
   margin-left: $margins;
-  margin-right: -4px; // fix inline-block white space
+
+  @if $inline-block-fix {
+    margin-right: -4px; // fix inline-block white space
+  }
 
   &:first-child {
     margin-left: 0;
