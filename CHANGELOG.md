@@ -1,3 +1,17 @@
+<a name="1.1.6"></a>
+## 1.1.6 (2015-08-03)
+
+
+### Bug Fixes
+
+* **mixins/triangle:** typo, add closing } ([a1245f2](https://github.com/rafhun/styles-library/commit/a1245f2))
+
+### Features
+
+* **mixins/triangle:** add center-offset parameter ([9189ab3](https://github.com/rafhun/styles-library/commit/9189ab3))
+
+
+
 <a name="1.1.5"></a>
 ## 1.1.5 (2015-08-03)
 
