@@ -1,0 +1,8 @@
+@include metanavigation;
+@include metanavigation(
+  $theme: 'secondary',
+  $align: center,
+  $background: $metanavigation-secondary-background,
+  $color: $metanavigation-secondary-color,
+  $has-form: false
+);

@@ -1,0 +1,109 @@
+/*
+# Metanavigation
+
+This molecule styles both the primary (top) and secondary (bottom) metanavigations. They basically only differ in coloring.
+
+```
+<nav class="metanavigation metanavigation-primary" role="navigation">
+  <div class="metanavigation-span">
+    <ul class="metanavigation-list">
+      <li class="metanavigation-list-item">
+        <a class="metanavigation-link" href="#">Home</a>
+      </li>
+      <li class="metanavigation-list-item">
+        <a class="metanavigation-link" href="#">Sporthalle Gotthelf</a>
+      </li>
+      <li class="metanavigation-list-item">
+        <a class="metanavigation-link" href="#">Kontakt</a>
+      </li>
+    </ul>
+    <form class="search-form" id="search-form-top">
+      <input type="search" class="search-input-field">
+    </form>
+  </div>
+</nav>
+
+<nav class="metanavigation metanavigation-secondary" role="navigation">
+  <div class="metanavigation-span">
+    <ul class="metanavigation-list">
+      <li class="metanavigation-list-item">
+        <a class="metanavigation-link" href="#">Disclaimer</a>
+      </li>
+      <li class="metanavigation-list-item">
+        <a class="metanavigation-link" href="#">Impressum</a>
+      </li>
+      <li class="metanavigation-list-item">
+        <a class="metanavigation-link" href="#">Sitemap</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+```
+*/
+
+$metanavigation-background: transparent !default;
+$metanavigation-color: $color-text !default;
+$metanavigation-font-size: rem-calc(14) !default;
+$metanavigation-height: rem-calc(62) !default;
+$metanavigation-line-height: 17/14 !default;
+
+
+$metanavigation-secondary-background: $color-text !default;
+$metanavigation-secondary-color: $color-text-secondary !default;
+$metanavigation-secondary-font-size: rem-calc(14) !default;
+$metanavigation-secondary-height: rem-calc(42) !default;
+$metanavigation-secondary-line-height: 17/14 !default;
+
+@mixin metanavigation(
+  $name: '.metanavigation',
+  $theme: 'primary',
+  $list: '#{$name}-list',
+  $align: right,
+  $background: $metanavigation-background,
+  $color: $metanavigation-color,
+  $font-size: $metanavigation-font-size,
+  $height: $metanavigation-height,
+  $line-height: $metanavigation-line-height,
+  $text-decoration: none,
+  $text-decoration-hover: none,
+  $has-form: true,
+  $form: '.search-form'
+) {
+  #{$name}-#{$theme} {
+    height: $height;
+
+    background-color: $background;
+
+    text-align: $align;
+
+    #{$list} {
+      display: inline-block;
+
+      list-style: none;
+
+      > li {
+        @include separator($separator-color: $color, $inline-block-fix: false);
+        display: inline-block;
+      }
+    }
+
+    a {
+      color: $color;
+      font-size: $font-size;
+      line-height: $height;
+      text-decoration: $text-decoration;
+
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: $text-decoration-hover;
+      }
+    }
+  }
+
+  @if $has-form {
+    #{$form} {
+      display: inline-block;
+    }
+  }
+}
