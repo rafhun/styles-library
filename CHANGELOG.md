@@ -1,3 +1,14 @@
+<a name="1.1.4"></a>
+## 1.1.4 (2015-08-03)
+
+
+### Features
+
+* **grunt:** add changelog reset preset ([9dd4ea6](https://github.com/rafhun/styles-library/commit/9dd4ea6))
+* **lists:** add finalized list atom ([d5dd63c](https://github.com/rafhun/styles-library/commit/d5dd63c))
+
+
+
 <a name="1.1.3"></a>
 ## 1.1.3 (2015-07-31)
 

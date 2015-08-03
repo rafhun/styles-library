@@ -1,5 +1,5 @@
 # Styles / Component Library by rafhun
-Version: 1.1.3
+Version: 1.1.4
 
 ## Goal
 This library assembles configurable UI components organized in the Atomic Design approach described by [Brad Frost](http://bradfrost.com/blog/post/atomic-web-design/). In the end we want to be able to share common UI components between projects while keeping them easily configurable and adaptable. This is why everything that is possible and makes sense will be architected as mixins that offer many configuration options. In this way this library does not force the use of a certain markup on you. Most things are styled with classes that can be freely configured. Of course stuff like navigations assume a basic list structure but also give you the freedom to choose your own classes. Most components that will depend on a CMS in the usual cases have been set up with the possibilities of a basic Wordpress install where one is limited on i. e. elements that classes can be applied to without custom walker functions. Also the default settings of these components reflect the Wordpress defaults.
