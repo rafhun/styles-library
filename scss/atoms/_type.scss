@@ -39,9 +39,7 @@ p {
 // headings //
 
 // set up the base style for the headings as a placeholder selector. This is placed here so the extended selectors are inserted at the correct place
-#{$headings-placeholder} {
-  @include headings-base;
-}
+@include headings-base;
 
 h1 {
   @include get-typography(h1);
