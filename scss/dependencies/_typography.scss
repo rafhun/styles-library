@@ -31,8 +31,10 @@ $anchor-text-decoration: none !default;
 $anchor-text-decoration-hover: underline !default;
 
 // this map configures all of our basic styles. set up all properties you need to style the given element. Everything defined in the list below ($typography-config-options) will be read and applied if it exists and has a value other than null.
+// By default we are only assigning a color to the base configuration since headings colors are set for all of them by the variables defined above. However if one heading differs in coloring we have the opportunity here to create the specific style.
 $typography: (
   base: (
+    color: $color-text,
     font-size: rem-calc(18),
     font-weight: null,
     line-height: 24/18,
@@ -48,26 +50,31 @@ $typography: (
     line-height: 26/22,
   ),
   h3: (
+    color: $color-text,
     font-size: rem-calc(20),
     font-weight: bold,
     line-height: 24/20,
   )
 );
 
-$typography-config-options: (font-size, font-weight, line-height);
+$typography-config-options: (color, font-size, font-weight, line-height);
 
 // we compute and set the proper margin bottom for the elements, by setting it equal to the box height of a row of text (font-size * line-height). Here we are using the values for the base text layout to compute a base margin bottom for all possible other elements such as lists, ...
 @if ((map-has-key(map-get($typography, base), font-size) and not (map-get(map-get($typography, base), font-size) == null)) and ((map-has-key(map-get($typography, base), line-height) and not (map-get(map-get($typography, base), line-height) == null)))) {
-  $base-block-margin-bottom: (map-get(map-get($typography, base), font-size)) * (map-get(map-get($typography, base), line-height)) !default;
+  $base-block-margin-bottom: (map-get(map-get($typography, base), font-size)) * (map-get(map-get($typography, base), line-height)) !default !global;
 } @else {
   // if the required values are not set in the $typography map we fall back to a rem value defined here.
-  $base-block-margin-bottom: rem-calc(20) !default;
+  $base-block-margin-bottom: rem-calc(20) !default !global;
 }
 
 // call this mixin within the element you wish to style. It takes the config key as an argument and falls back to the base config if none is given.
 @mixin get-typography($element: base) {
   // check that a configuration for the element specified can be found
   @if (map-has-key($typography, $element)) {
+    // if we have headings styles automatically extend the headings-base placehold selector
+    @if (index((h1, h2, h3, h4, h5, h6), $element)) {
+      @extend %headings-base;
+    }
     // check through all configurable options and add those that are defined for the element
     // fontsize
     @each $option in $typography-config-options {
