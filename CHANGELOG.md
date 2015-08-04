@@ -1,3 +1,20 @@
+<a name="1.1.7"></a>
+## 1.1.7 (2015-08-04)
+
+
+### Bug Fixes
+
+* **mixins/separator:** make inline block fix configurable ([d342437](https://github.com/rafhun/styles-library/commit/d342437))
+* **typography:** abstract headings placeholder to variable ([374dab0](https://github.com/rafhun/styles-library/commit/374dab0))
+* **typography:** minor code and logic improvments ([e68506d](https://github.com/rafhun/styles-library/commit/e68506d))
+
+### Features
+
+* **metanavigation:** add metanavigation mixin ([8e24a5a](https://github.com/rafhun/styles-library/commit/8e24a5a))
+* **typography:** add better headings logic ([d6fe373](https://github.com/rafhun/styles-library/commit/d6fe373))
+
+
+
 <a name="1.1.6"></a>
 ## 1.1.6 (2015-08-03)
 
