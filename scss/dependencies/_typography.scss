@@ -24,6 +24,7 @@ $headings-font-color: $color-primary !default;
 $headings-font-family: serif !default;
 $headings-font-weight: bold !default;
 $headings-text-rendering: optimizeLegibility !default;
+$headings-placeholder: '%headings-base' !default;
 
 
 // anchors
@@ -82,7 +83,7 @@ $typography-config-options: (color, font-size, font-weight, line-height);
   @if (map-has-key($typography, $element)) {
     // if we have headings styles automatically extend the headings-base placehold selector
     @if (index((h1, h2, h3, h4, h5, h6), $element)) or (map-get(map-get($typography, $element), is-heading)) {
-      @extend %headings-base;
+      @extend #{$headings-placeholder};
     }
     // check through all configurable options and add those that are defined for the element
     // fontsize
