@@ -5,6 +5,8 @@ Here we set all of our typography variables. These define rules that apply to th
 
 For lineheight it is strongly recommended to use unitless values that translate well in inheritance instances.
 
+The base heading styles are created through their own mixin using the variable given below. This mixin is included within a placeholder selector at the beginning of the type partial. For all usual headings tags (`h1` through `h6`) as well as for configuration maps including the `is-heading: true` key value pair, the placeholder is automatically extended (see the example `lead` configuration below and compare with the output).
+
 @TODO: Develop a responsive typography, possibly then used through a mixin that is set up and configured here.
 */
 
@@ -54,6 +56,13 @@ $typography: (
     font-size: rem-calc(20),
     font-weight: bold,
     line-height: 24/20,
+  ),
+  lead: (
+    color: $color-text,
+    font-size: rem-calc(20),
+    font-weight: bold,
+    line-height: 24/20,
+    is-heading: true,
   )
 );
 
@@ -72,7 +81,7 @@ $typography-config-options: (color, font-size, font-weight, line-height);
   // check that a configuration for the element specified can be found
   @if (map-has-key($typography, $element)) {
     // if we have headings styles automatically extend the headings-base placehold selector
-    @if (index((h1, h2, h3, h4, h5, h6), $element)) {
+    @if (index((h1, h2, h3, h4, h5, h6), $element)) or (map-get(map-get($typography, $element), is-heading)) {
       @extend %headings-base;
     }
     // check through all configurable options and add those that are defined for the element

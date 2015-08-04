@@ -1,29 +1,29 @@
 /*
 # Type
 
-Sets the default styles for all text. All variables used for these styles are defined in the dependencies/typograph file.
+Sets the default styles for all text. All variables used for these styles are defined in the dependencies/typography file.
 
 ```
-<h1>Team</h1>
+<h1>Lorem Ipsum h1</h1>
 <p>
   Lorem ipsum dolor <strong>sit amet</strong>, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum <a href="#">sociis</a> natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
 </p>
-<h2>Titel des Unternehmens</h2>
+<h2>Aenean Commodo h2</h2>
 <p>
   Lorem ipsum dolor <strong>sit amet</strong>, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum <a href="#">sociis</a> natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
 </p>
-<h2>Erbrachte Leistungen</h2>
+<h2>Adipiscing Elit h2</h2>
 <p>
   Lorem ipsum dolor <strong>sit amet</strong>, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum <a href="#">sociis</a> natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
 </p>
 <p>
   Lorem ipsum dolor <strong>sit amet</strong>, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum <a href="#">sociis</a> natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
 </p>
-<h3>Erbrachte Leistungen</h3>
+<h3>Vulputate Eget h3</h3>
 <p>
   Lorem ipsum dolor <strong>sit amet</strong>, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum <a href="#">sociis</a> natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
 </p>
-<h3>Erbrachte Leistungen</h3>
+<h3>Donec Pede Justo h3</h3>
 <p>
   Lorem ipsum dolor <strong>sit amet</strong>, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum <a href="#">sociis</a> natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
 </p>
@@ -67,4 +67,8 @@ a {
   &:focus {
     text-decoration: $anchor-text-decoration-hover;
   }
+}
+
+.lead {
+  @include get-typography(lead);
 }
