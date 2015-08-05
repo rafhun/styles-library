@@ -9,40 +9,41 @@ Also look over the variables when you have finished the styling and remove every
 */
 
 $susy: (
- gutter-position: split,
- columns: 12,
- gutters: .5,
- global-box-sizing: border-box,
- last-flow: to,
- debug: (
+  container: $container-width,
+  gutter-position: split,
+  columns: 12,
+  gutters: .5,
+  global-box-sizing: border-box,
+  last-flow: to,
+  debug: (
    image: hide,
    color: rgba(#66f, .25),
    output: background,
    toggle: top right,
- ),
- use-custom: (
+  ),
+  use-custom: (
    background-image: true,
    background-options: false,
    box-sizing: false,
    clearfix: true,
    rem: false,
- )
+  )
 );
 
 // breakpoints
 $susy-media: (
- xs: 20em,
- sm: 45em,
- md: 60em,
- lg: 80em,
- max-xs: max-width 19.9375em,
- max-sm: max-width 44.9375em,
- max-md: max-width 59.9375em,
- xs-sm: 20em 40em,
- sm-md: 40em 60em,
- md-lg: 60em 80em,
- go-desktop: 50em,
- max-mobile: max-width 49.9375em
+  xs: 20em,
+  sm: 45em,
+  md: 60em,
+  lg: 80em,
+  max-xs: max-width 19.9375em,
+  max-sm: max-width 44.9375em,
+  max-md: max-width 59.9375em,
+  xs-sm: 20em 40em,
+  sm-md: 40em 60em,
+  md-lg: 60em 80em,
+  go-desktop: 50em,
+  max-mobile: max-width 49.9375em
 );
 
 $container-width: rem-calc(1200) !default;
