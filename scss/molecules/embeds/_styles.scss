@@ -1,1 +1,7 @@
-@include embed-responsive (567, 378, 'maps');
+// basic embed setup
+@include embed;
+
+// concrete use cases
+@include embed-responsive('maps', 567, 378);
+@include embed-responsive('4by3', 4, 3);
+@include embed-responsive('16by9', 16, 9);
