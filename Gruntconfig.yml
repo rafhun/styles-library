@@ -1,6 +1,7 @@
 url: 'styles-library.dev'
 folders:
   css: 'wwwroot/css/'
+  documentation: 'wwwroot/documentation'
   fonts: 'wwwroot/fonts/'
   icons: 'wwwroot/icons/'
   images: 'wwwroot/images/'
