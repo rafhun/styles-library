@@ -1,45 +1,11 @@
-/*
-# Metanavigation
+// Metanavigation
+//
+// This molecule styles both the primary (top) and secondary (bottom) metanavigations. They basically only differ in coloring.
+//
+// Markup: metanavigation.html
+//
+// Style guide: molecules.metanavigation
 
-This molecule styles both the primary (top) and secondary (bottom) metanavigations. They basically only differ in coloring.
-
-```
-<nav class="metanavigation metanavigation-primary" role="navigation">
-  <div class="metanavigation-span">
-    <ul class="metanavigation-list">
-      <li class="metanavigation-list-item">
-        <a class="metanavigation-link" href="#">Home</a>
-      </li>
-      <li class="metanavigation-list-item">
-        <a class="metanavigation-link" href="#">Sporthalle Gotthelf</a>
-      </li>
-      <li class="metanavigation-list-item">
-        <a class="metanavigation-link" href="#">Kontakt</a>
-      </li>
-    </ul>
-    <form class="search-form" id="search-form-top">
-      <input type="search" class="search-input-field">
-    </form>
-  </div>
-</nav>
-
-<nav class="metanavigation metanavigation-secondary" role="navigation">
-  <div class="metanavigation-span">
-    <ul class="metanavigation-list">
-      <li class="metanavigation-list-item">
-        <a class="metanavigation-link" href="#">Disclaimer</a>
-      </li>
-      <li class="metanavigation-list-item">
-        <a class="metanavigation-link" href="#">Impressum</a>
-      </li>
-      <li class="metanavigation-list-item">
-        <a class="metanavigation-link" href="#">Sitemap</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-```
-*/
 
 $metanavigation-background: transparent !default;
 $metanavigation-color: $color-text !default;

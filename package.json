@@ -28,13 +28,13 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-conventional-changelog": "^4.1.0",
     "grunt-grunticon": "^2.2.2",
+    "grunt-kss": "^2.0.0",
     "grunt-sass": "^1.0.0",
     "grunt-sassdoc": "^2.0.1",
     "grunt-shell": "^1.1.2",
     "grunt-svgmin": "^2.0.1",
     "jshint": "^2.8.0",
     "load-grunt-config": "^0.17.1",
-    "sassdown": "^0.2.7",
     "time-grunt": "^1.2.1"
   },
   "dependencies": {}

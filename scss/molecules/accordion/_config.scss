@@ -1,39 +1,19 @@
-/*
-# Accordion
+// Accordion
+//
+// This molecule provides a way to display a lot of content on one page orderly by only showing the content's title by default and expanding on click to show the full content. This can be used for a multitude of applications such as FAQ sections.
+//
+// For this molecule to work you have to include the `accordion.js` file which contains the script to toggle the accordions open. Also the script depends on the `data-js` attribute to be set to `accordion-toggle` as shown in the example below. The class that is to be toggled on click is ported from the CSS to the JS automatically so you are free to choose it to your liking. Of course make sure to adjust your styleguide example as well.
+//
+// To add an icon to the title set the respective boolean in the mixin to true, then choose the position of the icon (left or right). The easiest way to add the icon is through grunticon and by adding the following to lines to your grunticon config: `'arrow-right-font': ['.accordion-title'], 'arrow-down-primary': ['.accordion-title.is-open'],`. However unfortunately grunticon cannot know the classes you have chosen for your markup so make sure they match up and also add the respective SVG files in their folder. The icons should then automatically show up where desired.
+//
+// This mixin depends on several configuration variables that must be set below. These include stylings basic styling properties of the molecule. Also the mixin makes use of the `text-ellipsis` mixin that is included in your `dependencies/mixins` partial by default. Make sure to have it available to provide a fallback for too long titles that would break the design.
+//
+// This molecule is also depending on a JS file that adds the basic toggling functionality. Make sure to copy `accordion.js` to your `js/molecules` folder.
+//
+// Markup: accordion.html
+//
+// Style guide: molecules.accordion
 
-This molecule provides a way to display a lot of content on one page orderly by only showing the content's title by default and expanding on click to show the full content. This can be used for a multitude of applications such as FAQ sections.
-
-For this molecule to work you have to include the `accordion.js` file which contains the script to toggle the accordions open. Also the script depends on the `data-js` attribute to be set to `accordion-toggle` as shown in the example below. The class that is to be toggled on click is ported from the CSS to the JS automatically so you are free to choose it to your liking. Of course make sure to adjust your styleguide example as well.
-
-To add an icon to the title set the respective boolean in the mixin to true, then choose the position of the icon (left or right). The easiest way to add the icon is through grunticon and by adding the following to lines to your grunticon config: `'arrow-right-font': ['.accordion-title'], 'arrow-down-primary': ['.accordion-title.is-open'],`. However unfortunately grunticon cannot know the classes you have chosen for your markup so make sure they match up and also add the respective SVG files in their folder. The icons should then automatically show up where desired.
-
-This mixin depends on several configuration variables that must be set below. These include stylings basic styling properties of the molecule. Also the mixin makes use of the `text-ellipsis` mixin that is included in your `dependencies/mixins` partial by default. Make sure to have it available to provide a fallback for too long titles that would break the design.
-
-This molecule is also depending on a JS file that adds the basic toggling functionality. Make sure to copy `accordion.js` to your `js/molecules` folder.
-
-```
-<p class="accordion-title is-open" data-js="accordion-toggle">
-    Quaerat eveniet minima laborum veritatis est qui accusantium? Delectus illum corporis laudantium illo repudiandae et doloremque?
-</p>
-<div class="accordion-container">
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, dolor! Blanditiis eaque sed voluptatibus expedita deserunt placeat facere libero, ipsum debitis inventore ad eveniet, velit distinctio architecto in quisquam, fuga?
-  </p>
-</div>
-<p class="accordion-title" data-js="accordion-toggle">
-  Harum dolore incidunt maxime eveniet ipsa sequi voluptatibus laudantium?
-</p>
-<div class="accordion-container">
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, dolor! Blanditiis eaque sed voluptatibus expedita deserunt placeat facere libero, ipsum debitis inventore ad eveniet, velit distinctio architecto in quisquam, fuga?
-  </p>
-
-  <p>
-    Accusantium at omnis vel, possimus fugiat explicabo necessitatibus facilis tempore voluptate, ea in, sunt magnam officia? Beatae reprehenderit non tempore, assumenda reiciendis, veritatis totam quod qui fugit commodi, sit in.
-  </p>
-</div>
-```
-*/
 
 // variables
 $accordion-title-color: $color-text !default;

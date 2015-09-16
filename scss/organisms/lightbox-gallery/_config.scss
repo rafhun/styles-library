@@ -1,75 +1,17 @@
-/*
-# Lightbox Gallery
+// Lightbox Gallery
+//
+// This organism requires the lightbox molecule which delievers the styles and scripts for the individual thumbs and full size images. There you will find all information necessary to set up the single images.
+//
+// To turn them into galleries simply add a value to the `data-lightbox` attributes. All images on the page that share the same value will be linked together as a gallery which enables you to have multiple independent galleries on one page.
+//
+// This gallery lays out several lightbox molecules in a nice responsive grid that is nicely adjustable through the mixin structure.
+//
+// The organism assumes the use of the grid system layed out in the `dependencies/layout` partial with four main breakpoints. The mixin lets you add a column number for the default state and each one of the breakpoints if so wished. To skip a breakpoint simply set its respective value to `$*-cols: null`.
+//
+// Markup: lightbox-gallery.html
+//
+// Style guide: organisms.lightbox-gallery
 
-This organism requires the lightbox molecule which delievers the styles and scripts for the individual thumbs and full size images. There you will find all information necessary to set up the single images.
-
-To turn them into galleries simply add a value to the `data-lightbox` attributes. All images on the page that share the same value will be linked together as a gallery which enables you to have multiple independent galleries on one page.
-
-This gallery lays out several lightbox molecules in a nice responsive grid that is nicely adjustable through the mixin structure.
-
-The organism assumes the use of the grid system layed out in the `dependencies/layout` partial with four main breakpoints. The mixin lets you add a column number for the default state and each one of the breakpoints if so wished. To skip a breakpoint simply set its respective value to `$*-cols: null`.
-
-```
-<section class="lightbox-gallery">
-  <figure class="lb-thumb">
-    <a data-lightbox="gallery-1" data-title="Bild 1" href="//fakeimg.pl/1000x720?text=Bild1">
-      <img alt="" src="//fakeimg.pl/300?text=Bild 1">
-    </a>
-    <figcaption class="lb-figcaption"><span class="lb-enum">1</span>Bildbeschrieb</figcaption>
-  </figure>
-
-  <figure class="lb-thumb">
-    <a data-lightbox="gallery-1" href="//fakeimg.pl/1000x500?text=Bild2">
-      <img alt="" src="//fakeimg.pl/300?text=Bild 2">
-    </a>
-    <figcaption class="lb-figcaption"><span class="lb-enum">2</span>Bildbeschrieb</figcaption>
-  </figure>
-
-  <figure class="lb-thumb">
-    <a data-lightbox="gallery-1" data-title="Bild 3" href="//fakeimg.pl/1000?text=Bild3">
-      <img alt="" src="//fakeimg.pl/300?text=Bild 3">
-    </a>
-    <figcaption class="lb-figcaption"><span class="lb-enum">3</span>Bildbeschrieb</figcaption>
-  </figure>
-
-  <figure class="lb-thumb">
-    <a data-lightbox="gallery-1" data-title="Bild 4" href="//fakeimg.pl/1000x1500?text=Bild4">
-      <img alt="" src="//fakeimg.pl/300?text=Bild 4">
-    </a>
-    <figcaption class="lb-figcaption"><span class="lb-enum">4</span>Bildbeschrieb</figcaption>
-  </figure>
-</section>
-<section class="lightbox-gallery">
-  <figure class="lb-thumb">
-    <a data-lightbox="gallery-1" data-title="Bild 1" href="//fakeimg.pl/1000x720?text=Bild1">
-      <img alt="" src="//fakeimg.pl/300?text=Bild 1">
-    </a>
-    <figcaption class="lb-figcaption"><span class="lb-enum">1</span>Bildbeschrieb</figcaption>
-  </figure>
-
-  <figure class="lb-thumb">
-    <a data-lightbox="gallery-1" href="//fakeimg.pl/1000x500?text=Bild2">
-      <img alt="" src="//fakeimg.pl/300?text=Bild 2">
-    </a>
-    <figcaption class="lb-figcaption"><span class="lb-enum">2</span>Bildbeschrieb</figcaption>
-  </figure>
-
-  <figure class="lb-thumb">
-    <a data-lightbox="gallery-1" data-title="Bild 3" href="//fakeimg.pl/1000?text=Bild3">
-      <img alt="" src="//fakeimg.pl/300?text=Bild 3">
-    </a>
-    <figcaption class="lb-figcaption"><span class="lb-enum">3</span>Bildbeschrieb</figcaption>
-  </figure>
-
-  <figure class="lb-thumb">
-    <a data-lightbox="gallery-1" data-title="Bild 4" href="//fakeimg.pl/1000x1500?text=Bild4">
-      <img alt="" src="//fakeimg.pl/300?text=Bild 4">
-    </a>
-    <figcaption class="lb-figcaption"><span class="lb-enum">4</span>Bildbeschrieb</figcaption>
-  </figure>
-</section>
-```
-*/
 @mixin lightbox-gallery(
   $gallery: '.lightbox-gallery',
   $has-divider: true,

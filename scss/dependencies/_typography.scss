@@ -1,14 +1,17 @@
-/*
-# Typography
+// Typography
+//
+// Here we set all of our typography variables. These define rules that apply to the whole document and also shoud cascade down to the components (where appropriate). Stuff such as font stacks, base values for font size and lineheight as well as headings are set up here.
+//
+// For lineheight it is strongly recommended to use unitless values that translate well in inheritance instances.
+//
+// The base heading styles are created through their own mixin using the variable given below. This mixin is included within a placeholder selector at the beginning of the type partial. For all usual headings tags (`h1` through `h6`) as well as for configuration maps including the `is-heading: true` key value pair, the placeholder is automatically extended (see the example `lead` configuration below and compare with the output).
+//
+// @TODO: Develop a responsive typography, possibly then used through a mixin that is set up and configured here.
+//
+// Style guide: dependencies.typography
+//
+// Weight: 3
 
-Here we set all of our typography variables. These define rules that apply to the whole document and also shoud cascade down to the components (where appropriate). Stuff such as font stacks, base values for font size and lineheight as well as headings are set up here.
-
-For lineheight it is strongly recommended to use unitless values that translate well in inheritance instances.
-
-The base heading styles are created through their own mixin using the variable given below. This mixin is included within a placeholder selector at the beginning of the type partial. For all usual headings tags (`h1` through `h6`) as well as for configuration maps including the `is-heading: true` key value pair, the placeholder is automatically extended (see the example `lead` configuration below and compare with the output).
-
-@TODO: Develop a responsive typography, possibly then used through a mixin that is set up and configured here.
-*/
 
 $sans: 'TheSans', Helvetica, Arial, sans-serif !default;
 $serif: Georgia, Utopia, Palatino, 'Palatino Linotype', serif !default;
@@ -21,7 +24,7 @@ $font-smoothing: antialiased !default;
 
 // headings
 $headings-font-color: $color-primary !default;
-$headings-font-family: serif !default;
+$headings-font-family: $serif !default;
 $headings-font-weight: bold !default;
 $headings-text-rendering: optimizeLegibility !default;
 $headings-placeholder: '%headings-base' !default;

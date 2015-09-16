@@ -1,102 +1,27 @@
-/*
-# Navbar Configuration
+// Navbar
+//
+// We have one mixin that contains all styles for the navbar. It is adjustable to your personal needs and is tailored to fit the model given in the actual Navbar style file.
+//
+// This mixin enables you to individually assign element selectors to fit your CMS or templates. The `container-class` is added to the `nav` element containing the navigation while the `menu-class` is given to the actual `ul` containing the navigation.
+//
+// Often we want to assign different styles to the current navigation item. To do this add the class implying which item is current to the `$current` variable.
+//
+// If the menu should be more than one level deep with a hover flyout menu you can set the `$has-submenu` variable to true and tell the mixin the class of these submenu lists by setting `$submenu`.
+//
+// To use an icon instead of text for the home link you can add these styles by setting `$has-home-icon` to true. You then can choose the class assigned to the home link with `$home-item-class`.
+//
+// The mixin has one other mixin dependency which is `text-ellipsis`. Take care to include this in your `dependencies/mixins` file or remove it from the styles below.
+//
+// Also there are several configuration variables required that set up the styling. In the default state of this config file all variables necessary are defined right below. Be very careful if you choose to delete them.
+//
+// The mixin's default values are giving you the correct classes for a standard Wordpress menu. Change them according to your design and navigation architecture.
+//
+// @TODO: maybe include all configuration variables in the mixin configuration?
+//
+// Markup: navbar.html
+//
+// Style guide: molecules.navbar
 
-We have one mixin that contains all styles for the navbar. It is adjustable to your personal needs and is tailored to fit the model given in the actual Navbar style file.
-
-This mixin enables you to individually assign element selectors to fit your CMS or templates. The `container-class` is added to the `nav` element containing the navigation while the `menu-class` is given to the actual `ul` containing the navigation.
-
-Often we want to assign different styles to the current navigation item. To do this add the class implying which item is current to the `$current` variable.
-
-If the menu should be more than one level deep with a hover flyout menu you can set the `$has-submenu` variable to true and tell the mixin the class of these submenu lists by setting `$submenu`.
-
-To use an icon instead of text for the home link you can add these styles by setting `$has-home-icon` to true. You then can choose the class assigned to the home link with `$home-item-class`.
-
-The mixin has one other mixin dependency which is `text-ellipsis`. Take care to include this in your `dependencies/mixins` file or remove it from the styles below.
-
-Also there are several configuration variables required that set up the styling. In the default state of this config file all variables necessary are defined right below. Be very careful if you choose to delete them.
-
-The mixin's default values are giving you the correct classes for a standard Wordpress menu. Change them according to your design and navigation architecture.
-
-@TODO: maybe include all configuration variables in the mixin configuration?
-
-```
-<nav role="navigation" class="navbar">
-  <div class="navbar-span">
-    <ul class="navbar-list" id="main-navigation">
-      <li class="navbar-list-item level-1 menu-item-home">
-        <a class="navbar-link home" href="#">
-          Home
-        </a>
-      </li>
-      <li class="navbar-list-item level-1 active">
-        <a class="navbar-link" href="#">
-          Alenia
-        </a>
-        <ul class="menu-level-2 menu">
-          <li class="navbar-list-item level-2">
-            <a class="navbar-link" href="#">
-              Profil
-            </a>
-          </li>
-          <li class="navbar-list-item level-2 active">
-            <a class="navbar-link" href="#">
-              Ansprechpartner
-            </a>
-          </li>
-          <li class="navbar-list-item level-2">
-            <a class="navbar-link" href="#">
-              Standorte
-            </a>
-          </li>
-          <li class="navbar-list-item level-2">
-            <a class="navbar-link" href="#">
-              Medien
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="navbar-list-item level-1">
-        <a class="navbar-link" href="#">
-          Beratung
-        </a>
-      </li>
-      <li class="navbar-list-item level-1">
-        <a class="navbar-link" href="#">
-          Pflege
-        </a>
-        <ul class="menu-level-2 menu">
-          <li class="navbar-list-item level-2">
-            <a class="navbar-link" href="#">
-              Profil
-            </a>
-          </li>
-          <li class="navbar-list-item level-2">
-            <a class="navbar-link" href="#">
-              Ansprechpartner
-            </a>
-          </li>
-          <li class="navbar-list-item level-2">
-            <a class="navbar-link" href="#">
-              Standorte
-            </a>
-          </li>
-          <li class="navbar-list-item level-2">
-            <a class="navbar-link" href="#">
-              Medien
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="navbar-list-item level-1">
-        <a class="navbar-link" href="#">
-          Dienstleistungen
-        </a>
-      </li>
-    </ul>
-  </div>
-</nav>
-```
- */
 
 @mixin navbar(
   $container-class: '.navbar',

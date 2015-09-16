@@ -1,7 +1,11 @@
-/*
-# Colors
-Every single color that is used throughout the stylesheet should be assigned to a variable in this file. Always assign color names to hex (or rgba or other) values to ensure better readable code. Then assign those variables to the theme ones.
-*/
+// Colors
+//
+// Every single color that is used throughout the stylesheet should be assigned to a variable in this file. Always assign color names to hex (or rgba or other) values to ensure better readable code. Then assign those variables to the theme ones.
+//
+// Style guide: dependencies.colors
+//
+// Weight: 2
+
 
 // colors (no defaults here, as variable name describes color)
 $golden-bell: #eb8714;

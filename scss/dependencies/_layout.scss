@@ -1,12 +1,15 @@
-/*
-# Layout
-This file defines the global layout options of the website. The values herein are to be understood symbolically since they are not really needed within a style/component library. Yet to make the whole structure easily portable and since components might depend
-on some of the variables they are included.
+// Layout
+//
+// This file defines the global layout options of the website. The values herein are to be understood symbolically since they are not really needed within a style/component library. Yet to make the whole structure easily portable and since components might depend on some of the variables they are included.
+//
+// Several Susy configuration variables like the main `$susy` map and the breakpoints are set up here. Also global elements such as a global border radius or vertical spacing variables can be set up here. Again make sure `!default` flags are set to enable themeability.
+//
+// Also look over the variables when you have finished the styling and remove everything that is not necessarily needed.
+//
+// Style guide: dependencies.layout
+//
+// Weight: 4
 
-Several Susy configuration variables like the main `$susy` map and the breakpoints are set up here. Also global elements such as a global border radius or vertical spacing variables can be set up here. Again make sure `!default` flags are set to enable themeability.
-
-Also look over the variables when you have finished the styling and remove everything that is not necessarily needed.
-*/
 $container-width: rem-calc(1200) !default;
 $header-height: rem-calc(54) !default;
 $footer-height: rem-calc(54) !default;

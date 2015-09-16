@@ -1,39 +1,16 @@
-/*
-# Lists
+// Lists
+//
+// Our standard list is without a list style. For content lists we have a special class `.dash-ul` which prepends the list items with a symbol chosen in the styles, in this case an underscore.
+//
+// The normal list has no margins at the bottom while the standard paragraph margin is applied to the content lists. Further list classes with different symbols mightbe added at a later time.
+//
+// Markup: lists.hbs
+//
+// .dash-list        - A list that uses dashes as list icons
+// .plus-list        - A list that uses pluses as list icons
+//
+// Style guide: atoms.lists
 
-Our standard list is without a list style. For content lists we have a special class `.dash-ul` which prepends the list items with a symbol chosen in the styles, in this case an underscore.
-
-The normal list has no margins at the bottom while the standard paragraph margin is applied to the content lists. Further list classes with different symbols mightbe added at a later time.
-
-```
-<ul>
-  <li>Basic List</li>
-  <li>No list style</li>
-  <li>Perfect for link lists, navigations, or other appliances of lists such as i. e. galleries, teasers, ...</li>
-</ul>
-
-<ul class="dash-list">
-  <li>Dash ul, uses dashes as list symbols</li>
-  <li>Reminds of basic text editor styles</li>
-  <li>Can also be used to list negatives
-    <ol>
-      <li>Nested numbered lists</li>
-      <li>Should be possible as well</li>
-  </li>
-</ul>
-
-<ul class="plus-list">
-  <li>Plus list with pluses as list symbols</li>
-  <li>Can be used to list positives</li>
-  <li>How can we nest these lists?
-    <ul class="dash-list">
-      <li>Lorem</li>
-      <li>Ipsum</li>
-      <li>Dolor</li>
-  </li>
-</ul>
-```
-*/
 
 $default-list-style-position: inside !default;
 

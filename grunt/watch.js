@@ -13,14 +13,14 @@ module.exports = {
   },
   styles: {
     files: ['<%= config.folders.scss %>**/*.scss'],
-    tasks: ['sass:main', 'autoprefixer:main', 'cssmin', 'sassdown']
+    tasks: ['sass:main', 'autoprefixer:main', 'cssmin', 'kss']
   },
   grunticon: {
     files: ['<%= config.folders.svg %>*.svg'],
     tasks: ['clean:svgmin', 'svgmin', 'grunticon']
   },
-  sassdown: {
+  kss: {
     files: ['<%= config.folders.scss %>readme.md'],
-    tasks: ['sassdown']
+    tasks: ['kss']
   }
 }

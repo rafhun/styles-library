@@ -1,68 +1,18 @@
-/*
-# Subnavigation
+// Subnavigation
+//
+// The subnavigation serves as secondary navigation element on a page. It exists in several basic forms but is mostly used either in typical list form in a sidebar next to the content or as a navigation bar directly under the main navigation. This styles library offers configurations for both solutions. As to not pollute the resulting CSS all is kept tidily in mixins and only applied if configured as wished.
+//
+// We have two examples to show two use cases. The first is for subnavigations with only one level the second is for ones with multiple levels.
+//
+// The molecule also offers the possibility to add icons to the left and right of the menu items. These icons should be added as indicated in the example below. This ensures nice spacing and lining up whether your nav items wrap or fit on one line. The disadvantage is the need to add classes to the `li` and `a` elements which might be more difficult in Worpress environments. We will have to look for a solution for this problem.
+//
+// @TODO: Icons in Wordpress Environments
+// @TODO: Subnavigationbar definitions/styling
+//
+// Markup: subnavigation.html
+//
+// Style guide: molecules.subnavigation
 
-The subnavigation serves as secondary navigation element on a page. It exists in several basic forms but is mostly used either in typical list form in a sidebar next to the content or as a navigation bar directly under the main navigation. This styles library offers configurations for both solutions. As to not pollute the resulting CSS all is kept tidily in mixins and only applied if configured as wished.
-
-We have two examples to show two use cases. The first is for subnavigations with only one level the second is for ones with multiple levels.
-
-The molecule also offers the possibility to add icons to the left and right of the menu items. These icons should be added as indicated in the example below. This ensures nice spacing and lining up whether your nav items wrap or fit on one line. The disadvantage is the need to add classes to the `li` and `a` elements which might be more difficult in Worpress environments. We will have to look for a solution for this problem.
-
-@TODO: Icons in Wordpress Environments
-@TODO: Subnavigationbar definitions/styling
-
-```
-<nav class="subnavigation" role="navigation">
-  <div class="subnavigation-container">
-    <ul class="subnavigation-list">
-      <li class="subnavigation-item subnavigation-icon-left subnavigation-icon-right icon-arrow-right-primary">
-        <a href="#" class="icon-menu">
-          Lorem Ipsum Dolor Amet Numquam Facilis Deserunt</span>
-        </a>
-      </li>
-      <li class="subnavigation-item current-menu-item">
-        <a href="#">Ipsum</a>
-      </li>
-      <li class="subnavigation-item">
-        <a href="#">Dolor</a>
-      </li>
-      <li class="subnavigation-item">
-        <a href="#">Amet</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-<nav class="subnavigation-kids" role="navigation">
-  <div class="subnavigation-container">
-    <ul class="subnavigation-list">
-      <li class="subnavigation-item">
-        <a href="#">Lorem</a>
-      </li>
-      <li class="subnavigation-item current-menu-item">
-        <a href="#">Ipsum</a>
-        <ul class="children">
-          <li class="subnavigation-item">
-            <a href="#">Numquam</a>
-          </li>
-          <li class="subnavigation-item current-menu-item">
-            <a href="#">Facilis</a>
-          </li>
-          <li class="subnavigation-item">
-            <a href="#">Deserunt</a>
-          </li>
-        </ul>
-      </li>
-      <li class="subnavigation-item">
-        <a href="#">Dolor</a>
-      </li>
-      <li class="subnavigation-item">
-        <a href="#">Amet</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-```
- */
 
 @mixin subnavigation(
   $namespace: '.subnavigation',

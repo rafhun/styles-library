@@ -1,20 +1,17 @@
-/*
-# Buttons
+// Buttons
+//
+// Uses the logic described on the Button Logic page to style some button variants. Of course in the production variant you would also assign icons to the `.btn-forward` and `.btn-back` buttons.
+//
+// Markup: buttons.hbs
+//
+// :hover          - highlights when hovering
+// .btn-primary    - primary button
+// .btn-forward    - forward button
+// .btn-back       - back button
+// .btn-wide       - wide button (spanning the given width)
+//
+// Style guide: molecules.buttons
 
-Uses the logic described on the Button Logic page to style some button variants. Of course in the production variant you would also assign icons to the `.btn-forwar` and `btn-back` buttons.
-
-```
-<a href="#" class="btn">Anchor Tag Button</a><br>
-<button class="btn">Button Tag</button><br>
-<input type="submit" class="btn" value="Button Input"><br>
-
-<a href="#" class="btn btn-primary">Primary Button</a><br>
-<a href="#" class="btn btn-forward">Forward Button</a><br>
-<a href="#" class="btn btn-back">Back Button</a><br>
-<a href="#" class="btn btn-wide">Wide Button</a><br>
-
-```
- */
 
 // create the standard button
 .btn {

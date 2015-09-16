@@ -1,16 +1,13 @@
-/*
-# Responsive Embed
+// Responsive Embed
+//
+// The responsive embeds are built using a mixin to get different aspect ratios down. These should be defined on the go as they are needed so we only have stuff in our stylesheets that is actually needed.
+//
+// Just add the dimensions to the mixin and you will get the correct padding applied to the respective style.
+//
+// Markup: embeds.html
+//
+// Style guide: molecules.embeds
 
-The responsive embeds are built using a mixin to get different aspect ratios down. These should be defined on the go as they are needed so we only have stuff in our stylesheets that is actually needed.
-
-Just add the dimensions to the mixin and you will get the correct padding applied to the respective style.
-
-```
-<div class="embed-container embed-container-maps">
-  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2723.4813925234575!2d7.453770999999998!3d46.952231!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e39c2a12607df%3A0xc27eb1db3037329d!2sChristen+Ortho!5e0!3m2!1sde!2sch!4v1428929767606" width="750" height="450" frameborder="0" style="border:0"></iframe>
-</div>
-```
-*/
 
 
 // this section handles responsive embeds.. Especially useful for youtube and

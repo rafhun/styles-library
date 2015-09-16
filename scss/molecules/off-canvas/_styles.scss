@@ -1,57 +1,13 @@
-/*
-# Off Canvas
-
-The off canvas navigation is used to display the navigation nicely
-in the mobile view.
-In its structure it follows the tutorial by Zell Liew which can be
-found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
-
-```
-<div class="body-container">
-  <div class="transformer in">
-    <div class="off-canvas-container">
-      <nav role="navigation" class="off-canvas-nav">
-        <ul class="off-canvas-list">
-          <li class="off-canvas-list-item menu-item-home">
-            <a data-js="off-canvas-link" href="#" class="level-1 off-canvas-link">Home</a>
-          </li>
-          <li class="off-canvas-list-item">
-            <a data-js="off-canvas-link" href="#" class="level-1 off-canvas-link">Prof. D. Erni</a>
-          </li>
-          <li class="off-canvas-list-item">
-            <a data-js="off-canvas-link" href="#" class="level-1 off-canvas-link starter_active">Meine Brust</a>
-            <ul class="menu">
-              <li class="off-canvas-list-item">
-                <a data-js="off-canvas-link" href="#" class="level-2 off-canvas-link active">Kleine, erschlaffte Brust</a>
-              </li>
-              <li class="off-canvas-list-item">
-                <a data-js="off-canvas-link" href="#" class="level-2 off-canvas-link">Angeborene Fehlentwicklung</a>
-              </li>
-            </ul>
-          </li>
-          <li class="off-canvas-list-item">
-            <a data-js="off-canvas-link" href="#" class="level-1 off-canvas-link">Galerie</a>
-          </li>
-          <li class="off-canvas-list-item">
-            <a data-js="off-canvas-link" href="#" class="level-1 off-canvas-link">Kontakt</a>
-          </li>
-        </ul>
-      </nav>
-      <nav role="navigation" class="off-canvas-meta">
-        <ul class="metanavigation">
-          <li class="oc-meta-list-item"><a href="{NODE_SITEMAP}">Sitemap</a></li>
-          <li class="oc-meta-list-item"><a href="{NODE_IMPRINT}">Impressum</a></li>
-          <li class="oc-meta-list-item"><a href="{NODE_PRIVACY}">Disclaimer</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="main" style="min-height: 700px;">
-      <a href="#" class="off-canvas-toggle icon-menu" data-js="off-canvas-toggle">Toggle Off-Canvas</a>
-    </div>
-  </div>
-</div>
-```
-*/
+// Off Canvas Navigation
+//
+// The off canvas navigation is used to display the navigation nicely
+// in the mobile view.
+// In its structure it follows the tutorial by Zell Liew which can be
+// found [here](http://www.zell-weekeat.com/off-canvas-layouts-susy/).
+//
+// Markup: off-canvas.html
+//
+// Style guide: molecules.off-canvas
 
 .body-container {
   position: relative;

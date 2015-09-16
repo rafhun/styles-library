@@ -6,9 +6,6 @@ module.exports = function(grunt) {
     data: {
       pkg: grunt.file.readJSON('package.json'),
       config: grunt.file.readYAML('Gruntconfig.yml')
-    },
-    loadGruntTasks: {
-      pattern: ['grunt-*', 'sassdown']
     }
   });
 };

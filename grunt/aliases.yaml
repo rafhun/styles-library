@@ -9,7 +9,7 @@ default:
   - 'cssmin'
   - 'svgmin'
   - 'grunticon'
-  - 'sassdown'
+  - 'kss'
   - 'browserSync'
   - 'watch'
 

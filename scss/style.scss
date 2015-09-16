@@ -9,8 +9,14 @@ $EDITOR-STYLES: false;
 // import scss port of normalize.css by Nicolas Gallagher for a smart 'reset'
 @import '../bower_components/normalize-scss/normalize';
 
-// Import dependencies
+// Dependencies
+//
 // This section will not produce any code but just set up the projects settings and provide some basic global functionality through mixins and functions
+//
+// Style guide: dependencies
+//
+// Weight: 1
+//
 @import 'dependencies/functions';
 @import 'dependencies/color';
 @import 'dependencies/typography';
@@ -19,18 +25,37 @@ $EDITOR-STYLES: false;
 
 // importing the atoms
 
-// We want to load the font face definitions before everything else, maybe we should even consider adding it right before normalize as kind of a vendor sheet
+// Atoms
+//
+// We want to load the font face definitions before everything else, maybe we should even consider adding it right before normalize as kind of a vendor sheet.
+//
+// For everything else we consider the scope of the styles contained, from wide to narrow.
+//
+// Style guide: atoms
+//
+// Weight: 2
 @import 'atoms/webfonts';
-
-// for everything else we consider the scope of the styles contained, from wide to narrow
+//
 @import 'atoms/site'; // mainly html and body elements
 @import 'atoms/media'; // above all responsive images
 @import 'atoms/type'; // all typography, text styles
-
+//
 @import 'atoms/manifest';
 
-// molecules are the smallest ui components we define. They usually just add styling to one element respectively. Since there are several files to import from subfolders we use a manifest file for molecules to keep the main stylesheet clean.
+// Molecules
+//
+// Molecules are the smallest ui components we define. They usually just add styling to one element respectively. Since there are several files to import from subfolders we use a manifest file for molecules to keep the main stylesheet clean.
+//
+// Style guide: molecules
+//
+// Weight: 3
 @import 'molecules/manifest';
 
-// organisms are built from several molecules and make larger parts of the page often already containing some layout decisions
+// Organisms
+//
+// Organisms are built from several molecules and make larger parts of the page often already containing some layout decisions.
+//
+// Style guide: organisms
+//
+// Weight: 4
 @import 'organisms/manifest';
