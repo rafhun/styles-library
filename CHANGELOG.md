@@ -1,3 +1,21 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/rafhun/styles-library/compare/v1.1.7...v2.0.0) (2015-09-16)
+
+
+### Bug Fixes
+
+* **layout:** add default container to ([d9888f9](https://github.com/rafhun/styles-library/commit/d9888f9))
+* **layout:** move container variable to top ([afde7c0](https://github.com/rafhun/styles-library/commit/afde7c0))
+
+### Features
+
+* **embeds:** finalize mixins and add examples ([d59d325](https://github.com/rafhun/styles-library/commit/d59d325))
+* **grunt:** add sassdoc to document sass ([5464eaa](https://github.com/rafhun/styles-library/commit/5464eaa))
+* **molecules:** embeds (rough draft) ([7354ce8](https://github.com/rafhun/styles-library/commit/7354ce8))
+* **styleguide:** change to kss-node generator ([7df3cf4](https://github.com/rafhun/styles-library/commit/7df3cf4))
+
+
+
 <a name="1.1.7"></a>
 ## 1.1.7 (2015-08-04)
 
