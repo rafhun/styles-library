@@ -1,3 +1,13 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/rafhun/styles-library/compare/v2.0.0...v2.0.1) (2015-09-17)
+
+
+### Bug Fixes
+
+* **grunt:** use own grunt-kss version ([ac30de2](https://github.com/rafhun/styles-library/commit/ac30de2))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/rafhun/styles-library/compare/v1.1.7...v2.0.0) (2015-09-16)
 
