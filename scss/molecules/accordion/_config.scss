@@ -1,3 +1,10 @@
+////
+/// @author Raphael Hüni
+///
+/// @group Molecules
+///
+/// @since 0.1.0
+////
 // Accordion
 //
 // This molecule provides a way to display a lot of content on one page orderly by only showing the content's title by default and expanding on click to show the full content. This can be used for a multitude of applications such as FAQ sections.
@@ -34,16 +41,17 @@ $accordion-icon-spacing: .5rem !default;
 $accordion-icon-offset: rem-calc(6) !default;
 $accordion-icon-padding: $accordion-icon-size + $accordion-icon-spacing + $accordion-icon-offset;
 
-// @mixin accordion($title, $is-open, $last-title, $has-icon, $icon-position, $container)
-//  Description: Creates all accordion styles
-//  Dependencies: @mixin text-ellipsis
-//
-//  @params $title [ string ]: Selector for the accordion title
-//  @params $is-open [ string ]: Selector that inidcates that the accordion is open
-//  @params $last-title [ string ]: Selector for the last accordion title of a section
-//  @params $has-icon [ boolean ]: Indicates whether an icon is displayed to one side of the title
-//  @params $icon-position [ left || right ]: Indicates where the icon should be positioned
-//  @params $container [ string ]: Selector for the accordion container
+/// Refer to the styleguide for a more thorough description of the mixin and the styles created through it. With this mixin one can easily add a freely configurable accordion component to a website.
+///
+/// @requires text-ellipsis
+/// @requires rem-calc
+///
+/// @param {String} $title ['.accordion-title'] - Define the class selector for the title part of the accordion.
+/// @param {String} $is-open ['.is-open'] - Define the class that indicates the open state of the accordion.
+/// @param {String} $last-title ['.last'] - Define the class for the last accordion title of a section since that requires additional styles
+/// @param {Boolean} $has-icon [true] - Set to false if you do not need any icons for your accordion
+/// @param {String} $icon-position ['right'] - Define where the icon should be positioned (`'left'` or `'right'`)
+/// @param {String} $container ['.accordion-container'] - Defines the class of the accordion container
 @mixin accordion(
   $title: '.accordion-title',
   $is-open: '.is-open',
