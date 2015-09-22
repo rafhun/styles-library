@@ -29,7 +29,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-conventional-changelog": "^4.1.0",
     "grunt-grunticon": "^2.2.2",
-    "grunt-kss": "rafhun/grunt-kss#v2.1.0",
+    "grunt-kss": "rafhun/grunt-kss#v2.1.3",
     "grunt-sass": "^1.0.0",
     "grunt-sassdoc": "^2.0.1",
     "grunt-shell": "^1.1.2",
