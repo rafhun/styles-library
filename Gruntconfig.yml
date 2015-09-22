@@ -4,6 +4,7 @@ folders:
   documentation: 'wwwroot/documentation/'
   fonts: 'wwwroot/fonts/'
   icons: 'wwwroot/icons/'
+  imageSrc: 'images/'
   images: 'wwwroot/images/'
   js: 'wwwroot/js/'
   jsMolecules: 'jsSrc/molecules/'
