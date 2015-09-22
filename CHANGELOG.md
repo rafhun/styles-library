@@ -1,3 +1,19 @@
+<a name="2.0.2"></a>
+## [2.0.2](https://github.com/rafhun/styles-library/compare/v2.0.1...v2.0.2) (2015-09-22)
+
+
+### Bug Fixes
+
+* **grunt:** optimize task definitions ([01abe82](https://github.com/rafhun/styles-library/commit/01abe82))
+* **kss:** update and adjust task configuration ([643344e](https://github.com/rafhun/styles-library/commit/643344e))
+* **molecules:** add lightbox images ([ade2c21](https://github.com/rafhun/styles-library/commit/ade2c21)), closes [#1](https://github.com/rafhun/styles-library/issues/1)
+
+### Features
+
+* **grunt:** add image minifier ([22e5055](https://github.com/rafhun/styles-library/commit/22e5055))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/rafhun/styles-library/compare/v2.0.0...v2.0.1) (2015-09-17)
 
