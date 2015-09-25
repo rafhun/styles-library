@@ -9,7 +9,8 @@ default:
   - 'cssmin'
   - 'svgmin'
   - 'grunticon'
-  - 'kss'
+  - 'imagemin'
+  - 'docs'
   - 'browserSync'
   - 'watch'
 
@@ -45,3 +46,7 @@ majorBump:
   - 'bump:major'
   - 'conventionalChangelog'
   - 'shell:addChangelog'
+
+docs:
+  - 'kss'
+  - 'sassdoc'

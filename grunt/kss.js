@@ -2,7 +2,8 @@ module.exports = {
   options: {
     css: ['css/style.css', 'css/icons.data.svg.css'],
     js: 'js/script.js',
-    template: 'node_modules/grunt-kss/node_modules/kss/generator/handlebars/template/'
+    // npm: 2 // uncomment if you are using npm v2.*
+    // template: 'node_modules/kss/generator/handlebars/template/'
   },
   styleguide: {
     files: {

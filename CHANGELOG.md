@@ -1,10 +1,16 @@
 <a name="2.0.2"></a>
-## [2.0.2](https://github.com/rafhun/styles-library/compare/v2.0.1...v2.0.2) (2015-09-25)
+## [2.0.2](https://github.com/rafhun/styles-library/compare/v2.0.1...v2.0.2) (2015-09-22)
 
 
 ### Bug Fixes
 
-* **off-canvas:** standard submenu background should be the same as the off-canvas background ([124dcce](https://github.com/rafhun/styles-library/commit/124dcce))
+* **grunt:** optimize task definitions ([01abe82](https://github.com/rafhun/styles-library/commit/01abe82))
+* **kss:** update and adjust task configuration ([643344e](https://github.com/rafhun/styles-library/commit/643344e))
+* **molecules:** add lightbox images ([ade2c21](https://github.com/rafhun/styles-library/commit/ade2c21)), closes [#1](https://github.com/rafhun/styles-library/issues/1)
+
+### Features
+
+* **grunt:** add image minifier ([22e5055](https://github.com/rafhun/styles-library/commit/22e5055))
 
 
 
