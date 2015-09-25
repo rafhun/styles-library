@@ -1,3 +1,13 @@
+<a name="2.0.2"></a>
+## [2.0.2](https://github.com/rafhun/styles-library/compare/v2.0.1...v2.0.2) (2015-09-25)
+
+
+### Bug Fixes
+
+* **off-canvas:** standard submenu background should be the same as the off-canvas background ([124dcce](https://github.com/rafhun/styles-library/commit/124dcce))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/rafhun/styles-library/compare/v2.0.0...v2.0.1) (2015-09-17)
 
