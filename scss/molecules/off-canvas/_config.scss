@@ -5,7 +5,7 @@ $off-canvas-container-padding-horizontal: rem-calc(36) !default;
 $off-canvas-width: rem-calc(270) !default;
 $off-canvas-background-color: $color-secondary !default;
 $off-canvas-background-active: $color-primary !default;
-$off-canvas-submenu-background: $color-secondary !default;
+$off-canvas-submenu-background: $off-canvas-background-color !default;
 
 $off-canvas-font-color: $white !default;
 $off-canvas-font-size: rem-calc(18) !default;
