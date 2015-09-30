@@ -49,7 +49,8 @@ $susy-media: (
   sm-md: 40em 60em,
   md-lg: 60em 80em,
   go-desktop: 50em,
-  max-mobile: max-width 49.9375em
+  max-mobile: max-width 49.9375em,
+  font-desktop: 30em
 );
 
 $vertical-spacing: gutter() !default;

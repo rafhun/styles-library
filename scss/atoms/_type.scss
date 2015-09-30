@@ -23,6 +23,10 @@ $h1-font-size: 1.9 * $body-copy-font-size !default;
 $h2-font-size: 1.4 * $body-copy-font-size !default;
 $h3-font-size: 1.2 * $body-copy-font-size !default;
 
+$h1-max-mobile-font: rem-calc(24) !default;
+$h2-max-mobile-font: rem-calc(21) !default;
+$h3-max-mobile-font: rem-calc(18) !default;
+
 // anchors at last
 $anchor-color-font: $color-primary !default;
 $anchor-color-font-hover: $anchor-color-font !default;
@@ -54,15 +58,24 @@ h3 {
 }
 
 h1 {
-  font-size: $h1-font-size;
+  font-size: $h1-max-mobile-font;
+  @include susy-media(font-desktop) {
+    font-size: $h1-font-size;
+  }
 }
 
 h2 {
-  font-size: $h2-font-size;
+  font-size: $h2-max-mobile-font;
+  @include susy-media(font-desktop) {
+    font-size: $h2-font-size;
+  }
 }
 
 h3 {
-  font-size: $h3-font-size;
+  font-size: $h3-max-mobile-font;
+  @include susy-media(font-desktop) {
+    font-size: $h3-font-size;
+  }
 }
 
 // anchors
