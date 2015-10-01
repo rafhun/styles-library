@@ -1,3 +1,14 @@
+<a name="2.0.4"></a>
+## [2.0.4](https://github.com/rafhun/styles-library/compare/v2.0.3...v2.0.4) (2015-10-01)
+
+
+### Features
+
+* **type:** base for new typo system ([b628a6c](https://github.com/rafhun/styles-library/commit/b628a6c))
+* **type:** mobile headings sizes ([663bbb5](https://github.com/rafhun/styles-library/commit/663bbb5))
+
+
+
 <a name="2.0.3"></a>
 ## [2.0.3](https://github.com/rafhun/styles-library/compare/v2.0.2...v2.0.3) (2015-09-25)
 
