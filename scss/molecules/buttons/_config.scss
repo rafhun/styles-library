@@ -1,3 +1,9 @@
+////
+/// @author Raphael Hüni
+///
+/// @group Molecules
+////
+
 /*
 # Button Logic
 
@@ -9,6 +15,11 @@ You can find the markup examples on the Buttons page itself.
 
  */
 
+/// This sets the base markup of all our buttons. We only reset some properties and define the display and general appearance but no coloring, sizing, text formatting or similar happens here. The only property that can be adjusted through params is the transition.
+///
+/// @param {String} $transition [$button-base-transition] - The variable given is defined a typical CSS transition string (i. e. `background-color .25s ease-out`). Any valid strings for the transition property can be defined here.
+///
+/// @since 0.1.0
 @mixin button-base(
   $transition: $button-base-transition
 ) {
@@ -33,8 +44,22 @@ You can find the markup examples on the Buttons page itself.
   transition: $transition;
 }
 
-// @mixin fo button coloring and border
-// set $bg to false for transparent buttons
+/// Here we define the coloring of our buttons. Everything from background, to hover states, to text, to border coloring is defined through this mixin.
+///
+/// The mixin is created very flexible so you can style it however the design demands. See the annotations to the params below for further information.
+///
+/// @param {Color} $bg [$button-base-background-color] - Sets the background color for the button. It accepts color values as well as `false` which defines no background color and thus in most cases a transparent button. If you need to override another color definition however, make sure to set the param as `transparent`.
+/// @param {Color} $bg-hover [null] - If you have a previously defined hover color for your buttons set this parameter to it. Otherwise let it be `null` which kicks in the automatic hover effect for the background color (see below).
+/// @param {Number} $bg-hover-treatment [$button-base-background-hover-treatment] - Accepts values from `-100%` to `100%` which defines the darkening (for values below 0) or lightening of the background color upon hover.
+/// @param {Color} $color [$button-base-color] - Defines the text color of the button
+/// @param {Color} $color-hover [$button-base-color-hover] - Defines the hover text color of the button. Be very careful to set this variable if you have applied hover styles concerning color to the anchor elements if you do not want them to be inherited here.
+/// @param {Boolean} $radius [false] - If some border radius should be applied to the button set this value to true.
+/// @param {Number} $border-radius [null] - Define the value of the border radius here.
+/// @param {Color} $border-color [null] - Use this parameter to indicate the border's color.
+///
+/// @todo Do we need another parameter to define a border hover color?
+///
+/// @since 0.1.0
 @mixin button-colors(
   $bg: $button-base-background-color,
   $bg-hover: null,
@@ -76,7 +101,14 @@ You can find the markup examples on the Buttons page itself.
   }
 }
 
-// @mixin to create button sizing
+/// Define the sizing for the buttons which includes the padding that should be applied, the bottom margin and also the option to set a margin as full width for either mobile or desktop or any screen sizes.
+///
+/// @param {Number} $margin-bottom [$button-base-margin-bottom] - How much space is needed below each button.
+/// @param {Number} $padding-vertical [$button-base-padding-vertical] - Defines the vertical padding that is applied to the button.
+/// @param {Number} $padding-horizontal [$button-base-padding-horizontal] - Defines the horizontal padding that is applied to the button.
+/// @param {String | Boolean} $full-width [false] - Defines if buttons should be full width or not. This basically just adds a `width: 100%` definition to the styles. Accepted values are `mobile`, `desktop`, `all` and `false`. Setting the parameter to i. e. `desktop` applies the definition within a media query to ensure the button gets stretched to 100% of its containers width for larger screens. Default sizing is equal to the text length plus the horizontal padding.
+///
+/// @since 0.1.0
 @mixin button-size(
   $margin-bottom: $button-base-margin-bottom,
   $padding-vertical: $button-base-padding-vertical,
@@ -104,7 +136,17 @@ You can find the markup examples on the Buttons page itself.
   }
 }
 
-// @mixin for button text styles
+/// Defines all text styles that might apply to the button such as font family, font weight, aligns, decorations and of course also all of their hover states.
+///
+/// @param {List | String} $font-family [$button-base-font-family] - Which font family should be used for the buttons is defined here.
+/// @param {Number} $font-size [$button-base-font-size] - Defines the font size for the button text.
+/// @param {String | Number} $font-weight [$button-base-font-weight - Defines the font weight of the button text.]
+/// @param {String | Number} $font-weight-hover [$button-base-font-weight-hover] - Button text font weight on hover.
+/// @param {String} $text-align [$button-base-text-align] - Button text align
+/// @param {String} $text-decoration [$button-base-text-decoration] - Button text decoration (especially useful if some different text decoration is set for the anchor tags).
+/// @param {String} $text-decoration-hover [$button-base-text-decoration-hover] - Text decoration for buttons upon hover, also most useful if some hover state text decoration is defined for the anchor tags.
+///
+/// @since 0.1.0
 @mixin button-text(
   $font-family: $button-base-font-family,
   $font-size: $button-base-font-size,
@@ -134,6 +176,14 @@ You can find the markup examples on the Buttons page itself.
 
 // configure icons for buttons
 // we use grunticon for icons. make sure to either add the icon class directly to the button or link them up through the grunticon config
+/// prepares a button to use grunticon generated icons which are applied as background images. Therefore this mostly just adds some space on either the left or the right where the icon can be placed.
+///
+/// @param {'left' | 'right'} $icon-position ['right'] - Defines on which side of the button the icon should appear.
+/// @param {Number} $icon-size [$button-base-icon-size] - Defines the size of the icon, is assigned to the `background-size` property.
+/// @param {Number} $icon-spacing [$button-base-icon-spacing] - Defines the space needed between the icon and the ensuing text.
+/// @param {Number} $icon-padding [$button-base-padding-horizontal] - Defines how far the icon should be set from the border. Usually this should be equal to the default button padding, however some cases might occur, where a different value is better fitting.
+///
+/// @since 0.1.0
 @mixin button-icon(
   $icon-position: 'right', // or left (usually solved through button config variable though!)
   $icon-size: $button-base-icon-size,
