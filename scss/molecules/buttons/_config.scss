@@ -1,23 +1,20 @@
 ////
 /// @author Raphael Hüni
 ///
-/// @group Molecules
+/// @group Molecules - Buttons
 ////
 
-/*
-# Button Logic
-
-There are many variations of buttons on our website, all of which should be styled through the mixin defined here.
-
-`$hover-changes` defines which properties should be transitioned on hover (usually this is the background color, however when working with gradients it might be the background-image).
-
-You can find the markup examples on the Buttons page itself.
-
- */
 
 /// This sets the base markup of all our buttons. We only reset some properties and define the display and general appearance but no coloring, sizing, text formatting or similar happens here. The only property that can be adjusted through params is the transition.
 ///
-/// @param {String} $transition [$button-base-transition] - The variable given is defined a typical CSS transition string (i. e. `background-color .25s ease-out`). Any valid strings for the transition property can be defined here.
+/// All valid strings for the transition property can be given to the mixin through the relevant parameter (see below).
+///
+/// @param {String} $transition [$button-base-transition] - Defines the transition effect on the button
+///
+/// @example scss Basic Usage
+///   .btn {
+///     @include button-base($transition: .2s background-color ease-in);
+///   }
 ///
 /// @since 0.1.0
 @mixin button-base(
@@ -48,7 +45,7 @@ You can find the markup examples on the Buttons page itself.
 ///
 /// The mixin is created very flexible so you can style it however the design demands. See the annotations to the params below for further information.
 ///
-/// @param {Color} $bg [$button-base-background-color] - Sets the background color for the button. It accepts color values as well as `false` which defines no background color and thus in most cases a transparent button. If you need to override another color definition however, make sure to set the param as `transparent`.
+/// @param {Color} $bg [$button-base-background-color] - Sets the background color for the button. Can also be set to `false` to create transparent buttons
 /// @param {Color} $bg-hover [null] - If you have a previously defined hover color for your buttons set this parameter to it. Otherwise let it be `null` which kicks in the automatic hover effect for the background color (see below).
 /// @param {Number} $bg-hover-treatment [$button-base-background-hover-treatment] - Accepts values from `-100%` to `100%` which defines the darkening (for values below 0) or lightening of the background color upon hover.
 /// @param {Color} $color [$button-base-color] - Defines the text color of the button
@@ -58,6 +55,16 @@ You can find the markup examples on the Buttons page itself.
 /// @param {Color} $border-color [null] - Use this parameter to indicate the border's color.
 ///
 /// @todo Do we need another parameter to define a border hover color?
+///
+/// @example scss Basic Usage
+///   .btn {
+///     // @include button-base($transition: .2s background-color ease-in);
+///     @include button-colors(
+///       $bg: #f1f1f1,
+///       $bg-hover: #fff,
+///       $color: indigo
+///     );
+///   }
 ///
 /// @since 0.1.0
 @mixin button-colors(
@@ -106,7 +113,18 @@ You can find the markup examples on the Buttons page itself.
 /// @param {Number} $margin-bottom [$button-base-margin-bottom] - How much space is needed below each button.
 /// @param {Number} $padding-vertical [$button-base-padding-vertical] - Defines the vertical padding that is applied to the button.
 /// @param {Number} $padding-horizontal [$button-base-padding-horizontal] - Defines the horizontal padding that is applied to the button.
-/// @param {String | Boolean} $full-width [false] - Defines if buttons should be full width or not. This basically just adds a `width: 100%` definition to the styles. Accepted values are `mobile`, `desktop`, `all` and `false`. Setting the parameter to i. e. `desktop` applies the definition within a media query to ensure the button gets stretched to 100% of its containers width for larger screens. Default sizing is equal to the text length plus the horizontal padding.
+/// @param {mobile | desktop | all | false} $full-width [false] - Defines if buttons should be full width or not. This basically just adds a `width: 100%` definition to the styles. Setting the parameter to i. e. `desktop` applies the definition within a media query to ensure the button gets stretched to 100% of its containers width for larger screens. Default sizing is equal to the text length plus the horizontal padding.
+///
+/// @example scss Basic Usage
+///   .btn {
+///     // @include button-base($transition: .2s background-color ease-in);
+///     @include button-size(
+///       $margin-bottom: 1.5rem,
+///       $padding-vertical: .25rem,
+///       $padding-horizontal: .5rem,
+///       $full-width: 'mobile'
+///     );
+///   }
 ///
 /// @since 0.1.0
 @mixin button-size(
@@ -146,6 +164,16 @@ You can find the markup examples on the Buttons page itself.
 /// @param {String} $text-decoration [$button-base-text-decoration] - Button text decoration (especially useful if some different text decoration is set for the anchor tags).
 /// @param {String} $text-decoration-hover [$button-base-text-decoration-hover] - Text decoration for buttons upon hover, also most useful if some hover state text decoration is defined for the anchor tags.
 ///
+/// @example scss Basic Usage
+///   .btn {
+///     // @include button-base($transition: .2s background-color ease-in);
+///     @include button-text(
+///       $font-size: 1.2rem,
+///       $text-align: center,
+///       $text-decoration-hover: none
+///     );
+///   }
+///
 /// @since 0.1.0
 @mixin button-text(
   $font-family: $button-base-font-family,
@@ -174,14 +202,25 @@ You can find the markup examples on the Buttons page itself.
   }
 }
 
-// configure icons for buttons
-// we use grunticon for icons. make sure to either add the icon class directly to the button or link them up through the grunticon config
-/// prepares a button to use grunticon generated icons which are applied as background images. Therefore this mostly just adds some space on either the left or the right where the icon can be placed.
+/// Prepares a button to use grunticon generated icons which are applied as background images. Therefore this mostly just adds some space on either the left or the right where the icon can be placed.
 ///
 /// @param {'left' | 'right'} $icon-position ['right'] - Defines on which side of the button the icon should appear.
 /// @param {Number} $icon-size [$button-base-icon-size] - Defines the size of the icon, is assigned to the `background-size` property.
 /// @param {Number} $icon-spacing [$button-base-icon-spacing] - Defines the space needed between the icon and the ensuing text.
 /// @param {Number} $icon-padding [$button-base-padding-horizontal] - Defines how far the icon should be set from the border. Usually this should be equal to the default button padding, however some cases might occur, where a different value is better fitting.
+///
+/// @output Just sets the appropriate padding, background position and size, according to the values given to the mixin.
+///
+/// @example scss Basic Usage
+///   .btn {
+///     // @include button-base($transition: .2s background-color ease-in);
+///     @include button-icon(
+///       $icon-position: 'left',
+///       $icon-size: 1rem,
+///       $icon-spacing: .375rem,
+///       $icon-padding: .5rem
+///     );
+///   }
 ///
 /// @since 0.1.0
 @mixin button-icon(
@@ -203,24 +242,62 @@ You can find the markup examples on the Buttons page itself.
   }
 }
 
+/// Sets the background color for the default button if the default mixin arguments are used.
+/// @type Color
 $button-base-background-color: $color-background-secondary !default;
+/// Describes how the background color gets adjusted on hover for the default button (resp. as the default value of the mixin). Values below `0%` darken the color while values above it lighten it.
+/// @type Number
 $button-base-background-hover-treatment: -10% !default;
+/// Default text color.
+/// @type Color
 $button-base-color: $color-text !default;
+/// Default text color on hover, defaults to the base text color meaning by default there is no change of text color on hover.
+/// @type Color
 $button-base-color-hover: $button-base-color !default;
+/// Default font font-family used for buttons.
+/// @type List
 $button-base-font-family: $sans !default;
+/// Default font size for buttons.
+/// @type Number
 $button-base-font-size: rem-calc(18) !default;
+/// Default font weight for buttons.
+/// @type String | Number
 $button-base-font-weight: normal !default;
+/// Default hover font weight for buttons. Defaults to the base font weight meaning no font weight change on hover.
+/// @type String | Number
 $button-base-font-weight-hover: $button-base-font-weight !default;
+/// Default icon sizing for buttons.
+/// @type Number
 $button-base-icon-size: 1.25rem !default;
+/// Default icon spacing for buttons. Defines the space wanted between the icon and the ensuing text.
+/// @type Number
 $button-base-icon-spacing: rem-calc(12) !default;
+/// Default button margin bottom.
+/// @type Number
 $button-base-margin-bottom: rem-calc(20) !default;
+/// Default button horizontal padding.
+/// @type Number
 $button-base-padding-horizontal: rem-calc(12) !default;
+/// Default button vertical padding.
+/// @type Number
 $button-base-padding-vertical: rem-calc(6) !default;
+/// Default border radius for buttons.
+/// @type Number
 $button-base-radius: $border-radius !default;
+/// Default text align in buttons.
+/// @type String
 $button-base-text-align: center !default;
+/// Default text decoration for buttons.
+/// @type String
 $button-base-text-decoration: none !default;
+/// Default hover text decoration.
+/// @type String
 $button-base-text-decoration-hover: none !default;
+/// Default button base transition.
+/// @type List
 $button-base-transition: background-color .5s ease !default;
+/// Default button vertical align.
+/// @type String
 $button-base-vertical-align: middle !default;
 
 // primary button
