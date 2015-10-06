@@ -13,7 +13,7 @@ module.exports = {
   },
   styles: {
     files: ['<%= config.folders.scss %>**/*.scss'],
-    tasks: ['sass:main', 'autoprefixer:main', 'cssmin', 'kss', 'sassdown']
+    tasks: ['sass:main', 'autoprefixer:main', 'cssmin', 'kss', 'sassdoc']
   },
   grunticon: {
     files: ['<%= config.folders.svg %>*.svg'],
