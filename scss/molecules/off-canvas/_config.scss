@@ -3,35 +3,73 @@
 /// @group Molecules - Navigation
 ////
 
-$off-canvas-container-padding: rem-calc(24 0 24 36) !default;
+/// indicates the vertical padding applied to the off-canvas navigation
+/// @type Number
 $off-canvas-container-padding-vertical: rem-calc(24) !default;
+/// indicates the horizontal padding applied to the close edge of the off-canvas navigation
+/// @type Number
 $off-canvas-container-padding-horizontal: rem-calc(36) !default;
 
+/// indicates the width of the off-canvas navigation
+/// @type Number
 $off-canvas-width: rem-calc(270) !default;
+/// indicates the off-canvas navigation background color
+/// @type Color
 $off-canvas-background-color: $color-secondary !default;
+/// indicates the off-canvas navigation background color for active/current items
+/// @type Color
 $off-canvas-background-active: $color-primary !default;
-$off-canvas-submenu-background: $off-canvas-background-color !default;
+/// indicates the off-canvas navigation submenu background color, defaults to the off canvas background color
+/// @type Color
+$off-canvas-submenu-background-color: $off-canvas-background-color !default;
 
+/// indicates the off-canvas navigation font color
+/// @type Color
 $off-canvas-font-color: $white !default;
+/// indicates the off-canvas navigation font size
+/// @type Number
 $off-canvas-font-size: rem-calc(18) !default;
+/// indicates the off-canvas navigation text align
+/// @type String
 $off-canvas-text-align: left !default;
+/// indicates the off-canvas navigation text decoration
+/// @type String
 $off-canvas-text-decoration-hover: none !default;
 
+/// indicates the border between off-canvas navigation items
+/// @type List
 $off-canvas-list-item-border-bottom: 1px solid $darken !default;
 
+/// indicates the off-canvas navigation link height (item height)
+/// @type Number
 $off-canvas-link-height: rem-calc(48) !default;
+/// indicates the off-canvas navigation line-height, defaults to the link height which centers the text
+/// @type Number
 $off-canvas-link-line-height: $off-canvas-link-height !default;
 
+/// indicates the off-canvas navigation home icon size
+/// @type Number
 $off-canvas-home-icon-size: $off-canvas-font-size !default;
-
+/// indicates the off-canvas navigation toggle size
+/// @type Number
 $off-canvas-toggle-size: rem-calc(36) !default;
 
+/// indicates the off-canvas navigation meta font size
+/// @type Number
 $off-canvas-meta-font-size: rem-calc(14) !default;
+/// indicates the off-canvas navigation meta item spacing
+/// @type Number
 $off-canvas-meta-spacing: rem-calc(12) !default;
 
+/// indicates the off-canvas navigation triangle height (how sharp they should be)
+/// @type Number
 $off-canvas-triangle-height: rem-calc(16) !default;
 
+/// indicates the offset of the meta navigation to the off-canvas
+/// @type Number
 $meta-block-margin: rem-calc(72) !default;
+/// indicates the off-canvas meta padding to the bottom edge
+/// @type Number
 $meta-block-padding: $vertical-spacing !default;
 
 /// This mixin lets one create an off-canvas navigation quite flexibly. Many options are available through the parameters of the mixin such as positioning of the navigation (left or right), the use of a home icon or of an additional meta navigation. Also all classes used for styling are given as parameters to the mixin.
@@ -73,7 +111,6 @@ $meta-block-padding: $vertical-spacing !default;
   $list-item: '.off-canvas-list-item',
   $current-item: '.current-menu-item',
   $submenu: '.menu',
-  $toggle: '.off-canvas-toggle',
   $is-open: '.is-open',
   $position: 'right',
   $home-icon: true,
@@ -169,7 +206,7 @@ $meta-block-padding: $vertical-spacing !default;
       transform: $translate;
       transition: transform 500ms ease;
 
-      background-color: $off-canvas-background-color;
+      background-color: $off-canvas-submenu-background-color;
 
       list-style: none;
 
