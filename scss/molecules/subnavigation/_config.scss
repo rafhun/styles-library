@@ -1,3 +1,8 @@
+////
+/// @group molecules - navigation
+/// @author Raphael Hüni
+////
+
 // Subnavigation
 //
 // The subnavigation serves as secondary navigation element on a page. It exists in several basic forms but is mostly used either in typical list form in a sidebar next to the content or as a navigation bar directly under the main navigation. This styles library offers configurations for both solutions. As to not pollute the resulting CSS all is kept tidily in mixins and only applied if configured as wished.
@@ -13,11 +18,37 @@
 //
 // Style guide: molecules.subnavigation
 
-
+/// Mixin to create the typical secondary navigation on a page (usually the subnavigation in a sidebar). Again it is created as flexible as possible and offers several customizable options which put in only the styles that indeed are needed for the subnavigation we are styling.
+///
+/// By namespacing the selectors great flexibility for the styles is given: we even can create a completely different UI element that has similar styling but does not work in the function of a subnavigation and just change one mixin parameter.
+///
+/// @param {String} $namespace ['.subnavigation'] - This is used as the main name of the styled subnavigations and allows us to create multiple variations of it.
+/// @param {String} $subnavigation-class ['$namespace'] - Class assigned to the `nav` or otherwise containing element of the subnavigation.
+/// @param {Boolean} $is-subnavbar [false] - Enables subnavbar specific styling such as not showing it when there is an off-canvas navigaton.
+/// @param {String} $menu-class ['$namespace -list'] - Class of the `ul`.
+/// @param {String} $item-class ['$namespace -item'] - Class of the `li` elements.
+/// @param {String} $current ['.current-menu-item'] - Class to indicate the currently active page.
+/// @param {Boolean} $has-submenu [false] - Enables submenu stylings.
+/// @param {String} $submenu ['.children'] - Class of nested `ul` elements.
+/// @param {Boolean} $has-icon-left [true] - Enables an icon to the left of every list item.
+/// @parmam {String} $icon-left-selector ['$namespace -icon-left'] - Class on list items to indicate that there is an icon left.
+/// @param {Boolean} $has-icon-right [true] - Enables an icon to the right of every list item.
+/// @param {String} $icon-right-selector ['$namespace -icon-right'] - Class to indicate that there is an icon right.
+/// @param {String} $icon-selector ['class^="icon-"'] - General icon selector
+///
+/// @example scss - Subnavigation with children and icons only to the left
+///   @include subnavigation(
+///     $is-subnavbar: true,
+///     $has-submenu: true,
+///     $has-icon-right: false
+///     // for all other params we can use the default values
+///   );
+///
+/// @since 0.1.0
+///
 @mixin subnavigation(
   $namespace: '.subnavigation',
   $subnavigation-class: '#{$namespace}',
-  $container-class: '#{$namespace}-container',
   $is-subnavbar: false,
   $menu-class: '#{$namespace}-list',
   $item-class: '#{$namespace}-item',
