@@ -242,62 +242,25 @@
   }
 }
 
-/// Sets the background color for the default button if the default mixin arguments are used.
-/// @type Color
+
 $button-base-background-color: $color-background-secondary !default;
-/// Describes how the background color gets adjusted on hover for the default button (resp. as the default value of the mixin). Values below `0%` darken the color while values above it lighten it.
-/// @type Number
 $button-base-background-hover-treatment: -10% !default;
-/// Default text color.
-/// @type Color
 $button-base-color: $color-text !default;
-/// Default text color on hover, defaults to the base text color meaning by default there is no change of text color on hover.
-/// @type Color
 $button-base-color-hover: $button-base-color !default;
-/// Default font font-family used for buttons.
-/// @type List
 $button-base-font-family: $sans !default;
-/// Default font size for buttons.
-/// @type Number
 $button-base-font-size: rem-calc(18) !default;
-/// Default font weight for buttons.
-/// @type String | Number
 $button-base-font-weight: normal !default;
-/// Default hover font weight for buttons. Defaults to the base font weight meaning no font weight change on hover.
-/// @type String | Number
 $button-base-font-weight-hover: $button-base-font-weight !default;
-/// Default icon sizing for buttons.
-/// @type Number
 $button-base-icon-size: 1.25rem !default;
-/// Default icon spacing for buttons. Defines the space wanted between the icon and the ensuing text.
-/// @type Number
 $button-base-icon-spacing: rem-calc(12) !default;
-/// Default button margin bottom.
-/// @type Number
 $button-base-margin-bottom: rem-calc(20) !default;
-/// Default button horizontal padding.
-/// @type Number
 $button-base-padding-horizontal: rem-calc(12) !default;
-/// Default button vertical padding.
-/// @type Number
 $button-base-padding-vertical: rem-calc(6) !default;
-/// Default border radius for buttons.
-/// @type Number
 $button-base-radius: $border-radius !default;
-/// Default text align in buttons.
-/// @type String
 $button-base-text-align: center !default;
-/// Default text decoration for buttons.
-/// @type String
 $button-base-text-decoration: none !default;
-/// Default hover text decoration.
-/// @type String
 $button-base-text-decoration-hover: none !default;
-/// Default button base transition.
-/// @type List
 $button-base-transition: background-color .5s ease !default;
-/// Default button vertical align.
-/// @type String
 $button-base-vertical-align: middle !default;
 
 // primary button
