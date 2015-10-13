@@ -1,3 +1,7 @@
+////
+/// @group Molecules - Lightbox
+////
+
 // Lightbox
 //
 // This lightbox relies on the plugin provided by Lokesh Dhakar: http://lokeshdhakar.com/projects/lightbox2/
@@ -32,13 +36,29 @@ $lb-number-color: $color-text !default;
 $lb-number-font-size: rem-calc(12) !default;
 $lb-number-padding: 1rem !default;
 
+/// This mixin configures the display of a lightbox thumbnail with some extra options for its caption. For now the caption is always positioned exactly where it is put in the markup, above or below the image. The styles are optimized for displaying it below.
+///
+/// To get a better picture of how and what exactly we are styling here, please refer to the styleguide.
+///
+/// @param {String} $thumbnail ['.lb-thumb'] - This is the class assigned to the element containing the actual thumbnail and lightbox link (usually a `figure`).
+/// @param {String} $thumbnail-caption ['.lb-figcaption'] - Selector for the thumbnail caption (could also just be the `figcaption` element).
+/// @param {Boolean} $thumbnail-number [true] - Defines if there should be enumeration in the captions (numbers have to be added manually though).
+/// @param {String} $thumbnail-enum ['.lb-enum'] - Selector for the enumeration `span` (see markup example).
+/// @param {Boolean} $thumbnail-number-separator [true] - Defines whether there should be a seperator between number and rest of caption.
+/// @param {String} $thumbnail-number-separator-char ['|'] - Defines the seperator.
+///
+/// @requires lightbox-plugin
+///
+/// @since 0.1.0
+///
+/// @author Raphael Hüni
 @mixin lightbox(
   $thumbnail: '.lb-thumb',
   $thumbnail-caption: '.lb-figcaption',
   $thumbnail-number: true,
+  $thumbnail-enum: '.lb-enum',
   $thumbnail-number-separator: true,
-  $thumbnail-number-separator-char: '|',
-  $thumbnail-enum: '.lb-enum'
+  $thumbnail-number-separator-char: '|'
 ) {
   #{$thumbnail} {
     a {
@@ -83,6 +103,39 @@ $lb-number-padding: 1rem !default;
   @include lightbox-plugin;
 }
 
+/// This mixin is a refactoring of the styles written by Lokesh Dhakar for his lightbox plugin. Please refer to the original documentation for plugin functionality, etc.
+///
+/// Should you change any of the default values, make sure to check the `js/molecules/lightbox.js` script and adjust the values that need adjustment accordingly (mostly the selectors).
+///
+/// @author Lokesh Dhakar, Raphael Hüni
+///
+/// @link http://lokeshdhakar.com/projects/lightbox2/ - Original plugin website
+///
+/// @requires clearfix
+///
+/// @since 0.1.0
+///
+/// @param {String} $overlay ['.lightbox-overlay'] - Selector for the overlay
+/// @param {Color} $overlay-background [$black] - Overlay background color
+/// @param {Number} $overlay-opacity [.8] - Overlay opacity
+/// @param {Number} $overlay-z [9999] - Z-index applied to the overlay
+/// @param {String} $lightbox ['.lightbox'] - Selector for the actual lightbox
+/// @param {Number} $lightbox-z [10000] - Z-index applied to the lightbox
+/// @param {String} $image ['.lb-image'] - Selector for the lightbox image (meaning the big one not the thumb)
+/// @param {String} $outer-container ['.lb-outer-container'] - Selector for outer container
+/// @param {String} $container ['.lb-container'] - Selector for container
+/// @param {String} $loader ['.lb-loader'] - Selector for loader
+/// @param {String} $cancel ['.lb-cancel'] - Selector for cancel
+/// @param {String} $nav ['.lb-nav'] - Selector for lightbox navigation (prev, next)
+/// @param {Number} $nav-z [10] - Z-index for the lightbox navigation
+/// @param {String} $prev ['.lb-prev'] - Selector for the previous link
+/// @param {String} $next ['.lb-next'] - Selector for the next link
+/// @param {String} $data-container ['.lb-data-container'] - Selector for the data container
+/// @param {String} $data ['.lb-data'] - Selector for the data
+/// @param {String} $details ['.lb-details'] - Selector for the details
+/// @param {String} $caption ['.lb-caption'] - Selector for the caption
+/// @param {String} $number ['.lb-number'] - Selector for the number
+/// @param {String} $close ['.lb-close'] - Selector for the close button
 @mixin lightbox-plugin(
   // make sure stuff below is reflected accordingly in the JS as now follow the parts ported from the plugin
   $overlay: '.lightbox-overlay',
