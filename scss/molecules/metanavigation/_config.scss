@@ -33,7 +33,8 @@ $metanavigation-secondary-line-height: 17/14 !default;
   $text-decoration: none,
   $text-decoration-hover: none,
   $has-form: true,
-  $form: '.search-form'
+  $form: '.search-form',
+  $form-display: block
 ) {
   #{$name}-#{$theme} {
     height: $height;
@@ -69,7 +70,7 @@ $metanavigation-secondary-line-height: 17/14 !default;
 
   @if $has-form {
     #{$form} {
-      display: inline-block;
+      display: $form-display;
     }
   }
 }
