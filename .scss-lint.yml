@@ -130,6 +130,9 @@ linters:
   SpaceAfterPropertyName:
     enabled: true
 
+  SpaceAroundOperator:
+    enabled: false
+
   SpaceBeforeBrace:
     enabled: true
     style: space
