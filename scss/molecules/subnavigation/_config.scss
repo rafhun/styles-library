@@ -31,7 +31,7 @@
 /// @param {Boolean} $has-submenu [false] - Enables submenu stylings.
 /// @param {String} $submenu ['.children'] - Class of nested `ul` elements.
 /// @param {Boolean} $has-icon-left [true] - Enables an icon to the left of every list item.
-/// @parmam {String} $icon-left-selector ['$namespace -icon-left'] - Class on list items to indicate that there is an icon left.
+/// @param {String} $icon-left-selector ['$namespace -icon-left'] - Class on list items to indicate that there is an icon left.
 /// @param {Boolean} $has-icon-right [true] - Enables an icon to the right of every list item.
 /// @param {String} $icon-right-selector ['$namespace -icon-right'] - Class to indicate that there is an icon right.
 /// @param {String} $icon-selector ['class^="icon-"'] - General icon selector
