@@ -20,7 +20,7 @@ module.exports = {
     tasks: ['clean:svgmin', 'svgmin', 'grunticon']
   },
   kss: {
-    files: ['<%= config.folders.scss %>readme.md'],
+    files: ['<%= config.folders.scss %>styleguide.md'],
     tasks: ['kss']
   }
 }
