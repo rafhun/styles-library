@@ -12,6 +12,27 @@
 //
 // Style guide: organisms.lightbox-gallery
 
+/// This mixin creates a grid for its children of a certain class that will typically be used to nicely lay out lightbox thumbnails in a gallery style. Through the mixin you can exactly control the number of columns for each breakpoint we have defined and have some influence over the selectors.
+///
+/// Columns are defined as they are used in the Susy mixin as number of columns of the container, that one child takes up. By default the context is 12 columns. If there is need for adjustment on that you have to change the mixin code itself (at the  moment).
+///
+/// @param {String} $gallery ['.lightbox-gallery'] - Selector for the whole gallery (its container)
+/// @param {Boolean} $has-divider [true] - If true a dividing border will be put between each instance of the gallery
+/// @param {String} $no-border ['.no-border'] - Selector to indicate that no divider should be placed above that gallery
+/// @param {String} $pics ['.lb-thumb'] - Selector for the items to be layed out (defaults to the default lightbox thumbnail class)
+/// @param {Number} $default-cols [null] - Number of columns per item without a breakpoint
+/// @param {Number} $xs-cols [6] - Number of columns per item at the `xs` breakpoint
+/// @param {Number} $sm-cols [3] - Number of columns per item at the `sm` breakpoint
+/// @param {Number} $md-cols [null] - Number of columns per item at the `md` breakpoint (setting this to `null` means that the number of columns for the `sm` breakpoint will be in effect for the `md` breakpoint as well since we are using mobile first (`min-width`) breakpoints)
+/// @param {Number} $lg-cols [2] - Number of columns per item at the `lg` breakpoint
+///
+/// @since 0.1.0
+///
+/// @author Raphael Hüni
+///
+/// @group Organisms
+///
+/// @requires clearfix
 @mixin lightbox-gallery(
   $gallery: '.lightbox-gallery',
   $has-divider: true,
