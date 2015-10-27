@@ -1,3 +1,18 @@
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/rafhun/styles-library/compare/v2.0.4...v2.1.0) (2015-10-14)
+
+
+### Bug Fixes
+
+* **grunt:** auto generate sassdoc on scss changes ([81b6e07](https://github.com/rafhun/styles-library/commit/81b6e07))
+* **grunt:** better behavior for browserSync and watch with documentation ([bec8900](https://github.com/rafhun/styles-library/commit/bec8900))
+* **grunt:** look for correct md file for kss watch ([22e12b7](https://github.com/rafhun/styles-library/commit/22e12b7))
+* **metanavigation:** make form display configurable through mixin ([2f44a2e](https://github.com/rafhun/styles-library/commit/2f44a2e))
+* **off canvas:** remove unnecessary variables and add more documentation ([f051cb9](https://github.com/rafhun/styles-library/commit/f051cb9))
+* **scss:** parmam to param for correct docs output ([6822852](https://github.com/rafhun/styles-library/commit/6822852))
+
+
+
 <a name="2.0.4"></a>
 ## [2.0.4](https://github.com/rafhun/styles-library/compare/v2.0.3...v2.0.4) (2015-10-01)
 

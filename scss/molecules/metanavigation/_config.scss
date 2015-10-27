@@ -1,3 +1,9 @@
+////
+/// @author Raphael Hüni
+/// @group Molecules - Navigation
+/// @since 0.1.0
+////
+
 // Metanavigation
 //
 // This molecule styles both the primary (top) and secondary (bottom) metanavigations. They basically only differ in coloring.
@@ -20,6 +26,24 @@ $metanavigation-secondary-font-size: rem-calc(14) !default;
 $metanavigation-secondary-height: rem-calc(42) !default;
 $metanavigation-secondary-line-height: 17/14 !default;
 
+/// This mixin creates a metanavigation that puts a list of links next to each other with a separator between them. It is also possible to assign several theme classes to the metanavigation through which you can define differently styled metanavigations for i. e. the header and footer area.
+///
+/// @param {String} $name ['.metanavigation'] - Selector for the metanavigation (assigned to the `nav` element)
+/// @param {String} $theme ['primary'] - Theme name, added to the `nav` element as `$name-$theme`
+/// @param {String} $list ['$name -list'] - Selector for the navigation list
+/// @param {left | right} $align [right] - How the metanavigation should be aligned
+/// @param {Color} $background [$metanavigation-background] - Background color for the metanavigation
+/// @param {Color} $color [$metanavigation-color] - Color for the metanavigation
+/// @param {Number} $font-size [$metanavigation-font-size] - Metanavigation font size
+/// @param {Number} $height [$metanavigation-height] - Metanavigation height
+/// @param {Number} $line-height [$metanavigation-line-height] - Metanavigation line height
+/// @param {none | underline} $text-decoration [none] - Default text decoration for metanavigation links
+/// @param {none | underline} $text-decoration-hover [none] - Hover text decoration for metanavigation links
+/// @param {Boolean} $has-form [true] - Indicates the existence of a form of some sort (usually a search form)
+/// @param {String} $form ['.search-form'] - Selector for the metanavigation form
+/// @param {block | inline-block} $form-display - Defines the display of the form, any valid value for the `display` property can be used, though `block` or `inline-block` make the most sense.
+///
+/// @requires separator
 @mixin metanavigation(
   $name: '.metanavigation',
   $theme: 'primary',
@@ -33,7 +57,8 @@ $metanavigation-secondary-line-height: 17/14 !default;
   $text-decoration: none,
   $text-decoration-hover: none,
   $has-form: true,
-  $form: '.search-form'
+  $form: '.search-form',
+  $form-display: block
 ) {
   #{$name}-#{$theme} {
     height: $height;
@@ -69,7 +94,7 @@ $metanavigation-secondary-line-height: 17/14 !default;
 
   @if $has-form {
     #{$form} {
-      display: inline-block;
+      display: $form-display;
     }
   }
 }
