@@ -81,7 +81,7 @@ $meta-block-padding: $vertical-spacing !default;
   $toggle-selector: '.off-canvas-toggle',
   $meta: true,
   $meta-selector: '.off-canvas-meta',
-  $meta-list-item: '.off-canvas-list-item'
+  $meta-list-item: '.off-canvas-meta-list-item'
 ) {
   // set positional variables
   @if ($position == 'right') {
