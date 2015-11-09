@@ -1,0 +1,172 @@
+////
+/// @author Stefanie Stalder
+/// @group Molecules - Navigation
+/// @since 0.1.0
+////
+
+// Mobile Nav
+//
+// A Combination of mobile/desktop navigation. Creates a dropdown top on mobile devices
+//
+// Markup: mobile-nav.html
+//
+// Style guide: molecules.mobile-nav
+
+$main-nav-item-spacing: rem-calc(0 15);
+$menu-icon-padding: rem-calc(15);
+$menu-icon-stroke: rem-calc(5); // if you increase stroke you also need to increase the stroke width
+$menu-icon-stroke-width: rem-calc(46);
+$menu-icon-border-radius: rem-calc(4);
+$menu-icon-stroke-margin: rem-calc(0 0 8);
+$main-nav-mobile-padding: rem-calc(0);
+
+
+@mixin topnav(
+
+// default values
+$main-nav-border: 5px solid $black,
+$main-nav-height: rem-calc(60),
+$main-nav-color-background: $color-primary,
+$main-nav-color: $white,
+$main-nav-color-hover: $white,
+$main-nav-mobile-background: $black,
+$main-nav-mobile-color: $color-text-secondary,
+$main-nav-mobile-background-hover: $lighten,
+$main-nav-background-active: $lighten,
+
+// default classes
+$header-class: '.site-head-navigation', // class of header tag with navs inside
+$nav-class: '.main-navigation', // class of main nav tag (desktop)
+$nav-list-class: '.main-nav-list', // class of main nav tag (desktop)
+$current: '.current-menu-item', // current menu item class (wp)
+$mobile-nav-wrapper-class: '.mobile-nav',
+$mobile-nav-list-class: '.mobile-header-nav', // class of mobile nav list (ul tag),
+$toggle-icon-class: '.hamburger-menu'
+) {
+  #{$header-class} {
+    background-color: $main-nav-color-background;
+    height: $main-nav-height;
+    display: table;
+    width: 100%;
+    border-bottom: $main-nav-border;
+
+  }
+
+  #{$nav-class} {
+    // hide on mobile
+    display: none;
+
+    @include susy-media(go-desktop) {
+      display: block;
+    }
+  }
+
+  // list style of the main/desktop navigation
+  #{$nav-list-class} {
+    > li {
+      height: $main-nav-height;
+      display: table-cell;
+      vertical-align: middle;
+
+      & a {
+        color: $main-nav-color;
+        padding: $main-nav-item-spacing;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      &:hover,
+      & a:active,
+      &.current-menu-item {
+        text-decoration: none;
+        background-color: $darken;
+        color: $main-nav-mobile-color;
+      }
+    }
+  }
+
+  #{$mobile-nav-wrapper-class} {
+    height: $main-nav-height;
+    position: relative;
+    display: block;
+
+    @include susy-media(go-desktop) {
+      display: none;
+    }
+  }
+
+  // styling of the dropdown menu
+  #{$mobile-nav-list-class} {
+    background: $main-nav-mobile-background;
+    display: none; // hide until menu is clicked
+    list-style: none;  // replace with %styled-list
+    position: absolute;
+    top: $main-nav-height; // if nav sliding in below header
+    width: 100%;
+
+
+    > li {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding: $main-nav-mobile-padding;
+      color: $main-nav-mobile-color;
+
+      &:hover,
+      & a:active,
+      &.current-menu-item {
+        text-decoration: none;
+        background-color: $lighten;
+      }
+
+      a {
+        color: $main-nav-mobile-color;
+        display: block;
+        padding: 15px 0;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  #{$toggle-icon-class} {
+    display: block;
+    height: $main-nav-height;
+    padding: $menu-icon-padding;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .stroke {
+      background: $white;
+      border-radius: $menu-icon-border-radius;
+      display: block;
+      height: $menu-icon-stroke;
+      margin: $menu-icon-stroke-margin;
+      transition: all 0.3s ease-in-out;
+      width: $menu-icon-stroke-width;
+    }
+
+    &.open {
+
+      .stroke {
+        margin: 0 0 5px;
+
+        &:first-child {
+          transform: rotate(45deg);
+          transform-origin: 10px;
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+          transform-origin: 8px;
+        }
+      }
+    }
+  }
+}
