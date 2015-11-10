@@ -1,0 +1,174 @@
+////
+/// @author Stefanie Stalder
+/// @group Molecules - Navigation
+/// @since 0.1.0
+////
+
+// Mobile Nav
+//
+// A Combination of mobile/desktop navigation. Creates a dropdown top on mobile devices
+//
+// Markup: mobile-nav.html
+//
+// Style guide: molecules.mobile-nav
+
+$main-nav-item-spacing: rem-calc(0 15);
+$menu-icon-padding: rem-calc(15);
+$menu-icon-stroke: rem-calc(5); // if you increase stroke you also need to increase the stroke width
+$menu-icon-stroke-width: rem-calc(46);
+$menu-icon-border-radius: rem-calc(4);
+$menu-icon-stroke-margin: rem-calc(0 0 8);
+$main-nav-mobile-padding: rem-calc(0);
+
+
+@mixin topnav(
+
+// default values
+$main-nav-border: 5px solid $black,
+$main-nav-height: rem-calc(60),
+$main-nav-color-background: $color-primary,
+$main-nav-color: $white,
+$main-nav-color-hover: $white,
+$main-nav-mobile-background: $black,
+$main-nav-mobile-color: $color-text-secondary,
+$main-nav-mobile-background-hover: $lighten,
+$main-nav-background-active: $lighten,
+$transition: all .3s ease-in-out,
+
+// default classes
+$header-class: '.site-head-navigation', // class of header tag with navs inside
+$nav-class: '.main-navigation', // class of main nav tag (desktop)
+$nav-list-class: '.main-nav-list', // class of main nav tag (desktop)
+$current: '.current-menu-item', // current menu item class (wp)
+$mobile-nav-wrapper-class: '.mobile-nav',
+$mobile-nav-list-class: '.mobile-header-nav', // class of mobile nav list (ul tag),
+$toggle-icon-class: '.hamburger-menu'
+) {
+  #{$header-class} {
+    display: table;
+    width: 100%;
+    height: $main-nav-height;
+    border-bottom: $main-nav-border;
+    background-color: $main-nav-color-background;
+  }
+
+  #{$nav-class} {
+    // hide on mobile
+    display: none;
+
+    @include susy-media(go-desktop) {
+      display: block;
+    }
+  }
+
+  // list style of the main/desktop navigation
+  #{$nav-list-class} {
+    > li {
+      display: table-cell;
+      height: $main-nav-height;
+      vertical-align: middle;
+
+      a {
+        padding: $main-nav-item-spacing;
+        color: $main-nav-color;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      &:hover,
+      a:active,
+      &.current-menu-item {
+        background-color: $darken;
+        color: $main-nav-mobile-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  #{$mobile-nav-wrapper-class} {
+    display: block;
+    position: relative;
+    height: $main-nav-height;
+
+    @include susy-media(go-desktop) {
+      display: none;
+    }
+  }
+
+  // styling of the dropdown menu
+  #{$mobile-nav-list-class} {
+    display: none; // hide until menu is clicked
+    position: absolute;
+    top: $main-nav-height; // if nav sliding in below header
+    width: 100%;
+    background: $main-nav-mobile-background;
+    list-style: none;  // replace with %styled-list
+
+
+    > li {
+      padding: $main-nav-mobile-padding;
+      border-bottom: 1px solid rgba($white, .2);
+      color: $main-nav-mobile-color;
+
+      &:hover,
+      a:active,
+      &.current-menu-item {
+        background-color: $lighten;
+        text-decoration: none;
+      }
+
+      a {
+        display: block;
+        padding: 15px 0;
+        transition: $transition;
+        color: $main-nav-mobile-color;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
+  }
+
+  #{$toggle-icon-class} {
+    display: block;
+    height: $main-nav-height;
+    padding: $menu-icon-padding;
+    transition: $transition;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .stroke {
+      display: block;
+      width: $menu-icon-stroke-width;
+      height: $menu-icon-stroke;
+      margin: $menu-icon-stroke-margin;
+      transition: $transition;
+      border-radius: $menu-icon-border-radius;
+      background: $white;
+    }
+
+    &.open {
+
+      .stroke {
+        margin: 0 0 5px;
+
+        &:first-child {
+          transform: rotate(45deg);
+          transform-origin: 10px;
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+          transform-origin: 8px;
+        }
+      }
+    }
+  }
+}
