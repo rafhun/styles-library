@@ -39,6 +39,8 @@ $metanavigation-secondary-line-height: 17/14 !default;
 /// @param {Number} $line-height [$metanavigation-line-height] - Metanavigation line height
 /// @param {none | underline} $text-decoration [none] - Default text decoration for metanavigation links
 /// @param {none | underline} $text-decoration-hover [none] - Hover text decoration for metanavigation links
+/// @param {Boolean} $has-separator [true] - Decide whether a separator should be pulled in
+/// @param {String} $separator ["|"] - Which separator to use
 /// @param {Boolean} $has-form [true] - Indicates the existence of a form of some sort (usually a search form)
 /// @param {String} $form ['.search-form'] - Selector for the metanavigation form
 /// @param {block | inline-block} $form-display - Defines the display of the form, any valid value for the `display` property can be used, though `block` or `inline-block` make the most sense.
@@ -56,6 +58,8 @@ $metanavigation-secondary-line-height: 17/14 !default;
   $line-height: $metanavigation-line-height,
   $text-decoration: none,
   $text-decoration-hover: none,
+  $has-separator: true,
+  $separator: "|",
   $has-form: true,
   $form: '.search-form',
   $form-display: block
@@ -73,7 +77,9 @@ $metanavigation-secondary-line-height: 17/14 !default;
       list-style: none;
 
       > li {
-        @include separator($separator-color: $color, $inline-block-fix: false);
+        @if $has-separator {
+          @include separator($separator: $separator, $separator-color: $color, $inline-block-fix: false);
+        }
         display: inline-block;
       }
     }
