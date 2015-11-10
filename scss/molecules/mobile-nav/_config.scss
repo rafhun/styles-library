@@ -33,6 +33,7 @@ $main-nav-mobile-background: $black,
 $main-nav-mobile-color: $color-text-secondary,
 $main-nav-mobile-background-hover: $lighten,
 $main-nav-background-active: $lighten,
+$transition: all .3s ease-in-out,
 
 // default classes
 $header-class: '.site-head-navigation', // class of header tag with navs inside
@@ -44,12 +45,11 @@ $mobile-nav-list-class: '.mobile-header-nav', // class of mobile nav list (ul ta
 $toggle-icon-class: '.hamburger-menu'
 ) {
   #{$header-class} {
-    background-color: $main-nav-color-background;
-    height: $main-nav-height;
     display: table;
     width: 100%;
+    height: $main-nav-height;
     border-bottom: $main-nav-border;
-
+    background-color: $main-nav-color-background;
   }
 
   #{$nav-class} {
@@ -64,13 +64,13 @@ $toggle-icon-class: '.hamburger-menu'
   // list style of the main/desktop navigation
   #{$nav-list-class} {
     > li {
-      height: $main-nav-height;
       display: table-cell;
+      height: $main-nav-height;
       vertical-align: middle;
 
-      & a {
-        color: $main-nav-color;
+      a {
         padding: $main-nav-item-spacing;
+        color: $main-nav-color;
 
         &:hover {
           text-decoration: none;
@@ -78,19 +78,19 @@ $toggle-icon-class: '.hamburger-menu'
       }
 
       &:hover,
-      & a:active,
+      a:active,
       &.current-menu-item {
-        text-decoration: none;
         background-color: $darken;
         color: $main-nav-mobile-color;
+        text-decoration: none;
       }
     }
   }
 
   #{$mobile-nav-wrapper-class} {
-    height: $main-nav-height;
-    position: relative;
     display: block;
+    position: relative;
+    height: $main-nav-height;
 
     @include susy-media(go-desktop) {
       display: none;
@@ -99,33 +99,33 @@ $toggle-icon-class: '.hamburger-menu'
 
   // styling of the dropdown menu
   #{$mobile-nav-list-class} {
-    background: $main-nav-mobile-background;
     display: none; // hide until menu is clicked
-    list-style: none;  // replace with %styled-list
     position: absolute;
     top: $main-nav-height; // if nav sliding in below header
     width: 100%;
+    background: $main-nav-mobile-background;
+    list-style: none;  // replace with %styled-list
 
 
     > li {
-      border-bottom: 1px solid rgba(255,255,255,0.2);
       padding: $main-nav-mobile-padding;
+      border-bottom: 1px solid rgba($white, .2);
       color: $main-nav-mobile-color;
 
       &:hover,
-      & a:active,
+      a:active,
       &.current-menu-item {
-        text-decoration: none;
         background-color: $lighten;
+        text-decoration: none;
       }
 
       a {
-        color: $main-nav-mobile-color;
         display: block;
         padding: 15px 0;
+        transition: $transition;
+        color: $main-nav-mobile-color;
         text-align: center;
         text-decoration: none;
-        transition: all 0.3s ease-in-out;
       }
     }
   }
@@ -134,20 +134,20 @@ $toggle-icon-class: '.hamburger-menu'
     display: block;
     height: $main-nav-height;
     padding: $menu-icon-padding;
-    transition: all 0.3s ease-in-out;
+    transition: $transition;
 
     &:hover {
       cursor: pointer;
     }
 
     .stroke {
-      background: $white;
-      border-radius: $menu-icon-border-radius;
       display: block;
+      width: $menu-icon-stroke-width;
       height: $menu-icon-stroke;
       margin: $menu-icon-stroke-margin;
-      transition: all 0.3s ease-in-out;
-      width: $menu-icon-stroke-width;
+      transition: $transition;
+      border-radius: $menu-icon-border-radius;
+      background: $white;
     }
 
     &.open {
@@ -159,9 +159,11 @@ $toggle-icon-class: '.hamburger-menu'
           transform: rotate(45deg);
           transform-origin: 10px;
         }
+
         &:nth-child(2) {
           opacity: 0;
         }
+
         &:nth-child(3) {
           transform: rotate(-45deg);
           transform-origin: 8px;
