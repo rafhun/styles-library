@@ -1,3 +1,23 @@
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/rafhun/styles-library/compare/v2.1.0...v2.1.1) (2015-11-10)
+
+
+### Bug Fixes
+
+* **lightbox:** use relative image path by default ([5247414](https://github.com/rafhun/styles-library/commit/5247414))
+* **metanavigation:** add has-separator boolean to mixin ([e1dbed6](https://github.com/rafhun/styles-library/commit/e1dbed6)), closes [#7](https://github.com/rafhun/styles-library/issues/7)
+* **off-canvas:** default class name for meta list item ([7c2620b](https://github.com/rafhun/styles-library/commit/7c2620b))
+* **scss:** import scss normalize partial explicitly ([c780890](https://github.com/rafhun/styles-library/commit/c780890))
+* **subnavigation:** typo in scss documentation ([5d0eafd](https://github.com/rafhun/styles-library/commit/5d0eafd))
+
+### Features
+
+* **kss:** add custom kss template ([5e5e3a8](https://github.com/rafhun/styles-library/commit/5e5e3a8)), closes [#9](https://github.com/rafhun/styles-library/issues/9)
+* **lists:** add possibility to style symbol color ([eb051bc](https://github.com/rafhun/styles-library/commit/eb051bc))
+* **mobile-nav:** add dropdown top mobile nav ([72a4822](https://github.com/rafhun/styles-library/commit/72a4822))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/rafhun/styles-library/compare/v2.0.4...v2.1.0) (2015-10-14)
 
