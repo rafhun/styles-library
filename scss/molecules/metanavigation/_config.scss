@@ -80,6 +80,7 @@ $metanavigation-secondary-line-height: 17/14 !default;
         @if $has-separator {
           @include separator($separator: $separator, $separator-color: $color, $inline-block-fix: false);
         }
+
         display: inline-block;
       }
     }

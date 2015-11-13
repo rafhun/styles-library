@@ -3,28 +3,28 @@
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute;
-  height: 1px;
   width: 1px;
+  height: 1px;
   overflow: hidden;
 
   &:hover,
   &:active,
   &:focus {
-    background-color: $color-background;
-    border-radius: 3px;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
-    clip: auto;
-    color: $color-text;
     display: block;
+    top: 5px;
+    left: 5px;
+    width: auto;
+    height: auto;
+    padding: 15px 23px 14px;
+    border-radius: 3px;
+    background-color: $color-background;
+    color: $color-text;
     font-size: rem-calc(14);
     font-weight: bold;
-    height: auto;
-    left: 5px;
     line-height: normal;
-    padding: 15px 23px 14px;
     text-decoration: none;
-    top: 5px;
-    width: auto;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
+    clip: auto;
     z-index: 100000; // Above WP toolbar
   }
 }

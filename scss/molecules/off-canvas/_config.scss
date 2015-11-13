@@ -131,12 +131,6 @@ $meta-block-padding: $vertical-spacing !default;
     transform: $translate;
 
     background-color: $off-canvas-background-color;
-
-    .in & {
-      @include susy-media(max-mobile) {
-        // transform: translate3d(0, 0, 0);
-      }
-    }
   }
 
   #{$list} {

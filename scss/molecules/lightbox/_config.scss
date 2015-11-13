@@ -166,7 +166,6 @@ $lb-number-padding: 1rem !default;
     top: 0;
     left: 0;
     background-color: $overlay-background;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$overlay-opacity * 100});
     opacity: $overlay-opacity;
     z-index: $overlay-z;
   }
@@ -248,11 +247,9 @@ $lb-number-padding: 1rem !default;
       float: left;
       transition: opacity .6s;
       background: url('#{$lb-images-path}prev.png') left 48% no-repeat;
-      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
       opacity: 0;
 
       &:hover {
-        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
         opacity: 1;
       }
     }
@@ -263,11 +260,9 @@ $lb-number-padding: 1rem !default;
       float: right;
       transition: opacity .6s;
       background: url('#{$lb-images-path}next.png') right 48% no-repeat;
-      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
       opacity: 0;
 
       &:hover {
-        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
         opacity: 1;
       }
     }
@@ -326,12 +321,10 @@ $lb-number-padding: 1rem !default;
       outline: none;
       background: url('#{$lb-images-path}close.png') top right no-repeat;
       text-align: right;
-      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
       opacity: .7;
 
       &:hover {
         cursor: pointer;
-        filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
         opacity: 1;
       }
     }

@@ -59,6 +59,7 @@ h3 {
 
 h1 {
   font-size: $h1-max-mobile-font;
+
   @include susy-media(font-desktop) {
     font-size: $h1-font-size;
   }
@@ -66,6 +67,7 @@ h1 {
 
 h2 {
   font-size: $h2-max-mobile-font;
+
   @include susy-media(font-desktop) {
     font-size: $h2-font-size;
   }
@@ -73,6 +75,7 @@ h2 {
 
 h3 {
   font-size: $h3-max-mobile-font;
+
   @include susy-media(font-desktop) {
     font-size: $h3-font-size;
   }
