@@ -1,3 +1,15 @@
+<a name="2.1.2"></a>
+## [2.1.2](https://github.com/rafhun/styles-library/compare/v2.1.1...v2.1.2) (2015-11-13)
+
+
+### Bug Fixes
+
+* **buttons:** make borders behave correctly ([0f8c9dc](https://github.com/rafhun/styles-library/commit/0f8c9dc)), closes [#6](https://github.com/rafhun/styles-library/issues/6)
+* **scss:** funny looking titles in styleguide ([ab042c9](https://github.com/rafhun/styles-library/commit/ab042c9))
+* **scss:** IE bug with bg-size auto and svg ([04f8734](https://github.com/rafhun/styles-library/commit/04f8734)), closes [#11](https://github.com/rafhun/styles-library/issues/11)
+
+
+
 <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/rafhun/styles-library/compare/v2.1.0...v2.1.1) (2015-11-10)
 
