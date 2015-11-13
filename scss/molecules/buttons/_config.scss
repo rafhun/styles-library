@@ -100,9 +100,26 @@
       color: $color-hover;
     }
   }
+}
 
-  @if $radius and $border-radius == null {
-    $border-radius: $button-base-radius;
+@mixin button-border(
+  $border: true,
+  $border-width: 1px,
+  $border-style: solid,
+  $border-color: null,
+  $radius: true,
+  $border-radius: null
+) {
+  @if $border {
+    border-width: $border-width;
+    border-style: $border-style;
+    border-color: $border-color;
+  }
+
+  @if $radius {
+    @if $border-radius == null {
+      $border-radius: $button-base-radius;
+    }
 
     border-radius: $border-radius;
   }

@@ -9,6 +9,8 @@
 // .btn-forward    - forward button
 // .btn-back       - back button
 // .btn-wide       - wide button (spanning the given width)
+// .btn-rounded    - button with border radius
+// .btn-ellipsis   - round/elliptic button
 //
 // Style guide: molecules.buttons
 
@@ -24,24 +26,39 @@
     @include button-colors(
       $bg: $button-primary-background-color,
       $bg-hover-treatment: $button-primary-hover-treatment
-    )
+    );
   }
 
   &.btn-forward {
     @include button-icon(
       $icon-position: $button-forward-icon-position
-    )
+    );
   }
 
   &.btn-back {
     @include button-icon(
       $icon-position: $button-back-icon-position
-    )
+    );
   }
 
   &.btn-wide {
     @include button-size(
       $full-width: $button-wide-display
-    )
+    );
+  }
+
+  &.btn-rounded {
+    @include button-border(
+      $border: false,
+      $radius: true
+    );
+  }
+
+  &.btn-ellipsis {
+    @include button-border(
+      $border: true,
+      $radius: true,
+      $border-radius: 50%
+    );
   }
 }
