@@ -222,7 +222,8 @@
 /// Prepares a button to use grunticon generated icons which are applied as background images. Therefore this mostly just adds some space on either the left or the right where the icon can be placed.
 ///
 /// @param {'left' | 'right'} $icon-position ['right'] - Defines on which side of the button the icon should appear.
-/// @param {Number} $icon-size [$button-base-icon-size] - Defines the size of the icon, is assigned to the `background-size` property.
+/// @param {Number} $icon-width [$button-base-icon-width] - Defines the width of the icon, is assigned to the `background-size` property.
+/// @param {Number} $icon-height [$icon-width] - Defines the height of the icon, is assigned to the `background-size` property.
 /// @param {Number} $icon-spacing [$button-base-icon-spacing] - Defines the space needed between the icon and the ensuing text.
 /// @param {Number} $icon-padding [$button-base-padding-horizontal] - Defines how far the icon should be set from the border. Usually this should be equal to the default button padding, however some cases might occur, where a different value is better fitting.
 ///
@@ -233,7 +234,7 @@
 ///     // @include button-base($transition: .2s background-color ease-in);
 ///     @include button-icon(
 ///       $icon-position: 'left',
-///       $icon-size: 1rem,
+///       $icon-width: 1rem,
 ///       $icon-spacing: .375rem,
 ///       $icon-padding: .5rem
 ///     );
@@ -242,20 +243,21 @@
 /// @since 0.1.0
 @mixin button-icon(
   $icon-position: 'right', // or left (usually solved through button config variable though!)
-  $icon-size: $button-base-icon-size,
+  $icon-width: $button-base-icon-width,
+  $icon-height: $icon-width,
   $icon-spacing: $button-base-icon-spacing,
   $icon-padding: $button-base-padding-horizontal
 ) {
   @if $icon-position == 'left' {
-    padding-left: $icon-size + $icon-spacing + $icon-padding;
+    padding-left: $icon-width + $icon-spacing + $icon-padding;
 
     background-position: left $icon-padding center;
-    background-size: $icon-size;
+    background-size: $icon-width $icon-height;
   }@elseif $icon-position == 'right' {
-    padding-right: $icon-size + $icon-spacing + $icon-padding;
+    padding-right: $icon-width + $icon-spacing + $icon-padding;
 
     background-position: right $icon-padding center;
-    background-size: $icon-size;
+    background-size: $icon-width $icon-height;
   }
 }
 
@@ -268,7 +270,8 @@ $button-base-font-family: $sans !default;
 $button-base-font-size: rem-calc(18) !default;
 $button-base-font-weight: normal !default;
 $button-base-font-weight-hover: $button-base-font-weight !default;
-$button-base-icon-size: 1.25rem !default;
+$button-base-icon-width: 1.25rem !default;
+$button-base-icon-height: $button-base-icon-width !default;
 $button-base-icon-spacing: rem-calc(12) !default;
 $button-base-margin-bottom: rem-calc(20) !default;
 $button-base-padding-horizontal: rem-calc(12) !default;

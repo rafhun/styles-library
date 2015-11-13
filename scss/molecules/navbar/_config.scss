@@ -187,11 +187,11 @@
 
   @if $has-home-icon {
     #{$home-item-class} a {
-      width: $navbar-icon-home-size + $navbar-icon-home-spacing;
+      width: $navbar-icon-home-width + $navbar-icon-home-spacing;
 
       // size and position the icon
       background-position: $navbar-icon-home-position;
-      background-size: $navbar-icon-home-size;
+      background-size: $navbar-icon-home-width $navbar-icon-home-height;
 
       // hide text
       text-indent: -9999px;
@@ -233,6 +233,7 @@ $navbar-width-dropdown: rem-calc(270) !default;
 $navbar-transition-dropdown: opacity .5s ease-in-out !default;
 
 // Icons
-$navbar-icon-home-size: 1rem !default;
+$navbar-icon-home-width: 1rem !default;
+$navbar-icon-home-height: $navbar-icon-home-width !default;
 $navbar-icon-home-position: center center !default;
 $navbar-icon-home-spacing: 1.5rem !default;

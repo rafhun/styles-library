@@ -37,10 +37,11 @@ $accordion-subheading-color: $color-text !default;
 
 $accordion-container-padding-bottom: $vertical-spacing-xl !default;
 
-$accordion-icon-size: .75rem !default;
+$accordion-icon-width: .75rem !default;
+$accordion-icon-height: $accordion-icon-width !default;
 $accordion-icon-spacing: .5rem !default;
 $accordion-icon-offset: rem-calc(6) !default;
-$accordion-icon-padding: $accordion-icon-size + $accordion-icon-spacing + $accordion-icon-offset;
+$accordion-icon-padding: $accordion-icon-width + $accordion-icon-spacing + $accordion-icon-offset;
 
 /// Refer to the styleguide for a more thorough description of the mixin and the styles created through it. With this mixin one can easily add a freely configurable accordion component to a website.
 ///
@@ -118,7 +119,7 @@ $accordion-icon-padding: $accordion-icon-size + $accordion-icon-spacing + $accor
     @if $has-icon {
       // correctly position the background icon
       background-position: $accordion-icon-position;
-      background-size: $accordion-icon-size;
+      background-size: $accordion-icon-width $accordion-icon-height;
 
       // make room for the icon
       @if $icon-right {

@@ -22,8 +22,10 @@ $off-canvas-list-item-border-bottom: 1px solid $darken !default;
 $off-canvas-link-height: rem-calc(48) !default;
 $off-canvas-link-line-height: $off-canvas-link-height !default;
 
-$off-canvas-home-icon-size: $off-canvas-font-size !default;
-$off-canvas-toggle-size: rem-calc(36) !default;
+$off-canvas-home-icon-width: $off-canvas-font-size !default;
+$off-canvas-home-icon-height: $off-canvas-home-icon-width !default;
+$off-canvas-toggle-width: rem-calc(36) !default;
+$off-canvas-toggle-height: $off-canvas-toggle-width !default;
 
 $off-canvas-meta-font-size: rem-calc(14) !default;
 $off-canvas-meta-spacing: rem-calc(12) !default;
@@ -201,7 +203,7 @@ $meta-block-padding: $vertical-spacing !default;
     // if a home icon should be displayed next to or instead of the home link, the correct styles are added here
     @if $home-icon {
       &#{$home-icon-selector} a {
-        background-size: $off-canvas-home-icon-size;
+        background-size: $off-canvas-home-icon-width $off-canvas-home-icon-height;
         @if $home-icon-text {
           background-position: left center;
         } @else {
@@ -210,7 +212,7 @@ $meta-block-padding: $vertical-spacing !default;
 
         // if the link text should be displayed next to the home icon, we make room for it by setting a padding of the icon size plus a little breathing room (might also be defined through a variable?). If no text should be displayed, the text given is indented out of view to keep the navigation link accessible for screenreaders...
         @if $home-icon-text {
-          padding-left: $off-canvas-home-icon-size + .25rem;
+          padding-left: $off-canvas-home-icon-width + .25rem;
         } @else {
           text-indent: -9999px;
         }
@@ -229,7 +231,7 @@ $meta-block-padding: $vertical-spacing !default;
       float: $position;
 
       background-position: center center;
-      background-size: $off-canvas-toggle-size;
+      background-size: $off-canvas-toggle-width $off-canvas-toggle-height;
 
       // hide the text but keep it accessible for screen readers
       text-indent: -9999px;
