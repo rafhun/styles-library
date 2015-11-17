@@ -11,11 +11,34 @@ jQuery(document).ready(function($) {
     isOpen = isOpenContent.substring(2, isOpenContent.length-1);
   }
 
-  // if the accordionToggle is clicked we toggle the isOpen class
-  accordionToggle.click(function() {
-    $(this).toggleClass(isOpen);
+  function toggleAccordion() {
+    var $this = $(this),
+    accordionContainer = $this.next('.accordion-container');
+
+    $this.toggleClass(isOpen);
+
+    if ($this.attr('aria-expanded') === 'true') {
+      $this.attr('aria-expanded', 'false');
+      accordionContainer.attr('aria-hidden', 'true');
+    } else {
+      $this.attr('aria-expanded', 'true');
+      accordionContainer.attr('aria-hidden', 'false');
+    }
 
     // we return false just in case somebody decides to wrap the accordion title in an anchor tag
     return false;
-  }); // end click
+  }
+
+  // if the accordionToggle is clicked we toggle the isOpen class
+  accordionToggle.click(toggleAccordion);
+
+  accordionToggle.keydown(function(e) {
+    console.log(e.keyCode);
+    if (e.keyCode === 13 || e.keyCode === 32) {
+      $(this).click();
+      return false;
+    } else {
+      return true;
+    }
+  }); // end keydown
 }); // end ready

@@ -62,24 +62,24 @@ $accordion-icon-padding: $accordion-icon-width + $accordion-icon-spacing + $acco
   $icon-position: 'right',
   $container: '.accordion-container'
 ) {
+  $icon-left: false;
+  $icon-right: false;
+
+  @if $icon-position == 'right' {
+    $icon-right: true;
+
+    $accordion-icon-position: right $accordion-icon-offset center;
+
+  } @elseif $icon-position == 'left' {
+    $icon-left: true;
+
+    $accordion-icon-position: left $accordion-icon-offset center;
+
+  } @else {
+    @warn '$icon-position must be set to either left or right';
+  }
+
   #{$title} {
-    $icon-left: false;
-    $icon-right: false;
-
-    @if $icon-position == 'right' {
-      $icon-right: true;
-
-      $accordion-icon-position: right $accordion-icon-offset center;
-
-    } @elseif $icon-position == 'left' {
-      $icon-left: true;
-
-      $accordion-icon-position: left $accordion-icon-offset center;
-
-    } @else {
-      @warn '$icon-position must be set to either left or right';
-    }
-
     // do not wrap accordion titles if they are too long, this is reset for opened elements so that one gets to view the whole title once it has been clicked on
     @include text-ellipsis;
 
@@ -103,6 +103,10 @@ $accordion-icon-padding: $accordion-icon-width + $accordion-icon-spacing + $acco
       color: $accordion-title-color-open;
       // reset the no wrap applied for normal titles
       white-space: normal;
+    }
+
+    &:focus {
+      outline: 1px dotted currentcolor;
     }
 
     // add special styling for the last occurence of an accordion title
