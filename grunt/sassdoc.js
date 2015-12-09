@@ -7,7 +7,7 @@ module.exports = {
         'undefined': 'Basic'
       },
       basePath: 'https://github.com/rafhun/styles-library/tree/master',
-      descriptionPath: '<%= config.folders.scss %>readme.md'
+      descriptionPath: '<%= config.folders.scss %>styleguide.md'
     }
   }
 }
