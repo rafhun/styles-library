@@ -1,3 +1,16 @@
+<a name="2.1.3"></a>
+## [2.1.3](https://github.com/rafhun/styles-library/compare/v2.1.2...v2.1.3) (2015-12-09)
+
+
+### Bug Fixes
+
+* **accordion:** make it accessible ([77d2a86](https://github.com/rafhun/styles-library/commit/77d2a86))
+* **buttons:** make sure border false applies and overwrites base classes ([e279a8f](https://github.com/rafhun/styles-library/commit/e279a8f))
+* **sassdoc:** reference correct description file path ([cfc89d0](https://github.com/rafhun/styles-library/commit/cfc89d0))
+* **styles:** make library better portable to our wpbp ([2975864](https://github.com/rafhun/styles-library/commit/2975864))
+
+
+
 <a name="2.1.2"></a>
 ## [2.1.2](https://github.com/rafhun/styles-library/compare/v2.1.1...v2.1.2) (2015-11-13)
 
