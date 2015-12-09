@@ -114,6 +114,8 @@
     border-width: $border-width;
     border-style: $border-style;
     border-color: $border-color;
+  } @else {
+    border: 0;
   }
 
   @if $radius {
@@ -122,6 +124,8 @@
     }
 
     border-radius: $border-radius;
+  } @else {
+    border-radius: 0;
   }
 }
 
