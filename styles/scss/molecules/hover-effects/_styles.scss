@@ -1,0 +1,11 @@
+.underline-from-center {
+  @include hover-underline($from: center);
+}
+
+.underline-from-left {
+  @include hover-underline($from: left);
+}
+
+.underline-from-right {
+  @include hover-underline($from: right);
+}

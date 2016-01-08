@@ -1,0 +1,65 @@
+// Hover Effects
+//
+// Description
+//
+// markup: hover-effects.html
+//
+// styleguide: molecules.hover-effects
+
+@mixin hover-underline(
+  $from: left,
+  $height: 4px,
+  $padding-bottom: 6px,
+  $bg-color: $color-primary
+) {
+  @if $from == left {
+    $to: right;
+  } @elseif $from == right {
+    $to: left;
+  } @elseif $from == center {
+    $to: 'edges';
+  }
+  
+  position: relative;
+  padding-bottom: $padding-bottom;
+  text-decoration: none;
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    height: $height;
+    background-color: $bg-color;
+    content: '';
+    transition-property: $to;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    z-index: -1;
+
+    @if $to == right {
+      right: 100%;
+      left: 0;
+    } @elseif $to == left {
+      right: 0;
+      left: 100%;
+    } @elseif $to == 'edges' {
+      right: 50%;
+      left: 50%;
+      transition-property: left, right;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    &::before {
+      @if $to == right {
+        right: 0;
+      } @elseif $to == left {
+        left: 0;
+      } @elseif $to == 'edges' {
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+}
