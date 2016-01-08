@@ -9,3 +9,19 @@
 .underline-from-right {
   @include hover-underline($from: right);
 }
+
+.sweep-bg-to-right {
+  @include sweep-background;
+}
+
+.sweep-bg-to-left {
+  @include sweep-background($to: left);
+}
+
+.sweep-bg-to-bottom {
+  @include sweep-background($to: bottom);
+}
+
+.sweep-bg-to-top {
+  @include sweep-background($to: top);
+}

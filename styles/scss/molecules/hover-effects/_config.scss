@@ -19,8 +19,10 @@
   } @elseif $from == center {
     $to: 'edges';
   }
-  
+
   position: relative;
+  display: inline-block;
+  backface-visibility: hidden;
   padding-bottom: $padding-bottom;
   text-decoration: none;
 
@@ -59,6 +61,64 @@
       } @elseif $to == 'edges' {
         right: 0;
         left: 0;
+      }
+    }
+  }
+}
+
+@mixin sweep-background(
+  $to: right,
+  $background: $color-background,
+  $background-hover: $color-primary,
+  $color: currentColor,
+  $color-hover: $color
+) {
+  display: inline-block;
+  position: relative;
+  backface-visibility: hidden;
+  background-color: $background;
+  transform: translateZ(0);
+  color: $color;
+  transition-property: color;
+  transition-duration: .3s;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    background-color: $background-hover;
+    content: '';
+    transition-property: transform;
+    transition-duration: .3s;
+    transition-timing-function: ease-out;
+    z-index: -1;
+
+    @if $to == right {
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+    } @elseif $to == left {
+      transform: scaleX(0);
+      transform-origin: 100% 50%;
+    } @elseif $to == top {
+      transform: scaleY(0);
+      transform-origin: 50% 100%;
+    } @elseif $to == bottom {
+      transform: scaleY(0);
+      transform-origin: 50% 0;
+    }
+  }
+
+  &:hover {
+    color: $color-hover;
+
+    &::before {
+      @if $to == right or $to == left {
+        transform: scaleX(1);
+      } @elseif $to == bottom or $to == top {
+        transform: scaleY(1);
       }
     }
   }
