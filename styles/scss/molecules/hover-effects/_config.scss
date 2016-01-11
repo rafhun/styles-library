@@ -22,6 +22,7 @@
 
   position: relative;
   display: inline-block;
+  vertical-align: middle;
   backface-visibility: hidden;
   padding-bottom: $padding-bottom;
   text-decoration: none;
@@ -74,6 +75,7 @@
   $color-hover: $color
 ) {
   display: inline-block;
+  vertical-align: middle;
   position: relative;
   backface-visibility: hidden;
   background-color: $background;
