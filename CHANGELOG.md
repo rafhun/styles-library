@@ -1,3 +1,19 @@
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/rafhun/styles-library/compare/v2.1.3...v2.2.0) (2016-01-11)
+
+
+### Bug Fixes
+
+* **hvoer-effects:** set correct vertical align ([0c44e62](https://github.com/rafhun/styles-library/commit/0c44e62))
+
+### Features
+
+* **hover-effect:** add basic hover underline mixins ([b6d5abb](https://github.com/rafhun/styles-library/commit/b6d5abb))
+* **hover-effects:** add background-sweep mixin ([653146d](https://github.com/rafhun/styles-library/commit/653146d))
+* **kss:** adjusted styleguide template ([430969c](https://github.com/rafhun/styles-library/commit/430969c))
+
+
+
 <a name="2.1.3"></a>
 ## [2.1.3](https://github.com/rafhun/styles-library/compare/v2.1.2...v2.1.3) (2015-12-09)
 
