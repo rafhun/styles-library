@@ -1,0 +1,23 @@
+////
+/// @author Stefanie Stalder
+/// @group Organisms - Fixed Header
+////
+
+// Header
+//
+// Fancy fixed header with fancy minimizing effect
+//
+// Markup: fixed-header.html
+//
+// Style guide: organisms.fixed-header
+
+// Shared properties
+$navigation-item-padding: rem-calc(10 15 10 0);
+$header-logo-height: rem-calc(120);
+
+$main-nav-height: rem-calc(44);
+$main-nav-background: $color-background;
+
+
+$sub-nav-height: rem-calc(44);
+$sub-nav-background: $color-background-secondary;
