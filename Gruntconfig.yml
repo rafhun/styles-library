@@ -10,6 +10,6 @@ folders:
   jsMolecules: 'jsSrc/molecules/'
   jsSrc: 'jsSrc/'
   root: 'wwwroot/'
-  scss: 'styles/scss/'
+  scss: 'src/scss/'
   svg: 'svg/'
   svgMin: 'svg/min/'
