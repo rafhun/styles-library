@@ -41,4 +41,4 @@ var debounce = function(func, wait, immediate) {
 };
 
 // Scroll handler to toggle classes.
-window.addEventListener('scroll', debounce(stickyScroll, 100), false);
+window.addEventListener('scroll', debounce(stickyScroll, 20), false);
