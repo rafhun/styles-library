@@ -10,3 +10,7 @@ $('.mobile-header-nav li').click(function() {
   $('.mobile-header-nav').slideToggle();
   $('.js-toggle-menu').removeClass('open');
 })
+
+$('.multilevel-nav .menu-item-has-children > a').click(function(e) {
+  e.preventDefault();
+});
