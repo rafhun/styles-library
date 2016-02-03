@@ -1,3 +1,16 @@
+<a name="2.2.1"></a>
+## [2.2.1](https://github.com/rafhun/styles-library/compare/v2.2.0...v2.2.1) (2016-02-03)
+
+
+### Bug Fixes
+
+* **kss:** move one more folder up in kss subnav ([6d8c308](https://github.com/rafhun/styles-library/commit/6d8c308)), closes [#13](https://github.com/rafhun/styles-library/issues/13)
+* **media:** ensure correct svg heights on webkit browsers ([3141463](https://github.com/rafhun/styles-library/commit/3141463))
+* **scss:** rename top level scss folder to src ([44e1c10](https://github.com/rafhun/styles-library/commit/44e1c10)), closes [#14](https://github.com/rafhun/styles-library/issues/14)
+* **site:** use * not & and :: in box sizing definitions ([5a16528](https://github.com/rafhun/styles-library/commit/5a16528))
+
+
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/rafhun/styles-library/compare/v2.1.3...v2.2.0) (2016-01-11)
 
