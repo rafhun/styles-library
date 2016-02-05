@@ -1,3 +1,13 @@
+<a name="2.2.2"></a>
+## [2.2.2](https://github.com/rafhun/styles-library/compare/v2.2.1...v2.2.2) (2016-02-05)
+
+
+### Bug Fixes
+
+* **mixins:** update clearfix mixin ([2d1f43e](https://github.com/rafhun/styles-library/commit/2d1f43e))
+
+
+
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/rafhun/styles-library/compare/v2.2.0...v2.2.1) (2016-02-03)
 
