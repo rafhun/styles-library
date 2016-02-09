@@ -1,3 +1,14 @@
+<a name="2.2.3"></a>
+## [2.2.3](https://github.com/rafhun/styles-library/compare/v2.2.2...v2.2.3) (2016-02-09)
+
+
+### Bug Fixes
+
+* **hover-effects:** move component to dependencies ([d78d129](https://github.com/rafhun/styles-library/commit/d78d129))
+* **mixins:** change triangle center offset ([f9b102c](https://github.com/rafhun/styles-library/commit/f9b102c))
+
+
+
 <a name="2.2.2"></a>
 ## [2.2.2](https://github.com/rafhun/styles-library/compare/v2.2.1...v2.2.2) (2016-02-05)
 
